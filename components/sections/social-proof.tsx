@@ -1,16 +1,29 @@
-import { Star } from "lucide-react"
+import { Star, Droplets, FlaskConical, Leaf, MapPin } from "lucide-react"
 
-const MARQUEE_TEXT = "Åtta ingredienser. Inga proprietära blandningar. Inga modetillsatser."
+const BADGES = [
+  { icon: MapPin, text: "Formulerad i Sverige" },
+  { icon: FlaskConical, text: "Tredjepartstestad" },
+  { icon: Leaf, text: "Vegansk & sockerfri" },
+  { icon: Droplets, text: "Bioaktiva former" },
+]
 
 export function Marquee() {
-  const items = Array.from({ length: 6 })
+  const loops = Array.from({ length: 3 })
   return (
-    <div className="overflow-hidden bg-primary py-3" aria-hidden>
-      <div className="flex w-max animate-marquee gap-12">
-        {items.map((_, i) => (
-          <span key={i} className="whitespace-nowrap text-sm text-primary-foreground">
-            {MARQUEE_TEXT}
-          </span>
+    <div className="overflow-hidden border-y border-border bg-background py-4" aria-hidden>
+      <div className="flex w-max animate-marquee items-center">
+        {loops.map((_, loop) => (
+          <div key={loop} className="flex items-center">
+            {BADGES.map(({ icon: Icon, text }) => (
+              <span
+                key={`${loop}-${text}`}
+                className="mx-8 flex items-center gap-2.5 whitespace-nowrap text-xs font-medium uppercase tracking-[0.16em] text-foreground"
+              >
+                <Icon className="h-4 w-4 text-primary" />
+                {text}
+              </span>
+            ))}
+          </div>
         ))}
       </div>
     </div>
@@ -19,38 +32,52 @@ export function Marquee() {
 
 const REVIEWS = [
   {
-    name: "Magnus",
-    text: "Jag har provat AG1, multivitaminer från apoteket, allt möjligt. Slutat med varje. DYGN är det första jag faktiskt minns att ta varje morgon. Tror det är att det är en sak att göra, inte sju.",
+    name: "Magnus, 41",
+    title: "Det första jag faktiskt minns att ta",
+    text: "Jag har provat AG1, multivitaminer från apoteket, allt möjligt. Slutat med varje. DYGN är det första jag tar varje morgon utan att tänka. Tror det är att det är en sak att göra, inte sju.",
   },
   {
-    name: "Elin",
-    text: "Jag läste innehållsförteckningen på det jag tog innan och insåg att hälften var doser som inte gör någon skillnad. DYGN var första gången jag kände att någon faktiskt hade läst studierna innan de formulerade.",
+    name: "Elin, 34",
+    title: "Någon har läst studierna",
+    text: "Jag läste innehållsförteckningen på det jag tog innan och insåg att hälften var doser som inte gör någon skillnad. DYGN var första gången jag kände att någon faktiskt läst forskningen innan de formulerade.",
   },
   {
-    name: "Anna",
+    name: "Anna, 29",
+    title: "En sak. Klart.",
     text: "Mindre att tänka på på morgonen. Det är hela poängen för mig. En sachet, ett glas vatten, klart.",
   },
 ]
 
 export function Reviews() {
   return (
-    <section className="bg-background py-16 md:py-24" aria-labelledby="reviews-heading">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <h2 id="reviews-heading" className="text-center font-serif text-3xl text-foreground text-balance md:text-5xl">
-          Vad våra kunder säger
-        </h2>
+    <section className="bg-secondary py-16 md:py-24" aria-labelledby="reviews-heading">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="reviews-heading" className="font-serif text-3xl text-foreground text-balance md:text-5xl">
+            Från de som redan börjat
+          </h2>
+          <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
+            ))}
+            <span className="ml-1">5,0 i snitt bland tidiga testare</span>
+          </p>
+        </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3 md:gap-6">
           {REVIEWS.map((review) => (
-            <figure key={review.name} className="flex flex-col justify-between border border-border bg-card p-6">
+            <figure key={review.name} className="flex flex-col justify-between rounded-lg bg-card p-7">
               <div>
                 <div className="flex gap-1" aria-label="5 av 5 stjärnor">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
+                    <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden />
                   ))}
                 </div>
-                <blockquote className="mt-4 text-sm leading-relaxed text-foreground">{review.text}</blockquote>
+                <p className="mt-4 font-serif text-lg text-foreground">{review.title}</p>
+                <blockquote className="mt-2 text-sm leading-relaxed text-muted-foreground">{review.text}</blockquote>
               </div>
-              <figcaption className="mt-5 text-sm font-medium text-foreground">{review.name}</figcaption>
+              <figcaption className="mt-6 text-xs font-medium uppercase tracking-[0.14em] text-foreground">
+                {review.name}
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -61,17 +88,20 @@ export function Reviews() {
 
 export function DoctorQuote() {
   return (
-    <section className="bg-sage py-16 md:py-24" aria-labelledby="doctor-quote">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <p className="text-sm text-sage-foreground/80">{"— Dr. Albert Öberg, specialist i allmänmedicin"}</p>
+    <section className="bg-ink py-20 md:py-28" aria-labelledby="doctor-quote">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">
+          {"Dr. Albert Öberg — Specialist i allmänmedicin"}
+        </p>
         <blockquote
           id="doctor-quote"
-          className="mt-8 max-w-4xl font-serif text-2xl leading-snug text-sage-foreground text-pretty sm:text-3xl md:text-5xl"
+          className="mt-8 max-w-5xl font-serif text-2xl leading-snug text-ink-foreground text-pretty sm:text-3xl md:text-5xl md:leading-[1.15]"
         >
           {
-            '"De flesta patienter jag möter behöver inte fler kosttillskott. De behöver färre, i rätt dos, på rätt form. DYGN är det första svenska alternativ jag sett som faktiskt formulerats utifrån den principen"'
+            '"De flesta patienter jag möter behöver inte fler kosttillskott. De behöver färre, i rätt dos, på rätt form. DYGN är det första svenska alternativ jag sett som formulerats utifrån den principen."'
           }
         </blockquote>
+        <div className="mt-10 h-px w-24 bg-primary" aria-hidden />
       </div>
     </section>
   )

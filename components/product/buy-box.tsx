@@ -13,100 +13,142 @@ function formatMoney(amount: string, currencyCode: string) {
   }).format(Number.parseFloat(amount))
 }
 
+function perDay(amount: string, currencyCode: string, servings: number) {
+  return formatMoney((Number.parseFloat(amount) / servings).toString(), currencyCode)
+}
+
+type Option = {
+  variant: ProductVariant
+  label: string
+  badge: string | null
+  pickBadge: string | null
+  servings: number
+  perks: string[]
+}
+
 export function BuyBox({ variants }: { variants: ProductVariant[] }) {
   const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
-  const oneTime = variants.find((v) => !v.title.toLowerCase().includes("prenumeration"))
+  const threePack = variants.find((v) => v.title.toLowerCase().includes("3-pack"))
+  const oneTime = variants.find(
+    (v) => !v.title.toLowerCase().includes("prenumeration") && !v.title.toLowerCase().includes("3-pack"),
+  )
   const [selectedId, setSelectedId] = useState(subscription?.id ?? variants[0]?.id)
   const { addItem, isPending } = useCart()
 
   const selected = variants.find((v) => v.id === selectedId)
   if (!selected) return null
 
-  const savings =
-    subscription?.compareAtPrice && subscription.price
-      ? Math.round(
-          (1 -
-            Number.parseFloat(subscription.price.amount) /
-              Number.parseFloat(subscription.compareAtPrice.amount)) *
-            100,
-        )
-      : 0
+  function savings(v?: ProductVariant) {
+    if (!v?.compareAtPrice) return 0
+    return Math.round(
+      (1 - Number.parseFloat(v.price.amount) / Number.parseFloat(v.compareAtPrice.amount)) * 100,
+    )
+  }
 
   const options = [
     subscription && {
       variant: subscription,
-      label: "Prenumerera & spara",
-      sublabel: "Levereras var 30:e dag. Pausa eller avsluta när du vill.",
-      badge: savings > 0 ? `Spara ${savings}%` : null,
-      perDay: formatMoney(
-        (Number.parseFloat(subscription.price.amount) / 30).toString(),
-        subscription.price.currencyCode,
-      ),
+      label: "Prenumeration",
+      badge: savings(subscription) > 0 ? `Spara ${savings(subscription)}%` : null,
+      pickBadge: "De flesta väljer denna",
+      servings: 30,
+      perks: [
+        "En förpackning var 30:e dag",
+        "Alltid fri frakt",
+        "Pausa, hoppa över eller avsluta när som helst",
+      ],
+    },
+    threePack && {
+      variant: threePack,
+      label: "3-pack",
+      badge: savings(threePack) > 0 ? `Spara ${savings(threePack)}%` : null,
+      pickBadge: null,
+      servings: 90,
+      perks: ["90 dagar. Ett beslut.", "Fri frakt ingår"],
     },
     oneTime && {
       variant: oneTime,
       label: "Engångsköp",
-      sublabel: "En förpackning. 30 dagar.",
       badge: null,
-      perDay: formatMoney((Number.parseFloat(oneTime.price.amount) / 30).toString(), oneTime.price.currencyCode),
+      pickBadge: null,
+      servings: 30,
+      perks: [],
     },
-  ].filter(Boolean) as {
-    variant: ProductVariant
-    label: string
-    sublabel: string
-    badge: string | null
-    perDay: string
-  }[]
+  ].filter(Boolean) as Option[]
 
   return (
     <div className="flex flex-col gap-5">
       <fieldset className="flex flex-col gap-3">
-        <legend className="sr-only">Välj köpalternativ</legend>
-        {options.map(({ variant, label, sublabel, badge, perDay }) => {
+        <legend className="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          Välj ditt sätt att köpa
+        </legend>
+        {options.map(({ variant, label, badge, pickBadge, servings: srv, perks }) => {
           const isSelected = variant.id === selectedId
           return (
             <label
               key={variant.id}
-              className={`relative flex cursor-pointer items-start gap-4 border p-4 transition-colors ${
-                isSelected ? "border-primary bg-card" : "border-border bg-transparent hover:border-foreground/30"
+              className={`relative flex cursor-pointer flex-col rounded-lg border-2 p-4 transition-all ${
+                isSelected
+                  ? "border-foreground bg-card shadow-[0_2px_16px_rgba(15,15,13,0.08)]"
+                  : "border-border bg-transparent hover:border-foreground/40"
               }`}
             >
-              <input
-                type="radio"
-                name="purchase-option"
-                value={variant.id}
-                checked={isSelected}
-                onChange={() => setSelectedId(variant.id)}
-                className="sr-only"
-              />
-              <span
-                aria-hidden="true"
-                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-                  isSelected ? "border-primary bg-primary" : "border-border"
-                }`}
-              >
-                {isSelected && <Check className="h-3 w-3 text-primary-foreground" />}
-              </span>
-              <span className="flex flex-1 flex-col gap-0.5">
-                <span className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium">{label}</span>
-                  {badge && (
-                    <span className="bg-primary px-2 py-0.5 text-[11px] font-medium text-primary-foreground">
-                      {badge}
-                    </span>
-                  )}
+              {pickBadge && (
+                <span className="absolute -top-2.5 right-4 rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary-foreground">
+                  {pickBadge}
                 </span>
-                <span className="text-xs leading-relaxed text-muted-foreground">{sublabel}</span>
-                <span className="mt-1 flex items-baseline gap-2">
-                  <span className="font-serif text-lg">{formatMoney(variant.price.amount, variant.price.currencyCode)}</span>
-                  {variant.compareAtPrice && (
-                    <span className="text-sm text-muted-foreground line-through">
-                      {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
+              )}
+              <span className="flex items-start gap-3.5">
+                <input
+                  type="radio"
+                  name="purchase-option"
+                  value={variant.id}
+                  checked={isSelected}
+                  onChange={() => setSelectedId(variant.id)}
+                  className="sr-only"
+                />
+                <span
+                  aria-hidden="true"
+                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
+                    isSelected ? "border-foreground bg-foreground" : "border-stone"
+                  }`}
+                >
+                  {isSelected && <span className="h-2 w-2 rounded-full bg-background" />}
+                </span>
+                <span className="flex flex-1 flex-col">
+                  <span className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-semibold uppercase tracking-wide">{label}</span>
+                    {badge && (
+                      <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                        {badge}
+                      </span>
+                    )}
+                  </span>
+                  <span className="mt-1.5 flex flex-wrap items-baseline gap-x-2">
+                    {variant.compareAtPrice && (
+                      <span className="text-sm text-muted-foreground line-through">
+                        {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
+                      </span>
+                    )}
+                    <span className="font-serif text-2xl leading-none">
+                      {formatMoney(variant.price.amount, variant.price.currencyCode)}
                     </span>
-                  )}
-                  <span className="text-xs text-muted-foreground">{`≈ ${perDay}/dag`}</span>
+                    <span className="ml-auto text-xs font-medium text-muted-foreground">
+                      {`${perDay(variant.price.amount, variant.price.currencyCode, srv)} per dag`}
+                    </span>
+                  </span>
                 </span>
               </span>
+              {isSelected && perks.length > 0 && (
+                <ul className="mt-3.5 flex flex-col gap-1.5 border-t border-border pt-3.5 pl-8">
+                  {perks.map((perk) => (
+                    <li key={perk} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                      {perk}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </label>
           )
         })}
@@ -116,7 +158,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
         type="button"
         disabled={isPending || !selected.availableForSale}
         onClick={() => addItem(selected.id)}
-        className="flex w-full items-center justify-center gap-2 bg-primary py-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-foreground py-4 text-sm font-semibold uppercase tracking-[0.1em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
       >
         {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
         {selected.availableForSale ? "Lägg i varukorgen" : "Slutsåld"}
@@ -125,7 +167,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
         <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
           <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"Fri frakt över 500 kr — levereras inom 2–4 vardagar"}
+          {"Levereras inom 2–4 vardagar"}
         </li>
         <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
           <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
