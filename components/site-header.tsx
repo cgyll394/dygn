@@ -13,24 +13,24 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/92 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
         <nav aria-label="Huvudmeny" className="hidden items-center gap-7 md:flex">
-          <a
-            href="#ingredienser"
+          <Link
+            href="/produkt"
+            className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Produkten
+          </Link>
+          <Link
+            href="/#formula"
             className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
           >
             Formuleringen
-          </a>
-          <a
-            href="#science"
-            className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Vetenskapen
-          </a>
-          <a
-            href="#faq"
+          </Link>
+          <Link
+            href="/#faq"
             className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
           >
             Frågor
-          </a>
+          </Link>
         </nav>
 
         <Link href="/" aria-label="DYGN startsida" className="md:absolute md:left-1/2 md:-translate-x-1/2">
@@ -38,12 +38,12 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-4">
-          <a
-            href="#kop"
+          <Link
+            href="/produkt"
             className="hidden rounded-full bg-primary px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background md:block"
           >
             Köp DYGN
-          </a>
+          </Link>
           <button
             type="button"
             onClick={openCart}
