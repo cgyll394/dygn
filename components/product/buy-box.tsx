@@ -38,14 +38,17 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       label: "Prenumerera & spara",
       sublabel: "Levereras var 30:e dag. Pausa eller avsluta när du vill.",
       badge: savings > 0 ? `Spara ${savings}%` : null,
-      perDay: (Number.parseFloat(subscription.price.amount) / 30).toFixed(0),
+      perDay: formatMoney(
+        (Number.parseFloat(subscription.price.amount) / 30).toString(),
+        subscription.price.currencyCode,
+      ),
     },
     oneTime && {
       variant: oneTime,
       label: "Engångsköp",
       sublabel: "En förpackning. 30 dagar.",
       badge: null,
-      perDay: (Number.parseFloat(oneTime.price.amount) / 30).toFixed(0),
+      perDay: formatMoney((Number.parseFloat(oneTime.price.amount) / 30).toString(), oneTime.price.currencyCode),
     },
   ].filter(Boolean) as {
     variant: ProductVariant
@@ -101,7 +104,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
                       {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
                     </span>
                   )}
-                  <span className="text-xs text-muted-foreground">{`≈ ${perDay} kr/dag`}</span>
+                  <span className="text-xs text-muted-foreground">{`≈ ${perDay}/dag`}</span>
                 </span>
               </span>
             </label>
