@@ -11,11 +11,6 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="bg-primary px-4 py-2.5 text-center">
-        <p className="font-serif text-sm text-primary-foreground">
-          {"Fri frakt över 500 kr. 30 dagars öppet köp — även på öppnade förpackningar."}
-        </p>
-      </div>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
           <nav aria-label="Huvudmeny" className="hidden items-center gap-6 md:flex">

@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import Image from "next/image"
 import { Minus, Plus, ShoppingBag, X } from "lucide-react"
 import { useCart } from "./cart-context"
@@ -15,6 +16,15 @@ function formatMoney(amount: string, currencyCode: string) {
 
 export function CartDrawer() {
   const { cart, isOpen, closeCart, isPending, updateItem, removeItem } = useCart()
+
+  useEffect(() => {
+    if (!isOpen) return
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") closeCart()
+    }
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [isOpen, closeCart])
 
   function handleCheckout() {
     if (!cart?.checkoutUrl) return

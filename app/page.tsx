@@ -15,9 +15,9 @@ import { Faq } from "@/components/sections/faq"
 export default function HomePage() {
   return (
     <>
-      <div className="bg-primary py-2 text-center">
+      <div className="bg-primary px-4 py-2.5 text-center">
         <Link href="#kop" className="font-serif text-sm text-primary-foreground">
-          Lansering hösten 2026. Anmäl dig först.
+          {"Lansering hösten 2026. Förbeställ nu — 30 dagars öppet köp."}
         </Link>
       </div>
       <SiteHeader />
