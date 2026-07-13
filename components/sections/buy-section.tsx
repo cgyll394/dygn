@@ -7,26 +7,25 @@ export async function BuySection() {
 
   if (!product) {
     return (
-      <section id="kop" className="bg-background py-24 text-center">
+      <section id="kop" className="bg-card py-24 text-center">
         <p className="text-muted-foreground">Produkten kunde inte hämtas just nu. Försök igen strax.</p>
       </section>
     )
   }
 
   return (
-    <section id="kop" className="scroll-mt-20 bg-background py-16 md:py-24" aria-labelledby="buy-heading">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+    <section id="kop" className="scroll-mt-20 bg-card py-16 md:py-24" aria-labelledby="buy-heading">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:gap-16 md:px-8">
         <ProductGallery images={product.images.nodes} title={product.title} />
-        <div className="flex flex-col">
-          <p className="text-sm font-medium uppercase tracking-wide text-primary">Bästsäljare</p>
-          <h2 id="buy-heading" className="mt-2 font-serif text-3xl text-foreground text-balance md:text-4xl">
-            {product.title}
+        <div className="flex flex-col md:pt-2">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Daily Nutrition · 30 sachets</p>
+          <h2 id="buy-heading" className="mt-3 font-serif text-4xl text-foreground text-balance md:text-5xl">
+            Allt du behöver. Inget du inte behöver.
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Åtta näringsämnen där det finns tydlig vetenskap, vanliga brister i nordisk kost, och bioaktiva former som
-            kroppen faktiskt tar upp. En sachet om dagen, 30 portioner per förpackning.
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+            Åtta näringsämnen i bioaktiva former, doserade efter forskning — inte marknadsföring. En sachet om dagen.
           </p>
-          <div className="mt-6">
+          <div className="mt-8">
             <BuyBox variants={product.variants.nodes} />
           </div>
         </div>
