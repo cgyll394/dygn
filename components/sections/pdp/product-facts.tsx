@@ -20,34 +20,29 @@ const nutrition = [
 
 export function ProductFacts() {
   return (
-    <section className="py-20 md:py-28" aria-labelledby="facts-heading">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section className="border-b border-border" aria-labelledby="facts-heading">
+      <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
         <h2 id="facts-heading" className="sr-only">
           Produktfakta och näringsinnehåll
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          <div className="rounded-lg border border-border bg-card p-6 md:p-8">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Produktfakta</h3>
-            <dl className="mt-6">
-              {details.map((row, index) => (
-                <div
-                  key={row.label}
-                  className={`flex items-baseline justify-between gap-4 py-3.5 ${
-                    index < details.length - 1 ? "border-b border-border" : ""
-                  }`}
-                >
+        <div className="grid gap-16 md:grid-cols-2 md:gap-20">
+          <div>
+            <h3 className="type-eyebrow">Produktfakta</h3>
+            <dl className="mt-7 border-t border-border">
+              {details.map((row) => (
+                <div key={row.label} className="flex items-baseline justify-between gap-4 border-b border-border py-4">
                   <dt className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{row.label}</dt>
-                  <dd className="text-right text-sm font-medium">{row.value}</dd>
+                  <dd className="text-right text-sm">{row.value}</dd>
                 </div>
               ))}
             </dl>
           </div>
-          <div className="rounded-lg border border-border bg-card p-6 md:p-8">
+          <div>
             <div className="flex items-baseline justify-between">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Näringsinnehåll</h3>
+              <h3 className="type-eyebrow">Näringsinnehåll</h3>
               <p className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground">Per sachet</p>
             </div>
-            <table className="mt-6 w-full text-sm">
+            <table className="mt-7 w-full border-t border-border text-sm">
               <thead className="sr-only">
                 <tr>
                   <th scope="col">Näringsämne</th>
@@ -56,20 +51,20 @@ export function ProductFacts() {
                 </tr>
               </thead>
               <tbody>
-                {nutrition.map((row, index) => (
-                  <tr key={row.name} className={index < nutrition.length - 1 ? "border-b border-border" : ""}>
-                    <th scope="row" className="py-3 pr-3 text-left font-normal text-muted-foreground">
+                {nutrition.map((row) => (
+                  <tr key={row.name} className="border-b border-border">
+                    <th scope="row" className="py-4 pr-3 text-left font-normal text-muted-foreground">
                       {row.name}
                     </th>
-                    <td className="whitespace-nowrap py-3 pr-3 text-right font-medium tabular-nums">{row.dose}</td>
-                    <td className="whitespace-nowrap py-3 text-right text-xs tabular-nums text-muted-foreground">
+                    <td className="whitespace-nowrap py-4 pr-3 text-right tabular-nums">{row.dose}</td>
+                    <td className="whitespace-nowrap py-4 text-right text-xs tabular-nums text-muted-foreground">
                       {row.dri}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-[11px] leading-relaxed text-muted-foreground">
               {"% avser dagligt referensintag (DRI) för vuxna. Ingredienser: kaliumcitrat, magnesiumbisglycinat, surhetsreglerande medel (citronsyra), naturlig citrusarom, zinkpikolinat, MenaQ7, Quatrefolic, Vitashine D3, metylkobalamin, kaliumjodid."}
             </p>
           </div>

@@ -7,25 +7,26 @@ export async function BuySection() {
 
   if (!product) {
     return (
-      <section id="kop" className="bg-card py-24 text-center">
+      <section id="kop" className="border-b border-border py-24 text-center">
         <p className="text-muted-foreground">Produkten kunde inte hämtas just nu. Försök igen strax.</p>
       </section>
     )
   }
 
   return (
-    <section id="kop" className="scroll-mt-20 bg-card py-16 md:py-24" aria-labelledby="buy-heading">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+    <section id="kop" className="scroll-mt-24 border-b border-border" aria-labelledby="buy-heading">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:gap-20 md:px-8 md:py-28">
         <ProductGallery images={product.images.nodes} title={product.title} />
-        <div className="flex flex-col md:pt-2">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Daily Nutrition · 30 sachets</p>
-          <h2 id="buy-heading" className="mt-3 font-serif text-4xl text-foreground text-balance md:text-5xl">
+        <div className="flex flex-col md:pt-4">
+          <p className="type-eyebrow">Daily Nutrition · 30 sachets</p>
+          <h2 id="buy-heading" className="type-title mt-5">
             Allt du behöver. Inget du inte behöver.
           </h2>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Åtta näringsämnen i bioaktiva former, doserade efter forskning — inte marknadsföring. En sachet om dagen.
+          <p className="type-lede mt-5 max-w-md">
+            Åtta näringsämnen i bioaktiva former, doserade efter forskning — inte marknadsföring. En sachet om dagen,
+            löst i ett glas vatten.
           </p>
-          <div className="mt-8">
+          <div className="mt-10">
             <BuyBox variants={product.variants.nodes} />
           </div>
         </div>
