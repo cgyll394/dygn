@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/reveal"
+
 const REVIEWS = [
   {
     name: "Magnus, 41",
@@ -22,24 +24,34 @@ export function Reviews() {
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="type-eyebrow">Ur testpanelen</p>
-            <h2 id="reviews-heading" className="type-title mt-5">
-              Från de som redan börjat
-            </h2>
+            <Reveal>
+              <p className="type-eyebrow">Ur testpanelen</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 id="reviews-heading" className="type-title mt-5">
+                Från de som redan börjat
+              </h2>
+            </Reveal>
           </div>
-          <p className="max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
-            200 personer använde DYGN i 90 dagar före lansering.
-          </p>
+          <Reveal delay={160}>
+            <p className="max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
+              200 personer använde DYGN i 90 dagar före lansering.
+            </p>
+          </Reveal>
         </div>
         <div className="mt-14 grid gap-10 border-t border-border pt-10 md:grid-cols-3 md:gap-12">
-          {REVIEWS.map((review) => (
-            <figure key={review.name} className="flex flex-col justify-between">
-              <div>
-                <p className="type-subtitle">{review.title}</p>
-                <blockquote className="mt-3.5 text-sm leading-[1.7] text-muted-foreground">{review.text}</blockquote>
-              </div>
-              <figcaption className="type-eyebrow mt-7">{review.name}</figcaption>
-            </figure>
+          {REVIEWS.map((review, index) => (
+            <Reveal key={review.name} delay={index * 110}>
+              <figure className="flex h-full flex-col justify-between">
+                <div>
+                  <p className="type-subtitle">{review.title}</p>
+                  <blockquote className="mt-3.5 text-sm leading-[1.7] text-muted-foreground">
+                    {review.text}
+                  </blockquote>
+                </div>
+                <figcaption className="type-eyebrow mt-7">{review.name}</figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

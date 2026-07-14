@@ -34,9 +34,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 pb-10 pt-20 md:px-8 md:pt-28">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr] md:gap-20">
           <div>
-            <p className="type-title max-w-md">
-              Allt kroppen behöver. <em className="italic">Varje dygn.</em>
-            </p>
+            <p className="type-title max-w-md">Allt kroppen behöver. Varje dygn.</p>
             <form className="mt-10 flex max-w-md items-end gap-6" action="#" aria-label="Nyhetsbrev">
               <div className="min-w-0 flex-1">
                 <label htmlFor="newsletter-email" className="type-eyebrow !text-ink-muted">
@@ -84,7 +82,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-20 flex flex-col gap-4 border-t border-ink-foreground/15 pt-7 text-xs text-ink-muted md:flex-row md:items-center md:justify-between">
-          <Image src="/brand/logo-light.png" alt="DYGN" width={72} height={20} className="h-4 w-auto" />
+          <Image src="/brand/logo-light.png" alt="DYGN" width={72} height={20} className="h-4 w-auto self-start" />
           <p>Kosttillskott ersätter inte en varierad kost. Överskrid inte rekommenderad dygnsdos.</p>
           <p>{"© 2026 DYGN"}</p>
         </div>

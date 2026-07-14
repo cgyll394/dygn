@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Plus } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 
 const INGREDIENTS = [
   {
@@ -78,15 +79,21 @@ export function Ingredients() {
       <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.5fr] lg:gap-24">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <p className="type-eyebrow !text-ink-muted">Formuleringen</p>
-            <h2 id="ingredients-heading" className="type-title mt-5">
-              {"Åtta näringsämnen. Inte fler. Inte färre."}
-            </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-[1.7] text-ink-foreground/65">
-              {
-                "Vi har valt åtta näringsämnen där det finns tydlig vetenskap, vanliga brister i nordisk kost, och bioaktiva former som kroppen faktiskt tar upp. Resten har vi medvetet lämnat utanför. Allt deklarerat — inga proprietära blandningar."
-              }
-            </p>
+            <Reveal>
+              <p className="type-eyebrow !text-ink-muted">Formuleringen</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 id="ingredients-heading" className="type-title mt-5">
+                {"Åtta näringsämnen. Inte fler. Inte färre."}
+              </h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-6 max-w-md text-[15px] leading-[1.7] text-ink-foreground/65">
+                {
+                  "Vi har valt åtta näringsämnen där det finns tydlig vetenskap, vanliga brister i nordisk kost, och bioaktiva former som kroppen faktiskt tar upp. Resten har vi medvetet lämnat utanför. Allt deklarerat — inga proprietära blandningar."
+                }
+              </p>
+            </Reveal>
             <dl className="mt-12 flex gap-12 border-t border-ink-foreground/15 pt-8">
               <div>
                 <dd className="font-serif text-4xl">8</dd>
@@ -126,22 +133,32 @@ export function Ingredients() {
                       className={`h-4 w-4 shrink-0 text-ink-muted transition-transform duration-300 ease-out ${isOpen ? "rotate-45" : ""}`}
                     />
                   </button>
-                  {isOpen && (
-                    <div className="grid gap-6 pb-8 md:grid-cols-2 md:gap-10">
-                      <div className="flex flex-col gap-2.5">
-                        <h3 className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
-                          {"Varför det ingår"}
-                        </h3>
-                        <p className="text-sm leading-[1.7] text-ink-foreground/75">{ingredient.why}</p>
-                      </div>
-                      <div className="flex flex-col gap-2.5">
-                        <h3 className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
-                          {"Formen och dosen"}
-                        </h3>
-                        <p className="text-sm leading-[1.7] text-ink-foreground/75">{ingredient.detail}</p>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-500 [transition-timing-function:cubic-bezier(.22,1,.36,1)] ${
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div
+                        className={`grid gap-6 pb-8 transition-opacity duration-500 md:grid-cols-2 md:gap-10 ${
+                          isOpen ? "opacity-100 delay-100" : "opacity-0"
+                        }`}
+                      >
+                        <div className="flex flex-col gap-2.5">
+                          <h3 className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
+                            {"Varför det ingår"}
+                          </h3>
+                          <p className="text-sm leading-[1.7] text-ink-foreground/75">{ingredient.why}</p>
+                        </div>
+                        <div className="flex flex-col gap-2.5">
+                          <h3 className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
+                            {"Formen och dosen"}
+                          </h3>
+                          <p className="text-sm leading-[1.7] text-ink-foreground/75">{ingredient.detail}</p>
+                        </div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </li>
               )
             })}

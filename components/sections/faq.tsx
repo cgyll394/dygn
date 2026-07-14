@@ -70,7 +70,21 @@ export function Faq() {
                     className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out ${isOpen ? "rotate-45" : ""}`}
                   />
                 </button>
-                {isOpen && <p className="max-w-2xl pb-6 text-sm leading-[1.7] text-muted-foreground">{faq.a}</p>}
+                <div
+                  className={`grid transition-[grid-template-rows] duration-500 [transition-timing-function:cubic-bezier(.22,1,.36,1)] ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p
+                      className={`max-w-2xl pb-6 text-sm leading-[1.7] text-muted-foreground transition-opacity duration-500 ${
+                        isOpen ? "opacity-100 delay-100" : "opacity-0"
+                      }`}
+                    >
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
               </li>
             )
           })}

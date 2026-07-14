@@ -40,24 +40,24 @@
 
 :root {
   color-scheme: light;
-  /* DYGN palette: ecru F5F1E8, ink 0F0F0D, terracotta D9593B, stone A8A59A.
-     Terracotta is reserved for commerce actions (buy/checkout) — nothing else. */
+  /* DYGN palette: ecru F5F1E8, ink 12110F, signal red-orange E04A21 (from packaging), stone A8A59A.
+     The red is reserved for commerce actions + one deliberate brand block per page. */
   --background: #f5f1e8;
   --foreground: #141310;
   --card: #faf7f0;
   --card-foreground: #141310;
   --popover: #faf7f0;
   --popover-foreground: #141310;
-  --primary: #d9593b;
-  --primary-foreground: #f7f3ea;
+  --primary: #e04a21;
+  --primary-foreground: #fbf6ed;
   --secondary: #ebe6d9;
   --secondary-foreground: #141310;
   --muted: #ebe6d9;
   --muted-foreground: #6d685c;
-  --accent: #d9593b;
-  --accent-foreground: #f7f3ea;
+  --accent: #e04a21;
+  --accent-foreground: #fbf6ed;
   --destructive: #b03a24;
-  --destructive-foreground: #f7f3ea;
+  --destructive-foreground: #fbf6ed;
   --border: rgba(20, 19, 16, 0.12);
   --input: rgba(20, 19, 16, 0.24);
   --ring: #141310;
@@ -84,49 +84,44 @@
     background: #141310;
     color: #f5f1e8;
   }
+  /* Sturdy editorial serif: fixed optical size, no soft, no wonk, never italic. */
   .font-serif {
-    font-optical-sizing: auto;
-    font-variation-settings: 'SOFT' 0, 'WONK' 0;
+    font-variation-settings: 'opsz' 30, 'SOFT' 0, 'WONK' 0;
+    font-weight: 480;
   }
 }
 
 /* ————— Type scale ————— */
-/* Display: hero statements */
 @utility type-display {
   font-family: var(--font-serif);
-  font-optical-sizing: auto;
-  font-variation-settings: 'SOFT' 0, 'WONK' 0;
-  font-weight: 420;
-  font-size: clamp(2.75rem, 1rem + 7.2vw, 7.25rem);
-  line-height: 0.98;
-  letter-spacing: -0.022em;
+  font-variation-settings: 'opsz' 46, 'SOFT' 0, 'WONK' 0;
+  font-weight: 510;
+  font-size: clamp(2.7rem, 1.2rem + 5.4vw, 5.9rem);
+  line-height: 1;
+  letter-spacing: -0.021em;
   text-wrap: balance;
 }
 
-/* Title: section headings */
 @utility type-title {
   font-family: var(--font-serif);
-  font-optical-sizing: auto;
-  font-variation-settings: 'SOFT' 0, 'WONK' 0;
-  font-weight: 440;
-  font-size: clamp(1.9rem, 1rem + 2.6vw, 3.4rem);
-  line-height: 1.04;
-  letter-spacing: -0.018em;
+  font-variation-settings: 'opsz' 38, 'SOFT' 0, 'WONK' 0;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 1rem + 2.6vw, 3.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.017em;
   text-wrap: balance;
 }
 
-/* Subtitle: card + accordion headings */
 @utility type-subtitle {
   font-family: var(--font-serif);
-  font-optical-sizing: auto;
-  font-variation-settings: 'SOFT' 0, 'WONK' 0;
-  font-weight: 460;
-  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  font-variation-settings: 'opsz' 24, 'SOFT' 0, 'WONK' 0;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem);
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.008em;
 }
 
-/* Eyebrow: small caps label above headings. Never orange. */
+/* Eyebrow: small caps label above headings. Never red. */
 @utility type-eyebrow {
   font-size: 11px;
   font-weight: 500;
@@ -135,7 +130,6 @@
   color: var(--muted-foreground);
 }
 
-/* Lede: intro paragraph under a title */
 @utility type-lede {
   font-size: 15px;
   line-height: 1.7;
@@ -157,13 +151,70 @@
     transform 0.35s var(--ease-out-expo);
 }
 
+/* Animated underline for text links */
+@utility u-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+  transition: background-size 0.45s var(--ease-out-expo);
+}
+
+/* ————— Motion ————— */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 46s linear infinite;
+}
+
 @layer base {
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+  .u-link:hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+  }
   .btn:active {
     transform: scale(0.985);
+  }
+  .btn .btn-arrow {
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(3px);
   }
   :is(a, button, input, select, [tabindex]):focus-visible {
     outline: 1.5px solid var(--ring);
     outline-offset: 3px;
     border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .animate-marquee {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

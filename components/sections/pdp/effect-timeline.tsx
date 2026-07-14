@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/reveal"
+
 const phases = [
   {
     label: "Dag 1",
@@ -28,7 +30,7 @@ export function EffectTimeline() {
         <div className="md:sticky md:top-28 md:self-start">
           <p className="type-eyebrow">Vad som händer i kroppen</p>
           <h2 id="timeline-heading" className="type-title mt-5">
-            Näringsstatus byggs inte på en dag. <em className="italic">Därför heter vi DYGN.</em>
+            Näringsstatus byggs inte på en dag. Därför heter vi DYGN.
           </h2>
           <p className="type-lede mt-6 max-w-md">
             Vattenlösliga vitaminer verkar snabbt. Fettlösliga byggs upp över veckor. Effekten är kumulativ — inte
@@ -39,15 +41,19 @@ export function EffectTimeline() {
           </p>
         </div>
         <ol className="border-t border-border">
-          {phases.map((phase) => (
-            <li key={phase.label} className="grid gap-2 border-b border-border py-8 sm:grid-cols-[7rem_1fr] sm:gap-8">
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground sm:pt-1.5">
-                {phase.label}
-              </p>
-              <div>
-                <h3 className="type-subtitle">{phase.title}</h3>
-                <p className="mt-2.5 text-sm leading-[1.7] text-muted-foreground">{phase.body}</p>
-              </div>
+          {phases.map((phase, index) => (
+            <li key={phase.label} className="border-b border-border">
+              <Reveal delay={index * 90}>
+                <div className="grid gap-2 py-8 sm:grid-cols-[7rem_1fr] sm:gap-8">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground sm:pt-1.5">
+                    {phase.label}
+                  </p>
+                  <div>
+                    <h3 className="type-subtitle">{phase.title}</h3>
+                    <p className="mt-2.5 text-sm leading-[1.7] text-muted-foreground">{phase.body}</p>
+                  </div>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { getProduct } from "@/lib/shopify"
+import { getProduct, type ProductImage } from "@/lib/shopify"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 }
 
 const meta = ["Framtagen för nordiska behov", "Tredjepartstestad", "Vegansk, utan tillsatt socker"]
+
+const HAND_SHOT: ProductImage = {
+  url: "/product/dygn-hand.jpg",
+  altText: "DYGN-sachet i en hand mot varmt ljus",
+  width: 1800,
+  height: 2234,
+}
 
 export default async function ProductPage() {
   const product = await getProduct("dygn-daily-nutrition")
@@ -42,7 +49,7 @@ export default async function ProductPage() {
         <section className="border-b border-border" aria-labelledby="pdp-heading">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 md:grid-cols-2 md:gap-20 md:px-8 md:py-20">
             <div className="md:sticky md:top-24 md:self-start">
-              <ProductGallery images={product.images.nodes} title={product.title} />
+              <ProductGallery images={[HAND_SHOT, ...product.images.nodes]} title={product.title} />
             </div>
             <div id="kop-panel" className="flex scroll-mt-24 flex-col">
               <p className="type-eyebrow">Daily Nutrition · 30 sachets</p>
