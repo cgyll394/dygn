@@ -11,8 +11,8 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
   if (!active) return null
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="relative aspect-square w-full overflow-hidden bg-muted">
+    <div className="flex flex-col gap-3">
+      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-muted">
         <Image
           src={active.url || "/placeholder.svg"}
           alt={active.altText ?? title}
@@ -30,16 +30,16 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
               type="button"
               onClick={() => setActiveIndex(index)}
               aria-label={`Visa bild ${index + 1}`}
-              className={`relative aspect-square w-16 overflow-hidden bg-muted transition-opacity duration-300 ${
-                index === activeIndex ? "" : "opacity-50 hover:opacity-100"
+              className={`relative aspect-square w-20 overflow-hidden rounded-md bg-muted transition-opacity ${
+                index === activeIndex ? "ring-1 ring-foreground" : "opacity-60 hover:opacity-100"
               }`}
             >
-              <Image src={image.url || "/placeholder.svg"} alt="" fill sizes="64px" className="object-cover" />
-              <span
-                aria-hidden
-                className={`absolute inset-x-0 bottom-0 h-[2px] bg-foreground transition-opacity duration-300 ${
-                  index === activeIndex ? "opacity-100" : "opacity-0"
-                }`}
+              <Image
+                src={image.url || "/placeholder.svg"}
+                alt=""
+                fill
+                sizes="80px"
+                className="object-cover"
               />
             </button>
           ))}

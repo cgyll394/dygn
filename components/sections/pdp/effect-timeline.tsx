@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/reveal"
+import Image from "next/image"
 
 const phases = [
   {
@@ -25,39 +25,53 @@ const phases = [
 
 export function EffectTimeline() {
   return (
-    <section className="border-b border-border" aria-labelledby="timeline-heading">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1fr_1.2fr] md:gap-20 md:px-8 md:py-28">
-        <div className="md:sticky md:top-28 md:self-start">
-          <p className="type-eyebrow">Vad som händer i kroppen</p>
-          <h2 id="timeline-heading" className="type-title mt-5">
-            Näringsstatus byggs inte på en dag. Därför heter vi DYGN.
+    <section className="bg-card py-20 md:py-28" aria-labelledby="timeline-heading">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+        <div className="flex flex-col">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Vad som händer i kroppen</p>
+          <h2
+            id="timeline-heading"
+            className="mt-4 font-serif text-3xl leading-tight text-balance md:text-5xl"
+          >
+            Näringsstatus byggs inte på en dag. <em className="italic">Därför heter vi DYGN.</em>
           </h2>
-          <p className="type-lede mt-6 max-w-md">
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
             Vattenlösliga vitaminer verkar snabbt. Fettlösliga byggs upp över veckor. Effekten är kumulativ — inte
             omedelbar. En sachet om dagen är hela metoden.
           </p>
-          <p className="mt-10 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-            Tidslinjen är ungefärlig. Individuella resultat varierar.
-          </p>
+          <div className="relative mt-10 hidden aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg md:block">
+            <Image
+              src="/lifestyle/window.jpg"
+              alt="Morgonljus genom fönster"
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover"
+            />
+          </div>
         </div>
-        <ol className="border-t border-border">
+        <ol className="flex flex-col">
           {phases.map((phase, index) => (
-            <li key={phase.label} className="border-b border-border">
-              <Reveal delay={index * 90}>
-                <div className="grid gap-2 py-8 sm:grid-cols-[7rem_1fr] sm:gap-8">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground sm:pt-1.5">
-                    {phase.label}
-                  </p>
-                  <div>
-                    <h3 className="type-subtitle">{phase.title}</h3>
-                    <p className="mt-2.5 text-sm leading-[1.7] text-muted-foreground">{phase.body}</p>
-                  </div>
-                </div>
-              </Reveal>
+            <li
+              key={phase.label}
+              className={`flex gap-6 py-8 ${index < phases.length - 1 ? "border-b border-border" : ""}`}
+            >
+              <div className="flex flex-col items-center">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-foreground text-xs font-semibold">
+                  {index + 1}
+                </span>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{phase.label}</p>
+                <h3 className="mt-1.5 font-serif text-xl md:text-2xl">{phase.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{phase.body}</p>
+              </div>
             </li>
           ))}
         </ol>
       </div>
+      <p className="mx-auto mt-10 max-w-6xl px-5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-8">
+        Tidslinjen är ungefärlig och baserad på typisk upptagsforskning. Individuella resultat varierar.
+      </p>
     </section>
   )
 }

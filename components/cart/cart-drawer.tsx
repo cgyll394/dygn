@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import Image from "next/image"
-import { Minus, Plus, X } from "lucide-react"
+import { Minus, Plus, ShoppingBag, X } from "lucide-react"
 import { useCart } from "./cart-context"
 
 function formatMoney(amount: string, currencyCode: string) {
@@ -47,28 +47,29 @@ export function CartDrawer() {
         type="button"
         aria-label="Stäng varukorg"
         onClick={closeCart}
-        className="absolute inset-0 bg-ink/40 backdrop-blur-[2px]"
+        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
       />
-      <div className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-background shadow-2xl">
+      <div className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-card shadow-2xl">
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
-          <h2 className="type-subtitle">Varukorg</h2>
+          <h2 className="font-serif text-xl">Varukorg</h2>
           <button
             type="button"
             onClick={closeCart}
             aria-label="Stäng"
-            className="flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors duration-300 hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {lines.length === 0 ? (
-          <div className="flex flex-1 flex-col items-center justify-center gap-5 px-6 text-center">
-            <p className="text-sm text-muted-foreground">{"Din varukorg är tom."}</p>
+          <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
+            <ShoppingBag className="h-10 w-10 text-muted-foreground" />
+            <p className="text-muted-foreground">{"Din varukorg är tom."}</p>
             <button
               type="button"
               onClick={closeCart}
-              className="btn h-11 border border-foreground/20 px-6 text-foreground hover:border-foreground"
+              className="mt-2 bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               {"Fortsätt handla"}
             </button>
@@ -77,7 +78,7 @@ export function CartDrawer() {
           <>
             <ul className="flex-1 divide-y divide-border overflow-y-auto px-6">
               {lines.map((line) => (
-                <li key={line.id} className="flex gap-5 py-6">
+                <li key={line.id} className="flex gap-4 py-5">
                   <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-muted">
                     {line.merchandise.image && (
                       <Image
@@ -103,7 +104,7 @@ export function CartDrawer() {
                           onClick={() =>
                             line.quantity <= 1 ? removeItem(line.id) : updateItem(line.id, line.quantity - 1)
                           }
-                          className="flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors duration-300 hover:text-foreground disabled:opacity-50"
+                          className="flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
                         >
                           <Minus className="h-3.5 w-3.5" />
                         </button>
@@ -113,12 +114,12 @@ export function CartDrawer() {
                           disabled={isPending}
                           aria-label="Öka antal"
                           onClick={() => updateItem(line.id, line.quantity + 1)}
-                          className="flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors duration-300 hover:text-foreground disabled:opacity-50"
+                          className="flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
                         >
                           <Plus className="h-3.5 w-3.5" />
                         </button>
                       </div>
-                      <p className="text-sm tabular-nums">
+                      <p className="text-sm font-medium tabular-nums">
                         {formatMoney(
                           (Number.parseFloat(line.merchandise.price.amount) * line.quantity).toString(),
                           line.merchandise.price.currencyCode,
@@ -130,21 +131,21 @@ export function CartDrawer() {
               ))}
             </ul>
 
-            <div className="border-t border-border px-6 py-6">
-              <div className="flex items-baseline justify-between">
+            <div className="border-t border-border px-6 py-5">
+              <div className="mb-4 flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">Delsumma</span>
-                <span className="font-serif text-xl tabular-nums">
+                <span className="font-medium tabular-nums">
                   {cart && formatMoney(cart.cost.subtotalAmount.amount, cart.cost.subtotalAmount.currencyCode)}
                 </span>
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <p className="mb-4 text-xs text-muted-foreground">
                 {"Frakt och eventuella rabatter beräknas i kassan."}
               </p>
               <button
                 type="button"
                 onClick={handleCheckout}
                 disabled={isPending}
-                className="btn mt-5 h-14 w-full bg-primary text-primary-foreground hover:bg-foreground hover:text-background disabled:opacity-50"
+                className="w-full bg-primary py-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
               >
                 {"Till kassan"}
               </button>

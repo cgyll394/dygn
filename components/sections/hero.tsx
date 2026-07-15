@@ -1,71 +1,52 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Reveal } from "@/components/reveal"
+import { Star } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="border-b border-border">
-      <div className="grid min-h-[88svh] md:grid-cols-[1.05fr_1fr]">
-        {/* Copy panel */}
-        <div className="order-2 flex flex-col justify-end px-5 pb-12 pt-14 md:order-1 md:px-10 md:pb-16 md:pt-24 lg:px-14">
-          <Reveal>
-            <p className="type-eyebrow">Daily Nutrition — formulerad i Sverige</p>
-          </Reveal>
-          <Reveal delay={90}>
-            <h1 className="type-display mt-6 max-w-2xl">
-              Allt kroppen behöver. Varje dygn.
-            </h1>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="type-lede mt-7 max-w-md">
-              Åtta näringsämnen i de former och doser forskningen pekar på. En sachet om dagen, löst i ett glas
-              vatten. Inget annat.
-            </p>
-          </Reveal>
-          <Reveal delay={260}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-9 gap-y-5">
-              <Link
-                href="#kop"
-                className="btn h-13 bg-primary px-8 py-4 text-primary-foreground hover:bg-foreground hover:text-background"
-              >
-                Förbeställ DYGN
-                <span className="btn-arrow" aria-hidden>
-                  →
-                </span>
-              </Link>
-              <Link href="#formula" className="u-link text-sm text-foreground">
-                Se formuleringen
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={340}>
-            <dl className="mt-14 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
-              <div>
-                <dd className="font-serif text-2xl">8</dd>
-                <dt className="mt-1 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Näringsämnen</dt>
-              </div>
-              <div>
-                <dd className="font-serif text-2xl">1</dd>
-                <dt className="mt-1 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Sachet om dagen</dt>
-              </div>
-              <div>
-                <dd className="whitespace-nowrap font-serif text-2xl">{"4,6 g"}</dd>
-                <dt className="mt-1 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">Per dos</dt>
-              </div>
-            </dl>
-          </Reveal>
-        </div>
+    <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
+      <Image
+        src="/lifestyle/runclub-bottle.jpg"
+        alt="Löpare som håller upp en DYGN-sachet och vattenflaska efter ett pass"
+        fill
+        priority
+        className="object-cover object-[50%_20%]"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent" aria-hidden />
 
-        {/* Image panel */}
-        <div className="relative order-1 min-h-[52svh] overflow-hidden bg-ink md:order-2 md:min-h-0">
-          <Image
-            src="/lifestyle/runclub.jpg"
-            alt="Löpare håller upp en DYGN-sachet framför sin löpargrupp"
-            fill
-            priority
-            className="object-cover object-[42%_18%]"
-            sizes="(min-width: 768px) 48vw, 100vw"
-          />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 md:px-8 md:pb-20">
+        <p className="mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+          Daily Nutrition — Formulerad i Sverige
+        </p>
+        <h1 className="max-w-3xl font-serif text-5xl leading-[1.02] text-ink-foreground text-balance sm:text-6xl md:text-8xl">
+          Allt kroppen behöver. <em className="text-primary not-italic md:italic md:text-ink-foreground">Varje dygn.</em>
+        </h1>
+        <p className="mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
+          Åtta näringsämnen i de former och doser forskningen pekar på. En sachet om dagen. Inget annat.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Link
+            href="#kop"
+            className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
+          >
+            Förbeställ DYGN
+          </Link>
+          <Link
+            href="#ingredienser"
+            className="inline-flex items-center rounded-full border border-ink-foreground/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-foreground transition-colors hover:bg-ink-foreground/10"
+          >
+            Formuleringen
+          </Link>
+        </div>
+        <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <span className="flex items-center gap-1.5" aria-label="5 av 5 i betyg från tidiga testare">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden />
+            ))}
+            <span className="ml-1 text-xs text-ink-foreground/75">Från våra första 200 testare</span>
+          </span>
         </div>
       </div>
     </section>

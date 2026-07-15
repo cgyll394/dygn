@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Plus } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 const FAQS = [
   {
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: "Hur fungerar prenumerationen?",
-    a: "En ny förpackning levereras var 30:e dag till 20 % lägre pris. Du kan pausa, hoppa över en leverans eller avsluta när som helst — utan bindningstid, direkt från ditt konto eller via mejl.",
+    a: "En ny förpackning levereras var 30:e dag till 20% lägre pris. Du kan pausa, hoppa över en leverans eller avsluta när som helst — utan bindningstid, direkt från ditt konto eller via mejl.",
   },
   {
     q: "Var tillverkas DYGN?",
@@ -38,21 +38,11 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-14">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-[1fr_2fr] md:gap-20 md:px-8 md:py-28">
-        <div>
-          <p className="type-eyebrow">Frågor</p>
-          <h2 id="faq-heading" className="type-title mt-5">
-            {"Vanliga frågor"}
-          </h2>
-          <p className="type-lede mt-5 max-w-xs">
-            {"Hittar du inte svaret? Mejla oss på "}
-            <a href="mailto:hej@dygn.se" className="text-foreground underline underline-offset-4 decoration-border transition-colors duration-300 hover:decoration-foreground">
-              hej@dygn.se
-            </a>
-            {"."}
-          </p>
-        </div>
+    <section id="faq" aria-labelledby="faq-heading" className="bg-background">
+      <div className="mx-auto max-w-4xl px-4 py-20 md:px-8 md:py-28">
+        <h2 id="faq-heading" className="mb-10 font-serif text-3xl md:mb-14 md:text-4xl">
+          {"Vanliga frågor"}
+        </h2>
         <ul className="divide-y divide-border border-y border-border">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index
@@ -62,29 +52,15 @@ export function Faq() {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-5 text-left transition-opacity duration-300 hover:opacity-60"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left transition-opacity hover:opacity-70"
                 >
-                  <span className="text-[15px] font-medium leading-snug">{faq.q}</span>
-                  <Plus
+                  <span className="font-medium">{faq.q}</span>
+                  <ChevronDown
                     aria-hidden="true"
-                    className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out ${isOpen ? "rotate-45" : ""}`}
+                    className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-500 [transition-timing-function:cubic-bezier(.22,1,.36,1)] ${
-                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p
-                      className={`max-w-2xl pb-6 text-sm leading-[1.7] text-muted-foreground transition-opacity duration-500 ${
-                        isOpen ? "opacity-100 delay-100" : "opacity-0"
-                      }`}
-                    >
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
+                {isOpen && <p className="pb-6 text-sm leading-relaxed text-muted-foreground">{faq.a}</p>}
               </li>
             )
           })}
