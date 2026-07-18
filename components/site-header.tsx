@@ -22,7 +22,7 @@ function RotatingBanner() {
   return (
     <div className="flex min-h-12 items-center justify-center bg-primary px-4 py-2 text-center">
       <Link href="/#kop" className="block overflow-hidden">
-        <span key={index} className="animate-usp block font-serif text-sm leading-snug text-primary-foreground">
+        <span key={index} className="animate-usp block text-[13px] font-medium leading-snug text-primary-foreground">
           {MESSAGES[index]}
         </span>
       </Link>
