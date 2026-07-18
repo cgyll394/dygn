@@ -10,7 +10,11 @@ const FAQS = [
   },
   {
     q: "Varför bara åtta näringsämnen?",
-    a: "För att fler inte är bättre. Vi har valt näringsämnen där tre kriterier möts: tydlig vetenskaplig evidens, dokumenterat vanliga brister i nordisk kost, och bioaktiva former med gott upptag. Ett multivitamin med 25 ingredienser i verkningslösa doser ser bra ut på etiketten men gör ingen skillnad i kroppen.",
+    a: "För att fler inte är bättre. Vi har valt näringsämnen där tre kriterier möts: tydlig vetenskaplig evidens, dokumenterat vanliga brister i nordisk kost, och former med dokumenterat upptag som håller i pulver. Ett multivitamin med 25 ingredienser i verkningslösa doser ser bra ut på etiketten men gör ingen skillnad i kroppen.",
+  },
+  {
+    q: "Kommer jag känna någon skillnad?",
+    a: "Förmodligen inte — och det är ärligt svar. DYGN är ett bilbälte, inte en energidryck: det mesta av jobbet sker på blodmarkörer och lång sikt, inte i känslan samma vecka. Undantaget är magnesium, där personer som ligger lågt kan märka bättre sömn efter några veckor. Vill du se effekten svart på vitt: mät till exempel D-vitamin (25(OH)D) och homocystein före och efter tre månader.",
   },
   {
     q: "Kan jag ta DYGN tillsammans med andra kosttillskott eller läkemedel?",

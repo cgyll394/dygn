@@ -4,22 +4,22 @@ const phases = [
   {
     label: "Dag 1",
     title: "Rutinen börjar",
-    body: "Kalium och magnesium tas upp inom timmar och bidrar till normal vätske- och elektrolytbalans. Resten är ett långsiktigt arbete som just har påbörjats.",
+    body: "Kalium och magnesium tas upp inom timmar och bidrar till normal vätske- och elektrolytbalans. Resten är ett långsiktigt arbete som just har påbörjats — och det ska inte kännas.",
   },
   {
-    label: "Vecka 2",
-    title: "Nivåerna byggs",
-    body: "B12- och folatdepåerna fylls på. Magnesiumbisglycinatets fördel — skonsamt för magen — märks i att rutinen är lätt att hålla.",
+    label: "Vecka 2–4",
+    title: "Depåerna fylls",
+    body: "B12- och folatnivåerna byggs upp och homocysteinet — blodmarkören de styr — sjunker inom några veckor. Magnesium behöver 6–12 veckor för att nå full nivå i cellerna.",
   },
   {
-    label: "Vecka 4",
-    title: "D-vitaminstatus stiger",
-    body: "Serumnivåerna av D3 närmar sig platå. K2 arbetar parallellt med att styra kalcium till skelettet, där det hör hemma.",
+    label: "Dag 90",
+    title: "D-vitamin når platå",
+    body: "Blodnivån av D3 planar ut på sin nya nivå efter ungefär tre månader — det är därför vi pratar om månader, inte dagar. Vill du se det svart på vitt: mät 25(OH)D före och efter.",
   },
   {
-    label: "Månad 3",
-    title: "Full effekt",
-    body: "Näringsstatus har stabiliserats på en ny nivå. Det är här skillnaden märks — i återhämtning, energi och det som inte längre saknas.",
+    label: "År 1–3",
+    title: "Det tysta arbetet",
+    body: "K2:s effekt på benmassa och kärlelasticitet visade sig i studier som pågick i tre år. Du kommer aldrig känna den. Det är så förebyggande näring fungerar — och hela poängen.",
   },
 ]
 
@@ -33,16 +33,16 @@ export function EffectTimeline() {
             id="timeline-heading"
             className="mt-4 font-serif text-3xl leading-tight text-balance md:text-5xl"
           >
-            Näringsstatus byggs inte på en dag. <em className="italic">Därför heter vi DYGN.</em>
+            Näringsstatus byggs inte på en dag. Därför heter vi DYGN.
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Vattenlösliga vitaminer verkar snabbt. Fettlösliga byggs upp över veckor. Effekten är kumulativ — inte
-            omedelbar. En sachet om dagen är hela metoden.
+            Vattenlösliga vitaminer verkar snabbt. Fettlösliga byggs upp över veckor och månader. Effekten är
+            kumulativ — inte omedelbar. En sachet om dagen är hela metoden.
           </p>
           <div className="relative mt-10 hidden aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg md:block">
             <Image
-              src="/lifestyle/window.jpg"
-              alt="Morgonljus genom fönster"
+              src="/lifestyle/morning-table.jpg"
+              alt="DYGN-sachet på ett träbord i morgonljus"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover"
@@ -70,7 +70,7 @@ export function EffectTimeline() {
         </ol>
       </div>
       <p className="mx-auto mt-10 max-w-6xl px-5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-8">
-        Tidslinjen är ungefärlig och baserad på typisk upptagsforskning. Individuella resultat varierar.
+        Tidslinjen bygger på publicerad upptagsforskning. Individuella resultat varierar.
       </p>
     </section>
   )

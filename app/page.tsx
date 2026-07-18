@@ -1,40 +1,35 @@
 import { Suspense } from "react"
-import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { Hero } from "@/components/sections/hero"
-import { Marquee, Reviews, DoctorQuote } from "@/components/sections/social-proof"
+import { Reviews } from "@/components/sections/social-proof"
 import { BuySection } from "@/components/sections/buy-section"
+import { WhyDygn } from "@/components/sections/why-dygn"
 import { Ingredients } from "@/components/sections/ingredients"
 import { HowItWorks } from "@/components/sections/how-it-works"
-import { Comparison } from "@/components/sections/comparison"
-import { Philosophy, LifestyleGrid } from "@/components/sections/lifestyle"
+import { Philosophy } from "@/components/sections/lifestyle"
+import { DygnStandard } from "@/components/sections/dygn-standard"
 import { Faq } from "@/components/sections/faq"
+import { ClosingCta } from "@/components/sections/closing-cta"
 
 export default function HomePage() {
   return (
     <>
-      <div className="bg-primary px-4 py-2.5 text-center">
-        <Link href="#kop" className="font-serif text-sm text-primary-foreground">
-          {"Lansering hösten 2026. Förbeställ nu — 30 dagars öppet köp."}
-        </Link>
-      </div>
       <SiteHeader />
       <main>
         <Hero />
-        <Marquee />
-        <Suspense fallback={<div className="min-h-[60vh] bg-background" aria-hidden />}>
+        <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
           <BuySection />
         </Suspense>
+        <WhyDygn />
         <Ingredients />
         <HowItWorks />
         <Philosophy />
-        <Comparison />
         <Reviews />
-        <DoctorQuote />
+        <DygnStandard />
         <Faq />
-        <LifestyleGrid />
+        <ClosingCta />
       </main>
       <SiteFooter />
       <CartDrawer />

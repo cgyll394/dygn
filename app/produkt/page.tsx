@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { Star } from "lucide-react"
 import { getProduct, type ProductImage } from "@/lib/shopify"
 import { SiteHeader } from "@/components/site-header"
@@ -8,28 +7,26 @@ import { CartDrawer } from "@/components/cart/cart-drawer"
 import { ProductGallery } from "@/components/product/product-gallery"
 import { BuyBox } from "@/components/product/buy-box"
 import { StickyAtc } from "@/components/product/sticky-atc"
+import { HowToUse } from "@/components/sections/pdp/how-to-use"
 import { EffectTimeline } from "@/components/sections/pdp/effect-timeline"
-import { WhySachet } from "@/components/sections/pdp/why-sachet"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
 import { Ingredients } from "@/components/sections/ingredients"
-import { HowItWorks } from "@/components/sections/how-it-works"
-import { Reviews, DoctorQuote } from "@/components/sections/social-proof"
+import { Honesty } from "@/components/sections/honesty"
 import { Faq } from "@/components/sections/faq"
 
 export const metadata: Metadata = {
   title: "DYGN Daily Nutrition — 30 sachets | DYGN",
   description:
-    "Åtta näringsämnen i bioaktiva former, doserade efter forskning. En sachet om dagen. Vegansk, tredjepartstestad, tillverkad i EU.",
+    "Åtta näringsämnen i rätt form och rätt dos — förklarat och tredjepartstestat. En sachet om dagen. Vegansk, tillverkad i EU.",
 }
 
-const badges = ["Framtagen för nordiska behov", "Tredjepartstestad", "Vegansk & utan tillsatt socker"]
+const chips = ["Immunförsvar", "Energi & trötthet", "Ben & muskler", "Elektrolytbalans"]
 
-const HAND_SHOT: ProductImage = {
-  url: "/product/dygn-hand.jpg",
-  altText: "DYGN-sachet i en hand mot varmt ljus",
-  width: 1800,
-  height: 2234,
-}
+const GALLERY: ProductImage[] = [
+  { url: "/product/dygn-float.jpg", altText: "DYGN-sachet svävande mot koboltblå bakgrund", width: 1600, height: 1986 },
+  { url: "/product/dygn-packshot.jpg", altText: "DYGN Daily Essential-sachet, studiofoto", width: 1600, height: 2399 },
+  { url: "/product/dygn-box-open.jpg", altText: "Öppnad DYGN-ask med 30 sachets", width: 1800, height: 1344 },
+]
 
 export default async function ProductPage() {
   const product = await getProduct("dygn-daily-nutrition")
@@ -48,33 +45,16 @@ export default async function ProductPage() {
 
   return (
     <>
-      <div className="bg-primary px-4 py-2.5 text-center">
-        <Link href="#kop-panel" className="font-serif text-sm text-primary-foreground">
-          {"Lansering hösten 2026. Förbeställ nu — 30 dagars öppet köp."}
-        </Link>
-      </div>
       <SiteHeader />
-      <main>
+      <main className="pb-28 md:pb-24">
         {/* PDP hero */}
         <section className="bg-card" aria-labelledby="pdp-heading">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-10 md:grid-cols-2 md:gap-16 md:px-8 md:py-16">
-            <div className="md:sticky md:top-24 md:self-start">
-              <ProductGallery images={[HAND_SHOT, ...product.images.nodes.slice(1)]} title={product.title} />
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-8 md:grid-cols-2 md:gap-16 md:px-8 md:py-16">
+            <div className="md:sticky md:top-28 md:self-start">
+              <ProductGallery images={GALLERY} title={product.title} />
             </div>
             <div id="kop-panel" className="flex scroll-mt-24 flex-col">
-              <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
-                {badges.map((badge) => (
-                  <li
-                    key={badge}
-                    className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground"
-                  >
-                    <span aria-hidden="true" className="h-1 w-1 rounded-full bg-primary" />
-                    {badge}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-5 flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <span className="flex" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
@@ -88,9 +68,19 @@ export default async function ProductPage() {
               </h1>
               <p className="mt-1 text-sm text-muted-foreground">{"30 sachets. En om dagen."}</p>
 
+              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Bidrar till">
+                {chips.map((chip) => (
+                  <li
+                    key={chip}
+                    className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground"
+                  >
+                    {chip}
+                  </li>
+                ))}
+              </ul>
+
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Åtta näringsämnen i bioaktiva former, doserade efter forskning — inte marknadsföring. Löses i vatten.
-                Mild citrus. Utan tillsatt socker.
+                {"2000 IE vitamin D3, 180 µg K2 (MK-7), 200 mg magnesium, 500 µg B12, 400 µg folat, 400 mg kalium, 15 mg zink och 150 µg jod. Varje form vald för dokumenterat upptag, varje dos förklarad. Löses i vatten. Mild citrus, utan tillsatt socker."}
               </p>
 
               <div className="mt-8">
@@ -100,18 +90,16 @@ export default async function ProductPage() {
           </div>
         </section>
 
-        <WhySachet />
-        <Ingredients />
+        <HowToUse />
         <EffectTimeline />
         <ProductFacts />
-        <HowItWorks />
-        <Reviews />
-        <DoctorQuote />
+        <Ingredients />
+        <Honesty />
         <Faq />
       </main>
       <SiteFooter />
       <CartDrawer />
-      <StickyAtc variants={product.variants.nodes} watchId="kop-panel" image={HAND_SHOT.url} />
+      <StickyAtc variants={product.variants.nodes} />
     </>
   )
 }

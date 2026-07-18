@@ -81,6 +81,46 @@
   animation: marquee 32s linear infinite;
 }
 
+@keyframes usp-cycle {
+  0%,
+  6% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  12%,
+  88% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  94%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@utility animate-usp {
+  animation: usp-cycle 4s ease-in-out both;
+}
+
+/* Horizontal snap carousel for mobile — swipe like an app, grid on desktop */
+@utility snap-row {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+@utility snap-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -90,5 +130,17 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .animate-usp {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

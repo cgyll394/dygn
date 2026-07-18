@@ -9,13 +9,13 @@ const details = [
 
 const nutrition = [
   { name: "Vitamin D3 (Vitashine)", dose: "2000 IE / 50 µg", dri: "1000 %" },
-  { name: "Vitamin K2 (MenaQ7, MK-7)", dose: "100 µg", dri: "133 %" },
-  { name: "Vitamin B12 (metylkobalamin)", dose: "100 µg", dri: "4000 %" },
-  { name: "Folat (Quatrefolic, 5-MTHF)", dose: "400 µg", dri: "200 %" },
-  { name: "Magnesium (bisglycinat)", dose: "200 mg", dri: "53 %" },
+  { name: "Vitamin K2 (MenaQ7, MK-7)", dose: "180 µg", dri: "240 %" },
+  { name: "Vitamin B12 (cyanokobalamin)", dose: "500 µg", dri: "20 000 %" },
+  { name: "Folat (kalcium-L-metylfolat)", dose: "400 µg", dri: "200 %" },
+  { name: "Magnesium (citrat)", dose: "200 mg", dri: "53 %" },
   { name: "Kalium (citrat)", dose: "400 mg", dri: "20 %" },
-  { name: "Zink (pikolinat)", dose: "10 mg", dri: "100 %" },
-  { name: "Jod (kaliumjodid)", dose: "150 µg", dri: "100 %" },
+  { name: "Zink (citrat)", dose: "15 mg", dri: "150 %" },
+  { name: "Jod (kaliumjodat)", dose: "150 µg", dri: "100 %" },
 ]
 
 export function ProductFacts() {
@@ -70,7 +70,7 @@ export function ProductFacts() {
               </tbody>
             </table>
             <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
-              {"% avser dagligt referensintag (DRI) för vuxna. Ingredienser: kaliumcitrat, magnesiumbisglycinat, surhetsreglerande medel (citronsyra), naturlig citrusarom, zinkpikolinat, MenaQ7, Quatrefolic, Vitashine D3, metylkobalamin, kaliumjodid."}
+              {"% avser dagligt referensintag (DRI) för vuxna. Ingredienser: kaliumcitrat, magnesiumcitrat, surhetsreglerande medel (citronsyra), naturlig citrusarom, zinkcitrat, kalcium-L-metylfolat, menakinon-7 (MenaQ7), kolekalciferol från lav (Vitashine), cyanokobalamin, kaliumjodat."}
             </p>
           </div>
         </div>

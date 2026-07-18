@@ -4,7 +4,7 @@ const BADGES = [
   { icon: MapPin, text: "Formulerad i Sverige" },
   { icon: FlaskConical, text: "Tredjepartstestad" },
   { icon: Leaf, text: "Vegansk & sockerfri" },
-  { icon: Droplets, text: "Bioaktiva former" },
+  { icon: Droplets, text: "Rätt form & rätt dos" },
 ]
 
 export function Marquee() {
@@ -63,9 +63,12 @@ export function Reviews() {
             <span className="ml-1">5,0 i snitt bland tidiga testare</span>
           </p>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3 md:gap-6">
+        <div className="snap-row mt-10 gap-4 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
           {REVIEWS.map((review) => (
-            <figure key={review.name} className="flex flex-col justify-between rounded-lg bg-card p-7">
+            <figure
+              key={review.name}
+              className="snap-item flex w-[82vw] max-w-[360px] flex-col justify-between rounded-lg bg-card p-7 md:w-auto md:max-w-none"
+            >
               <div>
                 <div className="flex gap-1" aria-label="5 av 5 stjärnor">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -81,6 +84,9 @@ export function Reviews() {
             </figure>
           ))}
         </div>
+        <p className="mt-6 max-w-2xl text-[11px] leading-relaxed text-muted-foreground">
+          {"Citaten kommer från vår testpanel: 200 personer som använde DYGN dagligen i 90 dagar före lansering. Deltagarna fick produkten kostnadsfritt men ingen annan ersättning. Individuella upplevelser varierar — de flesta känner ingen skillnad, och det är förväntat."}
+        </p>
       </div>
     </section>
   )

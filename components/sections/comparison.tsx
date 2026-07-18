@@ -2,7 +2,7 @@ import { Check, Minus } from "lucide-react"
 
 const ROWS = [
   { label: "Alla doser deklarerade på etiketten", dygn: true, blends: false, pharmacy: true },
-  { label: "Bioaktiva former (5-MTHF, MK-7, metylkobalamin)", dygn: true, blends: false, pharmacy: false },
+  { label: "Dokumenterade former (5-MTHF, MK-7, citrat)", dygn: true, blends: false, pharmacy: false },
   { label: "Doser i nivåer som studier faktiskt använt", dygn: true, blends: false, pharmacy: false },
   { label: "Utan proprietära blandningar", dygn: true, blends: false, pharmacy: true },
   { label: "Formulerad för nordiska bristmönster", dygn: true, blends: false, pharmacy: false },

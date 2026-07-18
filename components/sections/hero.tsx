@@ -4,38 +4,39 @@ import { Star } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
+    <section className="relative -mt-16 flex min-h-[92svh] items-end overflow-hidden bg-ink md:-mt-[76px]">
       <Image
-        src="/lifestyle/runclub-bottle.jpg"
-        alt="Löpare som håller upp en DYGN-sachet och vattenflaska efter ett pass"
+        src="/lifestyle/hero-fisheye.jpg"
+        alt="Löpare håller upp en DYGN-sachet framför sin löpargrupp på en löparbana"
         fill
         priority
-        className="object-cover object-[50%_20%]"
+        className="object-cover object-[50%_22%]"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-ink/30" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 md:px-8 md:pb-20">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 md:px-8 md:pb-20">
         <p className="mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
           Daily Nutrition — Formulerad i Sverige
         </p>
         <h1 className="max-w-3xl font-serif text-5xl leading-[1.02] text-ink-foreground text-balance sm:text-6xl md:text-8xl">
-          Allt kroppen behöver. <em className="text-primary not-italic md:italic md:text-ink-foreground">Varje dygn.</em>
+          Allt kroppen behöver. Varje dygn.
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
-          Åtta näringsämnen i de former och doser forskningen pekar på. En sachet om dagen. Inget annat.
+          Åtta näringsämnen i rätt form och rätt dos — förklarat, dokumenterat och tredjepartstestat. En sachet om
+          dagen. Inget annat.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="#kop"
-            className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
+            className="inline-flex min-h-[50px] items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
           >
             Förbeställ DYGN
           </Link>
           <Link
-            href="#ingredienser"
-            className="inline-flex items-center rounded-full border border-ink-foreground/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-foreground transition-colors hover:bg-ink-foreground/10"
+            href="#formula"
+            className="inline-flex min-h-[50px] items-center rounded-full border border-ink-foreground/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-foreground transition-colors hover:bg-ink-foreground/10"
           >
             Formuleringen
           </Link>

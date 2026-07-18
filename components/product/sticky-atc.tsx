@@ -1,8 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import { ChevronDown, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
 import type { ProductVariant } from "@/lib/shopify"
 
@@ -14,84 +12,68 @@ function formatMoney(amount: string, currencyCode: string) {
   }).format(Number.parseFloat(amount))
 }
 
-export function StickyAtc({
-  variants,
-  watchId,
-  image,
-}: {
-  variants: ProductVariant[]
-  watchId: string
-  image: string
-}) {
-  const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
-  const [selectedId, setSelectedId] = useState(subscription?.id ?? variants[0]?.id)
-  const [visible, setVisible] = useState(false)
+/**
+ * Cadence-style purchase bar: visible from page load, subscription as the
+ * primary CTA, one-time purchase as a quiet text link underneath.
+ */
+export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
   const { addItem, isPending, isOpen } = useCart()
 
-  useEffect(() => {
-    const target = document.getElementById(watchId)
-    if (!target) return
-    function onScroll() {
-      setVisible(target!.getBoundingClientRect().bottom < 0)
-    }
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    window.addEventListener("resize", onScroll)
-    return () => {
-      window.removeEventListener("scroll", onScroll)
-      window.removeEventListener("resize", onScroll)
-    }
-  }, [watchId])
+  const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
+  const oneTime = variants.find(
+    (v) => !v.title.toLowerCase().includes("prenumeration") && !v.title.toLowerCase().includes("3-pack"),
+  )
+  const primary = subscription ?? variants[0]
+  if (!primary) return null
 
-  const selected = variants.find((v) => v.id === selectedId)
-  if (!selected) return null
+  function savings(v?: ProductVariant) {
+    if (!v?.compareAtPrice) return 0
+    return Math.round(
+      (1 - Number.parseFloat(v.price.amount) / Number.parseFloat(v.compareAtPrice.amount)) * 100,
+    )
+  }
+  const save = savings(subscription)
 
   return (
     <div
-      aria-hidden={!visible || isOpen}
+      aria-hidden={isOpen}
       className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur-md transition-transform duration-300 ${
-        visible && !isOpen ? "translate-y-0" : "translate-y-full"
+        isOpen ? "translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3 md:gap-5 md:px-8">
-        <div className="relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-md bg-muted sm:block">
-          <Image src={image || "/placeholder.svg"} alt="" fill sizes="48px" className="object-cover" />
+      <div className="pb-safe mx-auto max-w-6xl px-4 pb-3 pt-2.5 md:px-8">
+        <p className="pb-1.5 text-center text-xs text-muted-foreground md:hidden">
+          {"DYGN Daily Nutrition · 30 sachets"}
+        </p>
+        <div className="flex items-center gap-4 md:gap-6">
+          <div className="hidden min-w-0 flex-col md:flex">
+            <p className="truncate text-sm font-semibold">DYGN Daily Nutrition</p>
+            <p className="text-xs text-muted-foreground">{"30 sachets. En om dagen."}</p>
+          </div>
+          <div className="flex flex-1 flex-col items-center gap-1.5 md:ml-auto md:max-w-md">
+            <button
+              type="button"
+              disabled={isPending || !primary.availableForSale}
+              onClick={() => addItem(primary.id)}
+              className="flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold uppercase tracking-[0.08em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+            >
+              {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
+              {subscription
+                ? `Prenumerera${save > 0 ? ` — spara ${save} %` : ""} · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`
+                : `Lägg i varukorgen · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`}
+            </button>
+            {subscription && oneTime && (
+              <button
+                type="button"
+                disabled={isPending || !oneTime.availableForSale}
+                onClick={() => addItem(oneTime.id)}
+                className="min-h-[32px] text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground disabled:opacity-50"
+              >
+                {`Engångsköp · ${formatMoney(oneTime.price.amount, oneTime.price.currencyCode)}`}
+              </button>
+            )}
+          </div>
         </div>
-        <div className="hidden min-w-0 flex-col md:flex">
-          <p className="truncate text-sm font-semibold">DYGN Daily Nutrition</p>
-          <p className="text-xs text-muted-foreground">30 sachets. En om dagen.</p>
-        </div>
-        <div className="relative ml-auto">
-          <select
-            value={selectedId}
-            onChange={(e) => setSelectedId(e.target.value)}
-            aria-label="Välj köpalternativ"
-            className="h-12 appearance-none rounded-lg border border-border bg-background pl-4 pr-9 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ring"
-          >
-            {variants.map((v) => (
-              <option key={v.id} value={v.id}>
-                {`${v.title} — ${formatMoney(v.price.amount, v.price.currencyCode)}`}
-              </option>
-            ))}
-          </select>
-          <ChevronDown
-            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-            aria-hidden="true"
-          />
-        </div>
-        <button
-          type="button"
-          disabled={isPending || !selected.availableForSale}
-          onClick={() => addItem(selected.id)}
-          className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-foreground px-5 text-sm font-semibold uppercase tracking-[0.08em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50 md:px-8"
-        >
-          {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
-          <span className="hidden sm:inline">Lägg i varukorgen</span>
-          <span className="sm:hidden">Köp</span>
-          <span aria-hidden="true" className="hidden font-normal opacity-70 md:inline">
-            {`— ${formatMoney(selected.price.amount, selected.price.currencyCode)}`}
-          </span>
-        </button>
       </div>
     </div>
   )

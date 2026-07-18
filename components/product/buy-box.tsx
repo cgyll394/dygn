@@ -23,6 +23,7 @@ type Option = {
   badge: string | null
   pickBadge: string | null
   servings: number
+  note: string
   perks: string[]
 }
 
@@ -52,11 +53,8 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       badge: savings(subscription) > 0 ? `Spara ${savings(subscription)}%` : null,
       pickBadge: "De flesta väljer denna",
       servings: 30,
-      perks: [
-        "En förpackning var 30:e dag",
-        "Alltid fri frakt",
-        "Pausa, hoppa över eller avsluta när som helst",
-      ],
+      note: "30 sachets var 30:e dag",
+      perks: ["Alltid fri frakt", "Pausa, hoppa över eller avsluta när som helst"],
     },
     threePack && {
       variant: threePack,
@@ -64,7 +62,8 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       badge: savings(threePack) > 0 ? `Spara ${savings(threePack)}%` : null,
       pickBadge: null,
       servings: 90,
-      perks: ["90 dagar. Ett beslut.", "Fri frakt ingår"],
+      note: "90 sachets, en leverans",
+      perks: ["Fri frakt ingår"],
     },
     oneTime && {
       variant: oneTime,
@@ -72,6 +71,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       badge: null,
       pickBadge: null,
       servings: 30,
+      note: "30 sachets, en leverans",
       perks: [],
     },
   ].filter(Boolean) as Option[]
@@ -82,7 +82,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
         <legend className="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
           Välj ditt sätt att köpa
         </legend>
-        {options.map(({ variant, label, badge, pickBadge, servings: srv, perks }) => {
+        {options.map(({ variant, label, badge, pickBadge, servings: srv, note, perks }) => {
           const isSelected = variant.id === selectedId
           return (
             <label
@@ -125,18 +125,22 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
                     )}
                   </span>
                   <span className="mt-1.5 flex flex-wrap items-baseline gap-x-2">
-                    {variant.compareAtPrice && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
-                      </span>
-                    )}
                     <span className="font-serif text-2xl leading-none">
-                      {formatMoney(variant.price.amount, variant.price.currencyCode)}
+                      {perDay(variant.price.amount, variant.price.currencyCode, srv)}
                     </span>
-                    <span className="ml-auto text-xs font-medium text-muted-foreground">
-                      {`${perDay(variant.price.amount, variant.price.currencyCode, srv)} per dag`}
+                    <span className="text-sm text-muted-foreground">per dag</span>
+                    <span className="ml-auto flex items-baseline gap-1.5 text-xs text-muted-foreground">
+                      {variant.compareAtPrice && (
+                        <span className="line-through">
+                          {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
+                        </span>
+                      )}
+                      <span className="font-medium text-foreground">
+                        {formatMoney(variant.price.amount, variant.price.currencyCode)}
+                      </span>
                     </span>
                   </span>
+                  <span className="mt-1 text-xs text-muted-foreground">{note}</span>
                 </span>
               </span>
               {isSelected && perks.length > 0 && (
@@ -158,10 +162,12 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
         type="button"
         disabled={isPending || !selected.availableForSale}
         onClick={() => addItem(selected.id)}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-foreground py-4 text-sm font-semibold uppercase tracking-[0.1em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+        className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-lg bg-foreground py-4 text-sm font-semibold uppercase tracking-[0.1em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
       >
         {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-        {selected.availableForSale ? "Lägg i varukorgen" : "Slutsåld"}
+        {selected.availableForSale
+          ? `Lägg i varukorgen — ${formatMoney(selected.price.amount, selected.price.currencyCode)}`
+          : "Slutsåld"}
       </button>
 
       <ul className="flex flex-col gap-2.5 border-t border-border pt-5">

@@ -14,7 +14,7 @@ const STEPS = [
   {
     number: "03",
     title: "Klart för dagen",
-    text: "Åtta näringsämnen i bioaktiva former som kroppen tar upp. Sedan behöver du inte tänka på det mer.",
+    text: "Åtta näringsämnen i former kroppen tar upp. Sedan behöver du inte tänka på det mer.",
   },
 ]
 
@@ -25,8 +25,8 @@ export function HowItWorks() {
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="/lifestyle/feet-up.jpg"
-              alt="Person som vilar med fötterna uppåt och håller ett glas"
+              src="/lifestyle/morning-table.jpg"
+              alt="DYGN-sachet på ett träbord i morgonljus"
               fill
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
