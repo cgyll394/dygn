@@ -9,7 +9,7 @@ import { useCart } from "@/components/cart/cart-context"
 const MESSAGES = [
   "Lansering hösten 2026. Förbeställ nu — 30 dagars öppet köp.",
   "Fri frakt och spara 20 % med prenumeration. Avsluta när som helst.",
-  "Åtta näringsämnen. Rätt form. Rätt dos. Förklarat.",
+  "En sachet, åtta näringsämnen. Klart på 30 sekunder.",
   "Tredjepartstestad. Tillverkad i EU enligt GMP.",
 ]
 
@@ -47,7 +47,7 @@ export function SiteHeader() {
               Produkten
             </Link>
             <Link
-              href="/#formula"
+              href="/formulering"
               className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
             >
               Formuleringen

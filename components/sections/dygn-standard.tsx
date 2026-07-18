@@ -1,11 +1,11 @@
 const PILLARS = [
   {
     title: "Rätt form",
-    text: "Varje näringsämne i en form med dokumenterat upptag som dessutom håller i pulver. När stabilitet och story står mot varandra vinner stabiliteten.",
+    text: "Varje näringsämne i en form med dokumenterat upptag som håller i pulver.",
   },
   {
     title: "Rätt dos",
-    text: "Kliniska doser där forskningen motiverar det — som 180 µg K2 ur treårsstudierna. RDI där det räcker — som jod. Alltid förklarat, aldrig maskerat.",
+    text: "Doser med stöd i forskningen där det behövs, dagsbehov där det räcker. Alltid deklarerat.",
   },
   {
     title: "Testad",
@@ -13,7 +13,7 @@ const PILLARS = [
   },
   {
     title: "Ärlig",
-    text: "Vi lovar inga känslor vi inte kan hålla. Grundnäring märks inte — den mäts. Det står till och med på den här sidan.",
+    text: "Vi lovar inget som inte går att hålla. Det som inte känns går att mäta.",
   },
 ]
 

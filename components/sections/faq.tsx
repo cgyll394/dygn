@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Kommer jag känna någon skillnad?",
-    a: "Förmodligen inte — och det är ärligt svar. DYGN är ett bilbälte, inte en energidryck: det mesta av jobbet sker på blodmarkörer och lång sikt, inte i känslan samma vecka. Undantaget är magnesium, där personer som ligger lågt kan märka bättre sömn efter några veckor. Vill du se effekten svart på vitt: mät till exempel D-vitamin (25(OH)D) och homocystein före och efter tre månader.",
+    a: "Förmodligen inte — och det är ett ärligt svar. Grundnäring arbetar långsiktigt och syns i blodprov, inte i hur veckan känns. Undantaget är magnesium: ligger du lågt kan sömnen bli bättre efter några veckor. Vill du se effekten, mät till exempel D-vitamin och homocystein före och efter tre månader.",
   },
   {
     q: "Kan jag ta DYGN tillsammans med andra kosttillskott eller läkemedel?",

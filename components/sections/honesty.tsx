@@ -6,16 +6,16 @@ import { Plus } from "lucide-react"
 
 const ITEMS = [
   {
-    title: "Det du inte kommer känna",
-    body: "D-vitamin, K2, folat och jod arbetar på blodmarkörer och lång sikt — inte på känslan samma vecka. Är dina nivåer redan bra känner du ingenting. Det är inte ett misslyckande, det är vad täckta behov känns som: ingenting.",
+    title: "Det du inte känner",
+    body: "D-vitamin, K2, folat och jod arbetar långsiktigt och syns i blodprov — inte i hur dagen känns. Ligger du redan bra till känner du ingenting. Så ska det vara.",
   },
   {
     title: "Det du kan märka",
-    body: "Magnesium är undantaget: ligger du lågt kan sömnen förbättras efter några veckor. Har du B12-brist — vanligt vid växtbaserad kost — kan tröttheten lätta över veckor till månader. Löften utöver det vore att ljuga.",
+    body: "Magnesium kan ge bättre sömn efter några veckor om du ligger lågt. B12 kan lyfta energin vid brist — vanligt vid växtbaserad kost. Mer än så lovar vi inte.",
   },
   {
     title: "Så ser du att det verkar",
-    body: "Mät i stället för att känna efter: ta blodprov på D-vitamin (25(OH)D) och homocystein före start och efter tre månader. Det är så vi själva utvärderar formuleringen — och det enda ärliga kvittot.",
+    body: "Ta blodprov före och efter tre månader — till exempel D-vitamin (25(OH)D) och homocystein. Det är så vi själva utvärderar formuleringen.",
   },
 ]
 
@@ -39,13 +39,12 @@ export function Honesty() {
         </p>
         <h2
           id="honesty-heading"
-          className="mx-auto mt-4 max-w-2xl text-center font-serif text-3xl leading-tight text-ink-foreground text-balance md:text-5xl"
+          className="mx-auto mt-4 max-w-2xl text-center font-fraunces text-3xl leading-tight text-ink-foreground text-balance md:text-5xl"
         >
           Du kommer förmodligen inte känna något. Det är meningen.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          DYGN är ett bilbälte, inte en energidryck. Grundnäring som fungerar märks inte — den syns i blodprover
-          och uteblivna brister.
+          Grundnäring ska inte kännas. Den ska synas — i blodprov och i brister som aldrig uppstår.
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">

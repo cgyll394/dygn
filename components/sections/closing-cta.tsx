@@ -16,7 +16,7 @@ export function ClosingCta() {
         <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/75">
           Formulerad i Sverige
         </p>
-        <h2 className="mt-5 font-serif text-4xl leading-tight text-ink-foreground text-balance md:text-6xl">
+        <h2 className="mt-5 font-fraunces text-4xl leading-tight text-ink-foreground text-balance md:text-6xl">
           Allt kroppen behöver. Varje dygn.
         </h2>
         <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">

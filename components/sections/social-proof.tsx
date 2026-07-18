@@ -85,7 +85,7 @@ export function Reviews() {
           ))}
         </div>
         <p className="mt-6 max-w-2xl text-[11px] leading-relaxed text-muted-foreground">
-          {"Citaten kommer från vår testpanel: 200 personer som använde DYGN dagligen i 90 dagar före lansering. Deltagarna fick produkten kostnadsfritt men ingen annan ersättning. Individuella upplevelser varierar — de flesta känner ingen skillnad, och det är förväntat."}
+          {"Från testpanelen: 200 personer, 90 dagar, ingen betalning. Upplevelser varierar."}
         </p>
       </div>
     </section>

@@ -4,7 +4,7 @@ const phases = [
   {
     label: "Dag 1",
     title: "Rutinen börjar",
-    body: "Kalium och magnesium tas upp inom timmar och bidrar till normal vätske- och elektrolytbalans. Resten är ett långsiktigt arbete som just har påbörjats — och det ska inte kännas.",
+    body: "Kalium och magnesium tas upp inom timmar och bidrar till normal vätskebalans. Resten arbetar på längre sikt.",
   },
   {
     label: "Vecka 2–4",
@@ -14,12 +14,12 @@ const phases = [
   {
     label: "Dag 90",
     title: "D-vitamin når platå",
-    body: "Blodnivån av D3 planar ut på sin nya nivå efter ungefär tre månader — det är därför vi pratar om månader, inte dagar. Vill du se det svart på vitt: mät 25(OH)D före och efter.",
+    body: "Blodnivån av D-vitamin planar ut på sin nya nivå efter ungefär tre månader. Vill du se det svart på vitt — mät före och efter.",
   },
   {
     label: "År 1–3",
     title: "Det tysta arbetet",
-    body: "K2:s effekt på benmassa och kärlelasticitet visade sig i studier som pågick i tre år. Du kommer aldrig känna den. Det är så förebyggande näring fungerar — och hela poängen.",
+    body: "Effekten på benstomme och kärl syntes i studier som pågick i tre år. Tyst arbete, precis som det ska vara.",
   },
 ]
 

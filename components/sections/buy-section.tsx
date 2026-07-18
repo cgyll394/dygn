@@ -3,6 +3,7 @@ import { ProductGallery } from "@/components/product/product-gallery"
 import { BuyBox } from "@/components/product/buy-box"
 
 const GALLERY: ProductImage[] = [
+  { url: "/product/dygn-hand.jpg", altText: "DYGN-sachet i en hand mot varmt ljus", width: 1800, height: 2234 },
   { url: "/product/dygn-float.jpg", altText: "DYGN-sachet svävande mot koboltblå bakgrund", width: 1600, height: 1986 },
   { url: "/product/dygn-packshot.jpg", altText: "DYGN Daily Essential-sachet, studiofoto", width: 1600, height: 2399 },
   { url: "/product/dygn-box-open.jpg", altText: "Öppnad DYGN-ask med 30 sachets", width: 1800, height: 1344 },
@@ -29,7 +30,7 @@ export async function BuySection() {
             Allt du behöver. Inget du inte behöver.
           </h2>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-            {"2000 IE D3, 180 µg K2, 200 mg magnesium, 500 µg B12 — åtta näringsämnen, varje dos deklarerad och förklarad. En sachet om dagen, löst i ett glas vatten."}
+            {"Åtta näringsämnen i en sachet. Löses i vatten. Mild citrus, utan tillsatt socker."}
           </p>
           <div className="mt-8">
             <BuyBox variants={product.variants.nodes} />
