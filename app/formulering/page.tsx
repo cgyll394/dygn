@@ -3,6 +3,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { Ingredients } from "@/components/sections/ingredients"
+import { Comparison } from "@/components/sections/comparison"
+import { PriceComparison } from "@/components/sections/price-comparison"
 import { DygnStandard } from "@/components/sections/dygn-standard"
 import { Philosophy } from "@/components/sections/lifestyle"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
@@ -19,7 +21,7 @@ export default function FormulaPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="bg-ink pb-4 pt-14 text-ink-foreground md:pt-20">
+        <section className="-mt-16 bg-ink pb-4 pt-[7.5rem] text-ink-foreground md:-mt-[76px] md:pt-[10rem]">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">Formuleringen</p>
             <h1 className="mt-4 max-w-3xl font-fraunces text-4xl leading-[1.05] text-balance md:text-6xl">
@@ -28,6 +30,8 @@ export default function FormulaPage() {
           </div>
         </section>
         <Ingredients />
+        <Comparison />
+        <PriceComparison />
         <DygnStandard />
         <Philosophy />
         <ProductFacts />

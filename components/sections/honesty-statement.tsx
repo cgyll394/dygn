@@ -21,7 +21,7 @@ export function HonestyStatement() {
           Du kommer förmodligen inte känna något. Det är meningen.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
-          Grundnäring ska inte kännas. Den ska synas: i blodprov och i brister som aldrig uppstår.
+          Se DYGN som en försäkring för kroppens grundbehov. Täcker du redan allt märker du inget, och det är ett gott tecken. Har du en brist kan skillnaden faktiskt märkas.
         </p>
         <Link
           href="/produkt"

@@ -46,10 +46,10 @@ export function Comparison() {
                   DYGN
                 </th>
                 <th scope="col" className="w-36 px-3 py-4 text-center text-sm font-medium text-muted-foreground">
-                  {'"Greens"-blandningar'}
+                  {"Gröna pulver (AG1, IM8)"}
                 </th>
                 <th scope="col" className="w-36 px-3 py-4 text-center text-sm font-medium text-muted-foreground">
-                  Multivitamin från apoteket
+                  Apotekens multivitamin
                 </th>
               </tr>
             </thead>

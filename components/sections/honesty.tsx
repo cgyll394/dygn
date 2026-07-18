@@ -7,15 +7,15 @@ import { Plus } from "lucide-react"
 const ITEMS = [
   {
     title: "Det du inte känner",
-    body: "D-vitamin, K2, folat och jod arbetar långsiktigt och syns i blodprov, inte i hur dagen känns. Ligger du redan bra till känner du ingenting. Så ska det vara.",
+    body: "D-vitamin, K2, folat och jod arbetar i bakgrunden. Deras jobb syns i blodprov och på lång sikt, inte i hur dagen känns. Mår du redan bra är det precis som det ska vara.",
   },
   {
     title: "Det du kan märka",
-    body: "Magnesium kan ge bättre sömn efter några veckor om du ligger lågt. B12 kan lyfta energin vid brist, vanligt vid växtbaserad kost. Mer än så lovar vi inte.",
+    body: "Många går med en brist utan att veta om det. Ligger du lågt i magnesium kan sömnen bli bättre efter några veckor, och vid B12-brist kan energin lyfta. Det varierar från person till person.",
   },
   {
-    title: "Så ser du att det verkar",
-    body: "Ta blodprov före och efter tre månader, till exempel D-vitamin och homocystein. Det är så vi själva utvärderar formuleringen.",
+    title: "Så följer du effekten",
+    body: "Vill du veta säkert går det att mäta: ta gärna blodprov före och efter tre månader, till exempel D-vitamin och homocystein. Annars räcker det långt att rutinen känns lätt att hålla.",
   },
 ]
 
@@ -44,7 +44,7 @@ export function Honesty() {
           Du kommer förmodligen inte känna något. Det är meningen.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          Grundnäring ska inte kännas. Den ska synas: i blodprov och i brister som aldrig uppstår.
+          Se DYGN som en försäkring för kroppens grundbehov. Täcker du redan allt märker du inget. Har du en brist kan skillnaden faktiskt märkas.
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">

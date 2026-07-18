@@ -42,19 +42,19 @@ export function SiteHeader() {
           <nav aria-label="Huvudmeny" className="hidden items-center gap-7 md:flex">
             <Link
               href="/produkt"
-              className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Produkten
             </Link>
             <Link
               href="/formulering"
-              className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Formuleringen
             </Link>
             <Link
               href="/#faq"
-              className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Frågor
             </Link>
