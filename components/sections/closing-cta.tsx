@@ -8,7 +8,7 @@ export function ClosingCta() {
         src="/lifestyle/stockholm-winter.jpg"
         alt="Löpare med en DYGN-sachet vid vattnet i Stockholm en vintermorgon"
         fill
-        className="object-cover object-[65%_30%] opacity-80"
+        className="object-cover object-[65%_30%] opacity-80 md:object-[50%_55%]"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/20" aria-hidden />
@@ -26,7 +26,7 @@ export function ClosingCta() {
           >
             Förbeställ DYGN
           </Link>
-          <p className="text-sm text-ink-foreground/80">{"Från 12 kr per dag · 30 dagars öppet köp"}</p>
+          <p className="text-sm text-ink-foreground/80">{"Från 10 kr per dag · 30 dagars öppet köp"}</p>
         </div>
       </div>
     </section>

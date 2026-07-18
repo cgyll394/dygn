@@ -7,7 +7,7 @@ const ROWS = [
   { label: "Utan proprietära blandningar", dygn: true, blends: false, pharmacy: true },
   { label: "Formulerad för nordiska bristmönster", dygn: true, blends: false, pharmacy: false },
   { label: "En dos om dagen, inget schema", dygn: true, blends: true, pharmacy: false },
-  { label: "8 ingredienser — inget onödigt", dygn: true, blends: false, pharmacy: false },
+  { label: "8 ingredienser, inget onödigt", dygn: true, blends: false, pharmacy: false },
 ]
 
 function Cell({ value }: { value: boolean }) {
@@ -32,7 +32,7 @@ export function Comparison() {
           Varför DYGN och inte allt annat?
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          De flesta tillskott konkurrerar med längre innehållsförteckningar. Vi konkurrerar med kortare — där varje rad
+          De flesta tillskott konkurrerar med längre innehållsförteckningar. Vi konkurrerar med kortare, där varje rad
           har belägg och en dos som betyder något.
         </p>
         <div className="mt-10 overflow-x-auto">

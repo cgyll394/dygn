@@ -7,15 +7,15 @@ import { Plus } from "lucide-react"
 const ITEMS = [
   {
     title: "Det du inte känner",
-    body: "D-vitamin, K2, folat och jod arbetar långsiktigt och syns i blodprov — inte i hur dagen känns. Ligger du redan bra till känner du ingenting. Så ska det vara.",
+    body: "D-vitamin, K2, folat och jod arbetar långsiktigt och syns i blodprov, inte i hur dagen känns. Ligger du redan bra till känner du ingenting. Så ska det vara.",
   },
   {
     title: "Det du kan märka",
-    body: "Magnesium kan ge bättre sömn efter några veckor om du ligger lågt. B12 kan lyfta energin vid brist — vanligt vid växtbaserad kost. Mer än så lovar vi inte.",
+    body: "Magnesium kan ge bättre sömn efter några veckor om du ligger lågt. B12 kan lyfta energin vid brist, vanligt vid växtbaserad kost. Mer än så lovar vi inte.",
   },
   {
     title: "Så ser du att det verkar",
-    body: "Ta blodprov före och efter tre månader — till exempel D-vitamin (25(OH)D) och homocystein. Det är så vi själva utvärderar formuleringen.",
+    body: "Ta blodprov före och efter tre månader, till exempel D-vitamin och homocystein. Det är så vi själva utvärderar formuleringen.",
   },
 ]
 
@@ -44,7 +44,7 @@ export function Honesty() {
           Du kommer förmodligen inte känna något. Det är meningen.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          Grundnäring ska inte kännas. Den ska synas — i blodprov och i brister som aldrig uppstår.
+          Grundnäring ska inte kännas. Den ska synas: i blodprov och i brister som aldrig uppstår.
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">

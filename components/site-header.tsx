@@ -7,10 +7,10 @@ import { ShoppingBag } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
 
 const MESSAGES = [
-  "Lansering hösten 2026. Förbeställ nu — 30 dagars öppet köp.",
+  "Lansering hösten 2026. Förbeställ nu. 30 dagars öppet köp.",
   "Fri frakt och spara 20 % med prenumeration. Avsluta när som helst.",
   "En sachet, åtta näringsämnen. Klart på 30 sekunder.",
-  "Tredjepartstestad. Tillverkad i EU enligt GMP.",
+  "Tredjepartstestad. Tillverkad i Sverige.",
 ]
 
 function RotatingBanner() {
@@ -20,7 +20,7 @@ function RotatingBanner() {
     return () => clearInterval(id)
   }, [])
   return (
-    <div className="bg-primary px-4 py-2.5 text-center">
+    <div className="flex min-h-12 items-center justify-center bg-primary px-4 py-2 text-center">
       <Link href="/#kop" className="block overflow-hidden">
         <span key={index} className="animate-usp block font-serif text-sm leading-snug text-primary-foreground">
           {MESSAGES[index]}

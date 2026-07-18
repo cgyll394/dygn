@@ -4,7 +4,7 @@ const details = [
   { label: "Format", value: "Pulver, löses i vatten" },
   { label: "Smak", value: "Mild citrus, utan tillsatt socker" },
   { label: "Kost", value: "Vegansk, glutenfri" },
-  { label: "Tillverkning", value: "EU, enligt GMP" },
+  { label: "Tillverkning", value: "Sverige" },
 ]
 
 const nutrition = [

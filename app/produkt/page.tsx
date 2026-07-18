@@ -14,16 +14,16 @@ import { Honesty } from "@/components/sections/honesty"
 import { Faq } from "@/components/sections/faq"
 
 export const metadata: Metadata = {
-  title: "DYGN Daily Nutrition — 30 sachets | DYGN",
+  title: "DYGN Daily Nutrition · 30 sachets | DYGN",
   description:
-    "Åtta näringsämnen i rätt form och rätt dos — förklarat och tredjepartstestat. En sachet om dagen. Vegansk, tillverkad i EU.",
+    "Åtta näringsämnen i rätt form och rätt dos. Förklarat och tredjepartstestat. En sachet om dagen. Vegansk, tillverkad i Sverige.",
 }
 
 const chips = ["Immunförsvar", "Energi & trötthet", "Ben & muskler", "Elektrolytbalans"]
 
 const GALLERY: ProductImage[] = [
-  { url: "/product/dygn-hand.jpg", altText: "DYGN-sachet i en hand mot varmt ljus", width: 1800, height: 2234 },
   { url: "/product/dygn-float.jpg", altText: "DYGN-sachet svävande mot koboltblå bakgrund", width: 1600, height: 1986 },
+  { url: "/product/dygn-hand.jpg", altText: "DYGN-sachet i en hand mot varmt ljus", width: 1800, height: 2234 },
   { url: "/product/dygn-packshot.jpg", altText: "DYGN Daily Essential-sachet, studiofoto", width: 1600, height: 2399 },
   { url: "/product/dygn-box-open.jpg", altText: "Öppnad DYGN-ask med 30 sachets", width: 1800, height: 1344 },
 ]
@@ -60,7 +60,7 @@ export default async function ProductPage() {
                     <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
                   ))}
                 </span>
-                <p className="text-xs text-muted-foreground">{"4,9 av 5 — 214 omdömen från testpanelen"}</p>
+                <p className="text-xs text-muted-foreground">{"Från våra första 200 testare"}</p>
               </div>
 
               <h1 id="pdp-heading" className="mt-3 font-serif text-4xl leading-tight text-balance md:text-5xl">
@@ -80,7 +80,7 @@ export default async function ProductPage() {
               </ul>
 
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                {"Åtta näringsämnen i en sachet — bland annat 2000 IE D3, 180 µg K2 och 200 mg magnesium. Löses i vatten. Mild citrus, utan tillsatt socker."}
+                {"Åtta näringsämnen i en sachet, bland annat 2000 IE D3, 180 µg K2 och 200 mg magnesium. Löses i vatten. Mild citrus, utan tillsatt socker."}
               </p>
 
               <div className="mt-8">

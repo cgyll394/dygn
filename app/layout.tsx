@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ??
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3001'),
   ),
-  title: 'DYGN — Daily Nutrition. Åtta näringsämnen. En sachet om dagen.',
+  title: 'DYGN · Daily Nutrition. Åtta näringsämnen. En sachet om dagen.',
   description:
-    'Åtta näringsämnen i rätt form och rätt dos — förklarat, dokumenterat och tredjepartstestat. Bara det viktiga, varje dag. Formulerat för nordisk kost.',
+    'Åtta näringsämnen i rätt form och rätt dos. Förklarat, dokumenterat och tredjepartstestat. Bara det viktiga, varje dag. Formulerat för nordisk kost.',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'DYGN — Daily Nutrition',
+    title: 'DYGN · Daily Nutrition',
     description: 'Åtta näringsämnen i rätt form och rätt dos. En sachet om dagen.',
     url: '/',
     siteName: 'DYGN',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DYGN — Daily Nutrition',
+    title: 'DYGN · Daily Nutrition',
     description: 'Åtta näringsämnen i rätt form och rätt dos. En sachet om dagen.',
     images: ['/og.jpg'],
   },

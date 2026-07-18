@@ -9,12 +9,12 @@ const phases = [
   {
     label: "Vecka 2–4",
     title: "Depåerna fylls",
-    body: "B12- och folatnivåerna byggs upp och homocysteinet — blodmarkören de styr — sjunker inom några veckor. Magnesium behöver 6–12 veckor för att nå full nivå i cellerna.",
+    body: "B12- och folatnivåerna byggs upp och blodmarkören homocystein sjunker inom några veckor. Magnesium behöver 6–12 veckor för att nå full nivå i cellerna.",
   },
   {
     label: "Dag 90",
     title: "D-vitamin når platå",
-    body: "Blodnivån av D-vitamin planar ut på sin nya nivå efter ungefär tre månader. Vill du se det svart på vitt — mät före och efter.",
+    body: "Blodnivån av D-vitamin planar ut på sin nya nivå efter ungefär tre månader. Vill du se det svart på vitt: mät före och efter.",
   },
   {
     label: "År 1–3",
@@ -37,7 +37,7 @@ export function EffectTimeline() {
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
             Vattenlösliga vitaminer verkar snabbt. Fettlösliga byggs upp över veckor och månader. Effekten är
-            kumulativ — inte omedelbar. En sachet om dagen är hela metoden.
+            kumulativ, inte omedelbar. En sachet om dagen är hela metoden.
           </p>
           <div className="relative mt-10 hidden aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg md:block">
             <Image

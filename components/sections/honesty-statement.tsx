@@ -21,7 +21,7 @@ export function HonestyStatement() {
           Du kommer förmodligen inte känna något. Det är meningen.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
-          Grundnäring ska inte kännas. Den ska synas — i blodprov och i brister som aldrig uppstår.
+          Grundnäring ska inte kännas. Den ska synas: i blodprov och i brister som aldrig uppstår.
         </p>
         <Link
           href="/produkt"

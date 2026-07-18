@@ -59,7 +59,7 @@ export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
             >
               {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
               {subscription
-                ? `Prenumerera${save > 0 ? ` — spara ${save} %` : ""} · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`
+                ? `Prenumerera${save > 0 ? ` · spara ${save} %` : ""} · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`
                 : `Lägg i varukorgen · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`}
             </button>
             {subscription && oneTime && (

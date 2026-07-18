@@ -9,7 +9,7 @@ import { ProductFacts } from "@/components/sections/pdp/product-facts"
 import { ClosingCta } from "@/components/sections/closing-cta"
 
 export const metadata: Metadata = {
-  title: "Formuleringen — åtta näringsämnen, förklarade | DYGN",
+  title: "Formuleringen: åtta näringsämnen, förklarade | DYGN",
   description:
     "Varje näringsämne i DYGN: varför det ingår, vilken form vi valt och varför dosen är vad den är. Allt deklarerat.",
 }

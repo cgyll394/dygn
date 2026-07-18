@@ -71,7 +71,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       badge: null,
       pickBadge: null,
       servings: 30,
-      note: "30 sachets, en leverans",
+      note: "30 sachets · frakt 50 kr tillkommer",
       perks: [],
     },
   ].filter(Boolean) as Option[]
@@ -166,7 +166,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       >
         {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
         {selected.availableForSale
-          ? `Lägg i varukorgen — ${formatMoney(selected.price.amount, selected.price.currencyCode)}`
+          ? `Lägg i varukorgen · ${formatMoney(selected.price.amount, selected.price.currencyCode)}`
           : "Slutsåld"}
       </button>
 
@@ -181,7 +181,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
         </li>
         <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
           <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"Tredjepartstestad. Tillverkad i EU enligt GMP"}
+          {"Tredjepartstestad. Tillverkad i Sverige"}
         </li>
       </ul>
     </div>

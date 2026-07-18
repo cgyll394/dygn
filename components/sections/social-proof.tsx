@@ -97,7 +97,7 @@ export function DoctorQuote() {
     <section className="bg-ink py-20 md:py-28" aria-labelledby="doctor-quote">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">
-          {"Dr. Albert Öberg — Specialist i allmänmedicin"}
+          {"Dr. Albert Öberg, specialist i allmänmedicin"}
         </p>
         <blockquote
           id="doctor-quote"

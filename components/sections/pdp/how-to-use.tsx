@@ -12,8 +12,8 @@ export function HowToUse() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
         <div className="relative order-2 aspect-[4/5] overflow-hidden rounded-lg md:order-1">
           <Image
-            src="/lifestyle/tennis.jpg"
-            alt="Person öppnar en DYGN-sachet vid en tennisbana"
+            src="/lifestyle/hero-fisheye.jpg"
+            alt="Löpare visar upp en DYGN-sachet framför sin löpargrupp"
             fill
             className="object-cover"
             sizes="(min-width: 768px) 50vw, 100vw"

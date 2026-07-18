@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 const FAQS = [
   {
     q: "Hur tar jag DYGN?",
-    a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig — de flesta väljer morgonen för att bygga vanan. Smaken är mild citrus, utan tillsatt socker.",
+    a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus, utan tillsatt socker.",
   },
   {
     q: "Varför bara åtta näringsämnen?",
@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Kommer jag känna någon skillnad?",
-    a: "Förmodligen inte — och det är ett ärligt svar. Grundnäring arbetar långsiktigt och syns i blodprov, inte i hur veckan känns. Undantaget är magnesium: ligger du lågt kan sömnen bli bättre efter några veckor. Vill du se effekten, mät till exempel D-vitamin och homocystein före och efter tre månader.",
+    a: "Förmodligen inte, och det är ett ärligt svar. Grundnäring arbetar långsiktigt och syns i blodprov, inte i hur veckan känns. Undantaget är magnesium: ligger du lågt kan sömnen bli bättre efter några veckor. Vill du se effekten, mät till exempel D-vitamin och homocystein före och efter tre månader.",
   },
   {
     q: "Kan jag ta DYGN tillsammans med andra kosttillskott eller läkemedel?",
@@ -26,15 +26,15 @@ const FAQS = [
   },
   {
     q: "Vilken returpolicy gäller?",
-    a: "30 dagars öppet köp — även på öppnade förpackningar. Är du inte nöjd mejlar du oss så återbetalar vi hela beloppet. Vi tror på produkten och tar hellre risken än att du ska behöva ta den.",
+    a: "30 dagars öppet köp, även på öppnade förpackningar. Är du inte nöjd mejlar du oss så återbetalar vi hela beloppet. Vi tror på produkten och tar hellre risken än att du ska behöva ta den.",
   },
   {
     q: "Hur fungerar prenumerationen?",
-    a: "En ny förpackning levereras var 30:e dag till 20% lägre pris. Du kan pausa, hoppa över en leverans eller avsluta när som helst — utan bindningstid, direkt från ditt konto eller via mejl.",
+    a: "En ny förpackning levereras var 30:e dag till 20% lägre pris. Du kan pausa, hoppa över en leverans eller avsluta när som helst, utan bindningstid, direkt från ditt konto eller via mejl.",
   },
   {
     q: "Var tillverkas DYGN?",
-    a: "DYGN tillverkas i EU i en GMP-certifierad anläggning. Varje batch tredjepartstestas för tungmetaller, mikrobiologi och att innehållet stämmer med etiketten. Analyscertifikat finns tillgängliga på förfrågan.",
+    a: "DYGN tillverkas i Sverige hos en specialiserad tillverkare av kosttillskott. Varje batch tredjepartstestas för tungmetaller, mikrobiologi och att innehållet stämmer med etiketten. Analyscertifikat på förfrågan.",
   },
 ]
 

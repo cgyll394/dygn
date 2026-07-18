@@ -4,10 +4,10 @@ export function ImageBreak() {
   return (
     <section className="relative flex min-h-[85svh] items-end overflow-hidden bg-ink" aria-label="DYGN i rörelse">
       <Image
-        src="/lifestyle/hero-fisheye.jpg"
-        alt="Löpare visar upp en DYGN-sachet framför sin löpargrupp"
+        src="/lifestyle/stadium-man.jpg"
+        alt="Löpare sitter på en läktare med en DYGN-sachet i handen"
         fill
-        className="object-cover object-[50%_22%]"
+        className="object-cover object-[50%_45%]"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" aria-hidden />
