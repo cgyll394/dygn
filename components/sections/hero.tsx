@@ -18,7 +18,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 md:px-8 md:pb-20">
         <p className="mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
-          Formulerad i Sverige
+          Tillverkad i Sverige
         </p>
         <h1 className="max-w-3xl font-fraunces text-5xl leading-[1.02] text-ink-foreground text-balance sm:text-6xl md:text-8xl">
           Allt kroppen behöver. Varje dygn.

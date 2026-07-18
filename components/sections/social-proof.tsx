@@ -1,7 +1,7 @@
 import { Star, Droplets, FlaskConical, Leaf, MapPin } from "lucide-react"
 
 const BADGES = [
-  { icon: MapPin, text: "Formulerad i Sverige" },
+  { icon: MapPin, text: "Tillverkad i Sverige" },
   { icon: FlaskConical, text: "Tredjepartstestad" },
   { icon: Leaf, text: "Vegansk & sockerfri" },
   { icon: Droplets, text: "Rätt form & rätt dos" },

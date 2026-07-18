@@ -14,7 +14,7 @@ export function ClosingCta() {
       <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/20" aria-hidden />
       <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-5 py-24 text-center md:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/75">
-          Formulerad i Sverige
+          Tillverkad i Sverige
         </p>
         <h2 className="mt-5 font-fraunces text-4xl leading-tight text-ink-foreground text-balance md:text-6xl">
           Allt kroppen behöver. Varje dygn.

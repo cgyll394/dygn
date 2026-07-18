@@ -81,26 +81,19 @@
   animation: marquee 32s linear infinite;
 }
 
-@keyframes usp-cycle {
-  0%,
-  6% {
+@keyframes usp-in {
+  from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(5px);
   }
-  12%,
-  88% {
+  to {
     opacity: 1;
     transform: translateY(0);
-  }
-  94%,
-  100% {
-    opacity: 0;
-    transform: translateY(-6px);
   }
 }
 
 @utility animate-usp {
-  animation: usp-cycle 4s ease-in-out both;
+  animation: usp-in 0.45s ease-out both;
 }
 
 /* Horizontal snap carousel for mobile — swipe like an app, grid on desktop */
