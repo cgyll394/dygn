@@ -20,7 +20,7 @@ function RotatingBanner() {
     return () => clearInterval(id)
   }, [])
   return (
-    <div className="flex items-center justify-center bg-primary px-4 py-3.5 text-center">
+    <div className="relative z-30 flex items-center justify-center bg-primary px-4 py-3.5 text-center">
       <Link href="/#kop" className="block">
         <span key={index} className="animate-usp block whitespace-nowrap text-[13px] font-medium leading-none text-primary-foreground">
           {MESSAGES[index]}

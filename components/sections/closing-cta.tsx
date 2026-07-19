@@ -17,7 +17,7 @@ export function ClosingCta() {
           Tillverkad i Sverige
         </p>
         <h2 className="mt-5 font-fraunces text-4xl leading-tight text-ink-foreground text-balance md:text-6xl">
-          Allt kroppen behöver. Varje dygn.
+          Grunden kroppen behöver. Varje dygn.
         </h2>
         <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
           <Link

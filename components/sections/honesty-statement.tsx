@@ -13,21 +13,21 @@ export function HonestyStatement() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/60" aria-hidden />
       <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 text-center md:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">Ärligt talat</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">Kvalitet</p>
         <h2
           id="honesty-statement-heading"
           className="mx-auto mt-5 font-fraunces text-4xl leading-[1.05] text-ink-foreground text-balance sm:text-5xl md:text-7xl"
         >
-          Det mesta av jobbet kommer du aldrig känna. Det är meningen.
+          Tillverkad i Sverige. Testad av oberoende labb.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
-          Elektrolyterna kan märkas efter ett hårt pass. Resten, som D-vitamin och K2, jobbar tyst och långsiktigt. Det är försäkringen du inte ska behöva tänka på.
+          Hos en HACCP-certifierad och IP Livsmedel-godkänd svensk tillverkare. Varje produktion testas av Eurofins för tungmetaller och mikrobiologisk säkerhet.
         </p>
         <Link
-          href="/produkt"
+          href="/formulering"
           className="mt-8 inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-ink-foreground underline decoration-ink-foreground/40 underline-offset-[6px] transition-colors hover:decoration-ink-foreground"
         >
-          Vad du kan förvänta dig
+          Läs om formuleringen
         </Link>
       </div>
     </section>

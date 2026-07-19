@@ -35,16 +35,16 @@ export function Honesty() {
       <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/70" aria-hidden />
       <div className="relative z-10 mx-auto max-w-4xl px-5 py-20 md:px-8 md:py-28">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">
-          Ärligt talat
+          Vad du kan förvänta dig
         </p>
         <h2
           id="honesty-heading"
           className="mx-auto mt-4 max-w-2xl text-center font-fraunces text-3xl leading-tight text-ink-foreground text-balance md:text-5xl"
         >
-          Det mesta av jobbet kommer du aldrig känna. Det är meningen.
+          Ärliga förväntningar.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          Elektrolyterna kan märkas efter ett hårt pass. Resten jobbar tyst och långsiktigt. Det är försäkringen du inte ska behöva tänka på.
+          Vissa delar kan märkas. Det mesta arbetar tyst och långsiktigt. Så här ser det ut.
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">

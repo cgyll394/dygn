@@ -21,7 +21,7 @@ export function Hero() {
           Tillverkad i Sverige
         </p>
         <h1 className="max-w-3xl font-fraunces text-5xl leading-[1.02] text-ink-foreground text-balance sm:text-6xl md:text-8xl">
-          Allt kroppen behöver. Varje dygn.
+          Grunden kroppen behöver. Varje dygn.
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
           En sachet, åtta näringsämnen. Klart på 30 sekunder.

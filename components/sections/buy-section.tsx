@@ -27,7 +27,7 @@ export async function BuySection() {
         <div className="flex flex-col md:pt-2">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Daily Nutrition · 30 sachets</p>
           <h2 id="buy-heading" className="mt-3 font-serif text-4xl text-foreground text-balance md:text-5xl">
-            Allt du behöver. Inget du inte behöver.
+            Bara det viktiga. Inget onödigt.
           </h2>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             {"Åtta näringsämnen i en sachet. Löses i vatten. Mild citrus, utan tillsatt socker."}
