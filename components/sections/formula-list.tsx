@@ -26,7 +26,7 @@ export function FormulaList() {
             </p>
             <Link
               href="/formulering"
-              className="mt-8 inline-flex min-h-[44px] items-center text-sm font-medium text-ink-foreground underline decoration-ink-foreground/40 underline-offset-[6px] transition-colors hover:decoration-ink-foreground"
+              className="mt-8 inline-flex min-h-[44px] items-center rounded-full bg-ink-foreground px-6 text-sm font-medium text-ink transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               Hela formuleringen, förklarad
             </Link>

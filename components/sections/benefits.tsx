@@ -45,9 +45,6 @@ export function Benefits() {
             </article>
           ))}
         </div>
-        <p className="mt-6 px-5 text-[11px] leading-relaxed text-muted-foreground md:px-0">
-          Formuleringarna följer EFSA-godkända hälsopåståenden för respektive näringsämne.
-        </p>
       </div>
     </section>
   )

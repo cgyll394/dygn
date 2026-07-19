@@ -16,7 +16,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-ink/25" aria-hidden />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 md:px-8 md:pb-20">
-        <p className="mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80">
+        <p className="mb-5 hidden items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80 sm:flex">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
           Tillverkad i Sverige
         </p>
@@ -24,7 +24,9 @@ export function Hero() {
           Grunden kroppen behöver. Varje dygn.
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
-          En sachet, åtta näringsämnen. Klart på 30 sekunder.
+          {"En sachet, åtta näringsämnen. "}
+          <br className="sm:hidden" />
+          Klart på 30 sekunder.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
