@@ -55,7 +55,7 @@ export function PriceComparison() {
               <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">En DYGN-sachet</h3>
               <span className="text-[11px] uppercase tracking-[0.12em] text-ink-muted">4,6 g om dagen</span>
             </div>
-            <ul className="mt-7 flex flex-col gap-3">
+            <ul className="mb-8 mt-7 flex flex-col gap-3">
               {[
                 "Samma åtta näringsämnen",
                 "Samma former, samma doser",

@@ -11,7 +11,7 @@ const ITEMS = [
   },
   {
     title: "Det du kan märka",
-    body: "Många går med en brist utan att veta om det. Ligger du lågt i magnesium kan sömnen bli bättre efter några veckor, och vid B12-brist kan energin lyfta. Det varierar från person till person.",
+    body: "Tränar och svettas du mycket kan elektrolyterna, kalium och magnesium, märkas snabbt, ofta redan samma dag. Ligger du lågt i magnesium kan sömnen bli bättre efter några veckor, och vid B12-brist kan energin lyfta.",
   },
   {
     title: "Så följer du effekten",
@@ -41,10 +41,10 @@ export function Honesty() {
           id="honesty-heading"
           className="mx-auto mt-4 max-w-2xl text-center font-fraunces text-3xl leading-tight text-ink-foreground text-balance md:text-5xl"
         >
-          Du kommer förmodligen inte känna något. Det är meningen.
+          Det mesta av jobbet kommer du aldrig känna. Det är meningen.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          Se DYGN som en försäkring för kroppens grundbehov. Täcker du redan allt märker du inget. Har du en brist kan skillnaden faktiskt märkas.
+          Elektrolyterna kan märkas efter ett hårt pass. Resten jobbar tyst och långsiktigt. Det är försäkringen du inte ska behöva tänka på.
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">

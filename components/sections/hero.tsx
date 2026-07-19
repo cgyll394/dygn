@@ -4,7 +4,7 @@ import { Star } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative -mt-16 flex min-h-[100svh] items-end overflow-hidden bg-ink md:-mt-[76px]">
+    <section className="relative -mt-20 flex min-h-[100svh] items-end overflow-hidden bg-ink md:-mt-24">
       <Image
         src="/lifestyle/runclub-bottle.jpg"
         alt="Löpare håller upp en DYGN-sachet och vattenflaska efter ett pass"

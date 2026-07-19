@@ -9,6 +9,7 @@ import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
 import { ImageBreak } from "@/components/sections/image-break"
 import { Reviews } from "@/components/sections/social-proof"
+import { DygnStandard } from "@/components/sections/dygn-standard"
 import { Faq } from "@/components/sections/faq"
 import { ClosingCta } from "@/components/sections/closing-cta"
 
@@ -26,6 +27,7 @@ export default function HomePage() {
         <FormulaList />
         <ImageBreak />
         <Reviews />
+        <DygnStandard />
         <Faq />
         <ClosingCta />
       </main>

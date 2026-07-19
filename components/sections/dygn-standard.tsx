@@ -8,8 +8,8 @@ const PILLARS = [
     text: "Doser med stöd i forskningen där det behövs, dagsbehov där det räcker. Alltid deklarerat.",
   },
   {
-    title: "Testad",
-    text: "Varje produktion testas av oberoende labb, Eurofins, för tungmetaller och mikrobiologisk säkerhet. Certifikat på förfrågan.",
+    title: "Tillverkad i Sverige",
+    text: "Hos en HACCP-certifierad och IP Livsmedel-godkänd svensk tillverkare. Varje produktion testas dessutom av oberoende Eurofins.",
   },
   {
     title: "Ärlig",

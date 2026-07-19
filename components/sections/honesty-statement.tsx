@@ -18,10 +18,10 @@ export function HonestyStatement() {
           id="honesty-statement-heading"
           className="mx-auto mt-5 font-fraunces text-4xl leading-[1.05] text-ink-foreground text-balance sm:text-5xl md:text-7xl"
         >
-          Du kommer förmodligen inte känna något. Det är meningen.
+          Det mesta av jobbet kommer du aldrig känna. Det är meningen.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
-          Se DYGN som en försäkring för kroppens grundbehov. Täcker du redan allt märker du inget, och det är ett gott tecken. Har du en brist kan skillnaden faktiskt märkas.
+          Elektrolyterna kan märkas efter ett hårt pass. Resten, som D-vitamin och K2, jobbar tyst och långsiktigt. Det är försäkringen du inte ska behöva tänka på.
         </p>
         <Link
           href="/produkt"

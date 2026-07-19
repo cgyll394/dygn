@@ -48,7 +48,7 @@ export default async function ProductPage() {
       <SiteHeader />
       <main className="pb-28 md:pb-24">
         {/* PDP hero */}
-        <section className="-mt-16 bg-card pt-16 md:-mt-[76px] md:pt-[76px]" aria-labelledby="pdp-heading">
+        <section className="-mt-20 bg-card pt-20 md:-mt-24 md:pt-24" aria-labelledby="pdp-heading">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-8 md:grid-cols-2 md:gap-16 md:px-8 md:py-16">
             <div className="md:sticky md:top-28 md:self-start">
               <ProductGallery images={GALLERY} title={product.title} />

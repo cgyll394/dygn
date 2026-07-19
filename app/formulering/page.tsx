@@ -21,7 +21,7 @@ export default function FormulaPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="-mt-16 bg-ink pb-4 pt-[7.5rem] text-ink-foreground md:-mt-[76px] md:pt-[10rem]">
+        <section className="-mt-20 bg-ink pb-4 pt-[8.5rem] text-ink-foreground md:-mt-24 md:pt-[11rem]">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">Formuleringen</p>
             <h1 className="mt-4 max-w-3xl font-fraunces text-4xl leading-[1.05] text-balance md:text-6xl">
