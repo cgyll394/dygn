@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-ink-foreground">
@@ -31,7 +29,9 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-ink-foreground/15">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-ink-foreground/60 md:flex-row md:px-8">
-          <Image src="/brand/logo-light.png" alt="DYGN" width={72} height={20} className="h-5 w-auto" />
+          <p className="text-base font-extrabold tracking-tight text-ink-foreground">
+            DYGN<span className="align-super text-[9px] text-primary">{"\u25CF"}</span>
+          </p>
           <p>Kosttillskott ersätter inte en varierad kost. Överskrid inte rekommenderad dygnsdos.</p>
           <p>{"© 2026 DYGN"}</p>
         </div>

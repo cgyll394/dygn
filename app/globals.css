@@ -120,9 +120,11 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
   }
   .snap-row::-webkit-scrollbar {
     display: none;

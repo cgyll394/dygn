@@ -35,12 +35,12 @@ export function Hero() {
           </Link>
           <Link
             href="/formulering"
-            className="inline-flex min-h-[50px] items-center rounded-full border border-ink-foreground/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-foreground transition-colors hover:bg-ink-foreground/10"
+            className="hidden min-h-[50px] items-center rounded-full border border-ink-foreground/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-foreground transition-colors hover:bg-ink-foreground/10 sm:inline-flex"
           >
             Formuleringen
           </Link>
         </div>
-        <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-2">
+        <div className="mt-9 hidden flex-wrap items-center gap-x-6 gap-y-2 md:flex">
           <span className="flex items-center gap-1.5" aria-label="5 av 5 i betyg från tidiga testare">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden />

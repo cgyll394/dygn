@@ -34,7 +34,7 @@ const FAQS = [
   },
   {
     q: "Var tillverkas DYGN?",
-    a: "DYGN tillverkas i Sverige hos en specialiserad tillverkare av kosttillskott. Varje batch tredjepartstestas för tungmetaller, mikrobiologi och att innehållet stämmer med etiketten. Analyscertifikat på förfrågan.",
+    a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad och IP Livsmedel-godkänd tillverkare som gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende Eurofins för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
   },
 ]
 

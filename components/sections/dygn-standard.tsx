@@ -9,7 +9,7 @@ const PILLARS = [
   },
   {
     title: "Testad",
-    text: "Varje batch tredjepartstestas för tungmetaller, mikrobiologi och att innehållet stämmer med etiketten. Certifikat på förfrågan.",
+    text: "Varje produktion testas av oberoende labb, Eurofins, för tungmetaller och mikrobiologisk säkerhet. Certifikat på förfrågan.",
   },
   {
     title: "Ärlig",

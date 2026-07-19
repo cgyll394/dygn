@@ -79,7 +79,7 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
   return (
     <div className="flex flex-col gap-5">
       <fieldset className="flex flex-col gap-3">
-        <legend className="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+        <legend className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
           Välj ditt sätt att köpa
         </legend>
         {options.map(({ variant, label, badge, pickBadge, servings: srv, note, perks }) => {

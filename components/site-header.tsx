@@ -7,10 +7,10 @@ import { ShoppingBag } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
 
 const MESSAGES = [
-  "Lansering hösten 2026. Förbeställ nu. 30 dagars öppet köp.",
-  "Fri frakt och spara 20 % med prenumeration. Avsluta när som helst.",
-  "En sachet, åtta näringsämnen. Klart på 30 sekunder.",
-  "Tredjepartstestad. Tillverkad i Sverige.",
+  "Lansering hösten 2026. Förbeställ nu.",
+  "30 dagars öppet köp. Fri frakt med prenumeration.",
+  "En sachet. Åtta näringsämnen.",
+  "Tillverkad och testad i Sverige.",
 ]
 
 function RotatingBanner() {
@@ -20,9 +20,9 @@ function RotatingBanner() {
     return () => clearInterval(id)
   }, [])
   return (
-    <div className="flex min-h-12 items-center justify-center bg-primary px-4 py-2 text-center">
+    <div className="flex items-center justify-center bg-primary px-4 py-3.5 text-center">
       <Link href="/#kop" className="block">
-        <span key={index} className="animate-usp block text-[13px] font-medium leading-snug text-primary-foreground">
+        <span key={index} className="animate-usp block whitespace-nowrap text-[13px] font-medium leading-none text-primary-foreground">
           {MESSAGES[index]}
         </span>
       </Link>
@@ -37,7 +37,7 @@ export function SiteHeader() {
   return (
     <>
       <RotatingBanner />
-      <div className="sticky top-2.5 z-40 px-2.5 md:top-3 md:px-5">
+      <div className="sticky top-2.5 z-40 mt-2.5 px-2.5 md:top-3 md:mt-3 md:px-5">
         <header className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border/70 bg-card/95 py-2 pl-5 pr-2 shadow-[0_2px_20px_rgba(15,15,13,0.07)] backdrop-blur-md md:py-2.5 md:pl-7 md:pr-3">
           <nav aria-label="Huvudmeny" className="hidden items-center gap-7 md:flex">
             <Link
