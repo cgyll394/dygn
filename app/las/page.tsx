@@ -15,9 +15,6 @@ export default async function LockPage({
   return (
     <main className="flex min-h-svh items-center justify-center bg-ink px-5">
       <form method="POST" action="/api/unlock" className="w-full max-w-sm text-center">
-        <p className="text-3xl font-extrabold tracking-tight text-ink-foreground">
-          DYGN<span className="align-super text-xs text-primary">{"●"}</span>
-        </p>
         <label htmlFor="password" className="sr-only">
           Lösenord
         </label>
