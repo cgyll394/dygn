@@ -18,9 +18,6 @@ export default async function LockPage({
         <p className="text-3xl font-extrabold tracking-tight text-ink-foreground">
           DYGN<span className="align-super text-xs text-primary">{"●"}</span>
         </p>
-        <p className="mt-4 text-sm leading-relaxed text-ink-foreground/70">
-          {"Vi har inte lanserat än. Har du fått ett lösenord är du en av de första in."}
-        </p>
         <label htmlFor="password" className="sr-only">
           Lösenord
         </label>
