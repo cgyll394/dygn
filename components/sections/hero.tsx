@@ -16,26 +16,26 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-ink/25" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 md:px-8 md:pb-20">
-        <p className="mb-5 hidden items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80 sm:flex">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 md:px-8 md:pb-24">
+        <p className="mb-6 hidden items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-foreground/80 sm:flex">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
           Tillverkad i Sverige
         </p>
         <h1 className="max-w-3xl font-fraunces text-5xl leading-[1.02] text-ink-foreground text-balance sm:text-6xl md:text-8xl">
           Grunden kroppen behöver. Varje dygn.
         </h1>
-        <p className="mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
+        <p className="mt-7 max-w-md text-base leading-relaxed text-ink-foreground/85 md:mt-8 md:text-lg">
           {"En sachet, åtta näringsämnen. "}
           <br className="sm:hidden" />
           Klart på 30 sekunder.
         </p>
-        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2.5 md:mt-8">
           <PaymentBadges only={["klarna", "applepay"]} tone="dark" />
           <span className="text-xs text-ink-foreground/75">
             Betala senare med Klarna eller prenumerera med Apple Pay
           </span>
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-9 flex flex-wrap items-center gap-4 md:mt-11">
           <Link
             href="#kop"
             className="inline-flex min-h-[50px] items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
@@ -49,7 +49,7 @@ export function Hero() {
             Formuleringen
           </Link>
         </div>
-        <div className="mt-9 hidden flex-wrap items-center gap-x-6 gap-y-2 md:flex">
+        <div className="mt-10 hidden flex-wrap items-center gap-x-6 gap-y-2 md:flex">
           <span className="flex items-center gap-1.5" aria-label="5 av 5 i betyg från tidiga testare">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden />

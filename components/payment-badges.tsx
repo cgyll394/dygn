@@ -201,8 +201,10 @@ export function PaymentBadges({
       {methods.map((method) => (
         <li
           key={method}
-          className={`flex h-7 w-[46px] items-center justify-center rounded-[5px] px-1.5 ${
-            tone === "dark" ? "" : "border border-border bg-white"
+          className={`flex h-7 w-[46px] items-center justify-center rounded-[5px] border px-1.5 ${
+            tone === "dark"
+              ? "border-ink-foreground/30 bg-ink/35 backdrop-blur-sm"
+              : "border-border bg-white"
           }`}
         >
           {mark(method, tone)}
