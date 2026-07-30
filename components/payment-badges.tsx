@@ -166,10 +166,18 @@ const MARKS: Record<Method, ReactNode> = {
   paypal: <PayPal />,
 }
 
-export function PaymentBadges({ className = "" }: { className?: string }) {
+export function PaymentBadges({
+  className = "",
+  only,
+}: {
+  className?: string
+  /** Visa bara ett urval, t.ex. i heron. Utan denna visas alla aktiverade metoder. */
+  only?: readonly Method[]
+}) {
+  const methods = only ?? ENABLED
   return (
     <ul className={`flex flex-wrap items-center gap-1.5 ${className}`} aria-label="Betalmetoder i kassan">
-      {ENABLED.map((method) => (
+      {methods.map((method) => (
         <li
           key={method}
           className="flex h-7 w-[46px] items-center justify-center rounded-[5px] border border-border bg-white px-1.5"

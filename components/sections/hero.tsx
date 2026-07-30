@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
+import { PaymentBadges } from "@/components/payment-badges"
 
 export function Hero() {
   return (
@@ -28,6 +29,10 @@ export function Hero() {
           <br className="sm:hidden" />
           Klart på 30 sekunder.
         </p>
+        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <PaymentBadges only={["klarna", "applepay"]} />
+          <span className="text-xs text-ink-foreground/70">Dela upp betalningen med Klarna</span>
+        </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="#kop"

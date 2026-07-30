@@ -7,6 +7,7 @@ import { BuySection } from "@/components/sections/buy-section"
 import { Benefits } from "@/components/sections/benefits"
 import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
+import { Comparison } from "@/components/sections/comparison"
 import { ImageBreak } from "@/components/sections/image-break"
 import { Reviews } from "@/components/sections/social-proof"
 import { Faq } from "@/components/sections/faq"
@@ -24,6 +25,7 @@ export default function HomePage() {
         <Benefits />
         <HonestyStatement />
         <FormulaList />
+        <Comparison />
         <ImageBreak />
         <Reviews />
         <Faq />
