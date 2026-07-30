@@ -30,8 +30,10 @@ export function Hero() {
           Klart på 30 sekunder.
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-          <PaymentBadges only={["klarna", "applepay"]} />
-          <span className="text-xs text-ink-foreground/70">Dela upp betalningen med Klarna</span>
+          <PaymentBadges only={["klarna", "applepay"]} tone="dark" />
+          <span className="text-xs text-ink-foreground/75">
+            Betala senare med Klarna eller prenumerera med Apple Pay
+          </span>
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link

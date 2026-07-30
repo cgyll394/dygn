@@ -10,9 +10,12 @@ const ENABLED = ["visa", "mastercard", "amex", "klarna", "applepay", "googlepay"
 
 type Method = (typeof ENABLED)[number]
 
+/** "light" = vita kort mot ljus bakgrund. "dark" = fristående märken mot mörk bild. */
+type Tone = "light" | "dark"
+
 const FONT = "Inter, system-ui, -apple-system, sans-serif"
 
-function Visa() {
+function Visa({ tone }: { tone: Tone }) {
   return (
     <svg viewBox="0 0 48 16" className="h-full w-full" role="img" aria-label="Visa">
       <text
@@ -24,7 +27,7 @@ function Visa() {
         fontWeight="700"
         fontStyle="italic"
         letterSpacing="0.5"
-        fill="#1434CB"
+        fill={tone === "dark" ? "#FFFFFF" : "#1434CB"}
       >
         VISA
       </text>
@@ -37,10 +40,7 @@ function Mastercard() {
     <svg viewBox="0 0 48 30" className="h-full w-full" role="img" aria-label="Mastercard">
       <circle cx="19" cy="15" r="9.5" fill="#EB001B" />
       <circle cx="29" cy="15" r="9.5" fill="#F79E1B" />
-      <path
-        d="M24 7.6a9.48 9.48 0 0 1 0 14.8 9.48 9.48 0 0 1 0-14.8Z"
-        fill="#FF5F00"
-      />
+      <path d="M24 7.6a9.48 9.48 0 0 1 0 14.8 9.48 9.48 0 0 1 0-14.8Z" fill="#FF5F00" />
     </svg>
   )
 }
@@ -97,27 +97,28 @@ function Klarna() {
   )
 }
 
-function ApplePay() {
+function ApplePay({ tone }: { tone: Tone }) {
+  const ink = tone === "dark" ? "#FFFFFF" : "#000000"
   return (
     <svg viewBox="0 0 48 20" className="h-full w-full" role="img" aria-label="Apple Pay">
-      <g fill="#000000">
+      <g fill={ink}>
         <path d="M13.36 5.53c.53-.64.89-1.5.79-2.38-.76.03-1.7.5-2.24 1.14-.49.55-.92 1.44-.8 2.29.85.07 1.72-.42 2.25-1.05Z" />
         <path d="M14.14 6.75c-1.24-.07-2.29.7-2.88.7-.59 0-1.5-.66-2.46-.65-1.27.02-2.44.74-3.09 1.87-1.32 2.29-.34 5.68.94 7.54.63.91 1.38 1.93 2.36 1.9.95-.04 1.3-.61 2.45-.61 1.14 0 1.46.61 2.46.59 1.02-.02 1.66-.93 2.28-1.84.72-1.05 1.02-2.07 1.04-2.13-.02-.01-1.99-.77-2.01-3.03-.02-1.9 1.55-2.8 1.62-2.85-.89-1.3-2.26-1.45-2.71-1.49Z" />
       </g>
-      <text x="22" y="15" fontFamily={FONT} fontSize="12" fontWeight="500" fill="#000000">
+      <text x="22" y="15" fontFamily={FONT} fontSize="12" fontWeight="500" fill={ink}>
         Pay
       </text>
     </svg>
   )
 }
 
-function GooglePay() {
+function GooglePay({ tone }: { tone: Tone }) {
   return (
     <svg viewBox="0 0 48 20" className="h-full w-full" role="img" aria-label="Google Pay">
-      <text x="7" y="15" fontFamily={FONT} fontSize="13" fontWeight="500" fill="#4285F4">
+      <text x="7" y="15" fontFamily={FONT} fontSize="13" fontWeight="500" fill={tone === "dark" ? "#FFFFFF" : "#4285F4"}>
         G
       </text>
-      <text x="18" y="15" fontFamily={FONT} fontSize="13" fontWeight="500" fill="#5F6368">
+      <text x="18" y="15" fontFamily={FONT} fontSize="13" fontWeight="500" fill={tone === "dark" ? "#FFFFFF" : "#5F6368"}>
         Pay
       </text>
     </svg>
@@ -144,35 +145,55 @@ function ShopPay() {
   )
 }
 
-function PayPal() {
+function PayPal({ tone }: { tone: Tone }) {
   return (
     <svg viewBox="0 0 48 20" className="h-full w-full" role="img" aria-label="PayPal">
-      <text x="24" y="14.5" textAnchor="middle" fontFamily={FONT} fontSize="11" fontWeight="700" fill="#003087">
+      <text
+        x="24"
+        y="14.5"
+        textAnchor="middle"
+        fontFamily={FONT}
+        fontSize="11"
+        fontWeight="700"
+        fill={tone === "dark" ? "#FFFFFF" : "#003087"}
+      >
         Pay
-        <tspan fill="#009CDE">Pal</tspan>
+        <tspan fill={tone === "dark" ? "#9BD3F0" : "#009CDE"}>Pal</tspan>
       </text>
     </svg>
   )
 }
 
-const MARKS: Record<Method, ReactNode> = {
-  visa: <Visa />,
-  mastercard: <Mastercard />,
-  amex: <Amex />,
-  klarna: <Klarna />,
-  applepay: <ApplePay />,
-  googlepay: <GooglePay />,
-  shoppay: <ShopPay />,
-  paypal: <PayPal />,
+function mark(method: Method, tone: Tone): ReactNode {
+  switch (method) {
+    case "visa":
+      return <Visa tone={tone} />
+    case "mastercard":
+      return <Mastercard />
+    case "amex":
+      return <Amex />
+    case "klarna":
+      return <Klarna />
+    case "applepay":
+      return <ApplePay tone={tone} />
+    case "googlepay":
+      return <GooglePay tone={tone} />
+    case "shoppay":
+      return <ShopPay />
+    case "paypal":
+      return <PayPal tone={tone} />
+  }
 }
 
 export function PaymentBadges({
   className = "",
   only,
+  tone = "light",
 }: {
   className?: string
   /** Visa bara ett urval, t.ex. i heron. Utan denna visas alla aktiverade metoder. */
   only?: readonly Method[]
+  tone?: Tone
 }) {
   const methods = only ?? ENABLED
   return (
@@ -180,9 +201,11 @@ export function PaymentBadges({
       {methods.map((method) => (
         <li
           key={method}
-          className="flex h-7 w-[46px] items-center justify-center rounded-[5px] border border-border bg-white px-1.5"
+          className={`flex h-7 w-[46px] items-center justify-center rounded-[5px] px-1.5 ${
+            tone === "dark" ? "" : "border border-border bg-white"
+          }`}
         >
-          {MARKS[method]}
+          {mark(method, tone)}
         </li>
       ))}
     </ul>
