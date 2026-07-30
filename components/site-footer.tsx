@@ -1,3 +1,13 @@
+import { FlaskConical, Lock, RotateCcw, Truck } from "lucide-react"
+import { PaymentBadges } from "@/components/payment-badges"
+
+const ASSURANCES = [
+  { icon: RotateCcw, text: "30 dagars öppet köp" },
+  { icon: Truck, text: "Fri frakt med prenumeration" },
+  { icon: FlaskConical, text: "Tredjepartstestad av Eurofins" },
+  { icon: Lock, text: "Säker betalning" },
+]
+
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-ink-foreground">
@@ -27,6 +37,21 @@ export function SiteFooter() {
           </button>
         </form>
       </div>
+
+      <div className="border-t border-ink-foreground/15">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-8">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-7">
+            {ASSURANCES.map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-center gap-2 text-xs text-ink-foreground/75">
+                <Icon className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                {text}
+              </li>
+            ))}
+          </ul>
+          <PaymentBadges className="shrink-0" />
+        </div>
+      </div>
+
       <div className="border-t border-ink-foreground/15">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-ink-foreground/60 md:flex-row md:px-8">
           <p>Kosttillskott ersätter inte en varierad kost. Överskrid inte rekommenderad dygnsdos.</p>

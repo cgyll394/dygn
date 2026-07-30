@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Loader2, RotateCcw, Truck, ShieldCheck } from "lucide-react"
+import { Check, Loader2, Lock, RotateCcw, Truck, ShieldCheck } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
+import { PaymentBadges } from "@/components/payment-badges"
 import type { ProductVariant } from "@/lib/shopify"
 
 function formatMoney(amount: string, currencyCode: string) {
@@ -183,7 +184,13 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
           <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
           {"Tredjepartstestad. Tillverkad i Sverige"}
         </li>
+        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+          <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+          {"Säker betalning. Dela upp med Klarna"}
+        </li>
       </ul>
+
+      <PaymentBadges />
     </div>
   )
 }
