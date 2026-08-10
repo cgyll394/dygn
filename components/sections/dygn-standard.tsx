@@ -9,7 +9,7 @@ const PILLARS = [
   },
   {
     title: "Tillverkad i Sverige",
-    text: "Hos en HACCP-certifierad och IP Livsmedel-godkänd svensk tillverkare. Varje produktion testas dessutom av oberoende Eurofins.",
+    text: "Hos en HACCP-certifierad och IP Livsmedel-godkänd svensk tillverkare som följer GMP. Färdig produkt kontrolleras mot gränsvärden för mikrobiologi och tungmetaller, och varje produktion testas dessutom av oberoende Eurofins.",
   },
   {
     title: "Ärlig",

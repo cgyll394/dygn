@@ -4,12 +4,12 @@ const STEPS = [
   {
     number: "01",
     title: "Riv upp",
-    text: "En sachet, 4,6 gram. Ta den med dig till jobbet, träningen eller resan. Ingen burk, ingen dosett.",
+    text: "En sachet, 5 gram. Ta den med dig till jobbet, träningen eller resan. Ingen burk, ingen dosett.",
   },
   {
     number: "02",
     title: "Rör ut i vatten",
-    text: "Löses i ett glas kallt vatten på under 30 sekunder. Mild citrussmak utan sötningsmedel som dominerar.",
+    text: "Löses i ett glas kallt vatten på under 30 sekunder. Mild citrussmak, lätt sötad, helt utan socker.",
   },
   {
     number: "03",

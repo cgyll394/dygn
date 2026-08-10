@@ -6,15 +6,15 @@ import { Plus } from "lucide-react"
 const INGREDIENTS = [
   {
     name: "Vitamin D3",
-    form: "Kolekalciferol (Vitashine)",
+    form: "Kolekalciferol, vegansk",
     dose: "2000 IE",
     why: "Mellan oktober och mars är solen i Norden för svag för att huden ska kunna producera vitamin D. En stor andel av befolkningen ligger under rekommenderade nivåer hela vinterhalvåret. D3 bidrar till normal immunfunktion, muskelfunktion och benstomme.",
     detail:
-      "2000 IE. Dosen som i nordiska studier lyfter blodnivåerna till bra nivåer året om, inte bara över bristgränsen. Växtbaserad, utvunnen ur lav.",
+      "2000 IE. Dosen som i nordiska studier lyfter blodnivåerna till bra nivåer året om, inte bara över bristgränsen. Växtbaserad.",
   },
   {
     name: "Vitamin K2",
-    form: "MK-7 (MenaQ7)",
+    form: "Menakinon-7 (MK-7)",
     dose: "180 µg",
     why: "K2 arbetar tillsammans med D3: D3 ökar kalciumupptaget, K2 ser till att kalcium hamnar i skelettet i stället för i mjukvävnad. De hör ihop, och därför finns båda i samma sachet.",
     detail:
@@ -23,10 +23,10 @@ const INGREDIENTS = [
   {
     name: "Vitamin B12",
     form: "Cyanokobalamin",
-    dose: "500 µg",
+    dose: "100 µg",
     why: "B12 bidrar till normal energiomsättning och minskad trötthet. Behovet ökar med åldern, vid växtbaserad kost och vid hård träning.",
     detail:
-      "Cyanokobalamin är den mest stabila formen i pulver, med samma upptag som dyrare varianter. 500 µg ger marginal, även för dig som äter växtbaserat.",
+      "Cyanokobalamin är den mest stabila formen i pulver, med samma upptag som dyrare varianter. 100 µg ger god marginal, även för dig som äter växtbaserat.",
   },
   {
     name: "Folat",
@@ -38,11 +38,11 @@ const INGREDIENTS = [
   },
   {
     name: "Magnesium",
-    form: "Citrat",
+    form: "Bisglycinat",
     dose: "200 mg",
     why: "Magnesium är inblandat i över 300 enzymprocesser: muskelfunktion, nervsystem och minskad trötthet. Intaget i nordisk kost ligger ofta under rekommendationen, särskilt hos aktiva.",
     detail:
-      "Citrat löser sig helt i vatten och tas upp i nivå med de bästa formerna. 200 mg, strax under EU:s tak för tillskott.",
+      "Bisglycinat är magnesium bundet till aminosyran glycin: skonsamt mot magen och med väldokumenterat upptag. 200 mg, strax under EU:s tak för tillskott.",
   },
   {
     name: "Kalium",
@@ -54,19 +54,19 @@ const INGREDIENTS = [
   },
   {
     name: "Zink",
-    form: "Citrat",
-    dose: "15 mg",
+    form: "Glukonat",
+    dose: "10 mg",
     why: "Zink bidrar till normal immunfunktion, kognitiv funktion och proteinsyntes. Förluster ökar med svettning, vilket gör aktiva till en riskgrupp för lågt zinkstatus.",
     detail:
-      "Citrat tas upp lika bra som de dyraste formerna och bättre än oxiden i billiga tillskott. 15 mg, samma nivå som immunstudierna.",
+      "Glukonat är en av de mest beprövade formerna, med upptag klart bättre än oxiden i billiga tillskott. 10 mg, exakt referensintaget.",
   },
   {
     name: "Jod",
-    form: "Kaliumjodat",
+    form: "Natriumjodid",
     dose: "150 µg",
     why: "Jod krävs för normal sköldkörtelfunktion och ämnesomsättning. När allt färre använder joderat bordssalt och fler äter växtbaserat har intaget sjunkit i hela Norden.",
     detail:
-      "150 µg, exakt dagsbehovet. Sköldkörteln vill varken ha mer eller mindre. Jodat är formen som håller bäst i pulver.",
+      "150 µg, exakt dagsbehovet. Sköldkörteln vill varken ha mer eller mindre. Natriumjodid löser sig direkt i vatten.",
   },
 ]
 
@@ -97,7 +97,7 @@ export function Ingredients() {
                 <p className="mt-1 text-xs uppercase tracking-wide text-ink-foreground/60">Dolda blandningar</p>
               </div>
               <div>
-                <p className="whitespace-nowrap font-serif text-4xl text-primary">{"4,6 g"}</p>
+                <p className="whitespace-nowrap font-serif text-4xl text-primary">{"5 g"}</p>
                 <p className="mt-1 text-xs uppercase tracking-wide text-ink-foreground/60">Per sachet</p>
               </div>
             </div>

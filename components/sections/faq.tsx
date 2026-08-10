@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 const FAQS = [
   {
     q: "Hur tar jag DYGN?",
-    a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus, utan tillsatt socker.",
+    a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus: utan socker, lätt sötad med sukralos.",
   },
   {
     q: "Varför bara åtta näringsämnen?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Är DYGN veganskt?",
-    a: "Ja. Vitamin D3 kommer från lav (Vitashine) i stället för lanolin, och samtliga övriga ingredienser är växtbaserade eller syntetiskt framställda utan animaliska källor.",
+    a: "Ja. Vitamin D3 är vegansk kolekalciferol, framställd utan lanolin, och samtliga övriga ingredienser är växtbaserade eller syntetiskt framställda utan animaliska källor.",
   },
   {
     q: "Vilken returpolicy gäller?",
@@ -34,7 +34,7 @@ const FAQS = [
   },
   {
     q: "Var tillverkas DYGN?",
-    a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad och IP Livsmedel-godkänd tillverkare som gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende Eurofins för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
+    a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad och IP Livsmedel-godkänd tillverkare som följer GMP och gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende Eurofins för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
   },
 ]
 

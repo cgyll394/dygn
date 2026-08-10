@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const STEPS = [
-  { number: "01", title: "Riv", text: "En sachet, 4,6 gram. I fickan, väskan eller necessären." },
+  { number: "01", title: "Riv", text: "En sachet, 5 gram. I fickan, väskan eller necessären." },
   { number: "02", title: "Rör", text: "Löses i ett glas kallt vatten på under 30 sekunder. Mild citrus." },
   { number: "03", title: "Drick", text: "Klart för dygnet. Sedan behöver du inte tänka på det mer." },
 ]

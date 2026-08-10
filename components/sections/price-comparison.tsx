@@ -6,9 +6,9 @@ const SEPARATE = [
   { name: "Vitamin K2, MK-7", price: "ca 149 kr" },
   { name: "Vitamin B12", price: "ca 89 kr" },
   { name: "Folat, aktiv form", price: "ca 129 kr" },
-  { name: "Magnesiumcitrat", price: "ca 119 kr" },
+  { name: "Magnesiumbisglycinat", price: "ca 129 kr" },
   { name: "Kaliumcitrat", price: "ca 89 kr" },
-  { name: "Zinkcitrat", price: "ca 79 kr" },
+  { name: "Zinkglukonat", price: "ca 79 kr" },
   { name: "Jod", price: "ca 69 kr" },
 ]
 
@@ -43,7 +43,7 @@ export function PriceComparison() {
             </ul>
             <div className="mt-5 flex items-baseline justify-between border-t-2 border-foreground pt-4">
               <span className="text-sm font-semibold">Per månad</span>
-              <span className="font-serif text-2xl tabular-nums">ca 820 kr</span>
+              <span className="font-serif text-2xl tabular-nums">ca 830 kr</span>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
               Plus åtta burkar i skåpet och åtta saker att komma ihåg varje morgon.
@@ -53,7 +53,7 @@ export function PriceComparison() {
           <div className="flex flex-col rounded-lg bg-ink p-6 text-ink-foreground md:p-8">
             <div className="flex items-baseline justify-between gap-4">
               <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">En DYGN-sachet</h3>
-              <span className="text-[11px] uppercase tracking-[0.12em] text-ink-muted">4,6 g om dagen</span>
+              <span className="text-[11px] uppercase tracking-[0.12em] text-ink-muted">5 g om dagen</span>
             </div>
             <ul className="mb-8 mt-7 flex flex-col gap-3">
               {[

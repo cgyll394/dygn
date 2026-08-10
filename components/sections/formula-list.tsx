@@ -1,14 +1,14 @@
 import Link from "next/link"
 
 const ROWS = [
-  { name: "Vitamin D3", form: "Från lav", dose: "2000 IE" },
+  { name: "Vitamin D3", form: "Vegansk kolekalciferol", dose: "2000 IE" },
   { name: "Vitamin K2", form: "MK-7", dose: "180 µg" },
-  { name: "Vitamin B12", form: "Cyanokobalamin", dose: "500 µg" },
+  { name: "Vitamin B12", form: "Cyanokobalamin", dose: "100 µg" },
   { name: "Folat", form: "L-metylfolat", dose: "400 µg" },
-  { name: "Magnesium", form: "Citrat", dose: "200 mg" },
+  { name: "Magnesium", form: "Bisglycinat", dose: "200 mg" },
   { name: "Kalium", form: "Citrat", dose: "400 mg" },
-  { name: "Zink", form: "Citrat", dose: "15 mg" },
-  { name: "Jod", form: "Kaliumjodat", dose: "150 µg" },
+  { name: "Zink", form: "Glukonat", dose: "10 mg" },
+  { name: "Jod", form: "Natriumjodid", dose: "150 µg" },
 ]
 
 export function FormulaList() {
