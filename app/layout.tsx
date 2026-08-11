@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Besley, Fraunces } from 'next/font/google'
 import { CartProvider } from '@/components/cart/cart-context'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -9,17 +10,16 @@ const besley = Besley({ subsets: ['latin'], variable: '--font-besley' })
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3001'),
-  ),
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: '/' },
   title: 'DYGN · Daily Nutrition. Åtta näringsämnen. En sachet om dagen.',
   description:
     'Åtta näringsämnen i rätt form och rätt dos. Förklarat, dokumenterat och tredjepartstestat. Bara det viktiga, varje dag. Formulerat för nordisk kost.',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', sizes: '32x32', type: 'image/png', media: '(prefers-color-scheme: dark)' },
     ],
     apple: '/apple-icon.png',
   },
@@ -56,6 +56,18 @@ export default function RootLayout({
       className={`light bg-background ${inter.variable} ${besley.variable} ${fraunces.variable}`}
     >
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'DYGN',
+              url: SITE_URL,
+              logo: `${SITE_URL}/brand/logo-dark.png`,
+            }),
+          }}
+        />
         <CartProvider>{children}</CartProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

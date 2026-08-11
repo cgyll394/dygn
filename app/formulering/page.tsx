@@ -12,6 +12,7 @@ import { ClosingCta } from "@/components/sections/closing-cta"
 
 export const metadata: Metadata = {
   title: "Formuleringen: åtta näringsämnen, förklarade | DYGN",
+  alternates: { canonical: "/formulering" },
   description:
     "Varje näringsämne i DYGN: varför det ingår, vilken form vi valt och varför dosen är vad den är. Allt deklarerat.",
 }

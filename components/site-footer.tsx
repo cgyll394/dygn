@@ -1,4 +1,5 @@
 import { FlaskConical, Lock, RotateCcw, Truck } from "lucide-react"
+import { NewsletterForm } from "@/components/newsletter-form"
 import { PaymentBadges } from "@/components/payment-badges"
 
 const ASSURANCES = [
@@ -18,24 +19,7 @@ export function SiteFooter() {
             Få exklusiva erbjudanden och tidig tillgång till nya produkter.
           </p>
         </div>
-        <form className="flex w-full max-w-md items-stretch" action="#" aria-label="Nyhetsbrev">
-          <label htmlFor="newsletter-email" className="sr-only">
-            E-postadress
-          </label>
-          <input
-            id="newsletter-email"
-            type="email"
-            required
-            placeholder="E-postadress"
-            className="min-w-0 flex-1 border border-ink-foreground/30 bg-transparent px-4 py-3 text-sm text-ink-foreground placeholder:text-ink-foreground/50 focus:border-primary focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="shrink-0 bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Anmäl
-          </button>
-        </form>
+        <NewsletterForm />
       </div>
 
       <div className="border-t border-ink-foreground/15">

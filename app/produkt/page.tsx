@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Star } from "lucide-react"
 import { getProduct, type ProductImage } from "@/lib/shopify"
+import { SITE_URL } from "@/lib/site"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
@@ -17,7 +18,11 @@ export const metadata: Metadata = {
   title: "DYGN Daily Nutrition · 30 sachets | DYGN",
   description:
     "Åtta näringsämnen i rätt form och rätt dos. Förklarat och tredjepartstestat. En sachet om dagen. Vegansk, tillverkad i Sverige.",
+  alternates: { canonical: "/produkt" },
 }
+
+// Byt till https://schema.org/InStock när vi börjar skicka direkt vid beställning
+const AVAILABILITY = "https://schema.org/PreOrder"
 
 const chips = ["Immunförsvar", "Energi & trötthet", "Ben & muskler", "Elektrolytbalans"]
 
@@ -43,8 +48,30 @@ export default async function ProductPage() {
     )
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "DYGN Daily Nutrition",
+    description:
+      "Åtta näringsämnen i rätt form och rätt dos. En sachet om dagen, löses i vatten. Vegansk, tillverkad i Sverige.",
+    image: GALLERY.map((image) => `${SITE_URL}${image.url}`),
+    brand: { "@type": "Brand", name: "DYGN" },
+    offers: product.variants.nodes.map((variant) => ({
+      "@type": "Offer",
+      name: variant.title,
+      price: Number.parseFloat(variant.price.amount).toFixed(2),
+      priceCurrency: variant.price.currencyCode,
+      availability: variant.availableForSale ? AVAILABILITY : "https://schema.org/OutOfStock",
+      url: `${SITE_URL}/produkt`,
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <SiteHeader />
       <main className="pb-28 md:pb-24">
         {/* PDP hero */}

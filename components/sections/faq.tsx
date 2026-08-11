@@ -38,11 +38,25 @@ const FAQS = [
   },
 ]
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+}
+
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section id="faq" aria-labelledby="faq-heading" className="bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       <div className="mx-auto max-w-4xl px-4 py-20 md:px-8 md:py-28">
         <h2 id="faq-heading" className="mb-10 font-serif text-3xl md:mb-14 md:text-4xl">
           {"Vanliga frågor"}
