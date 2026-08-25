@@ -21,7 +21,7 @@ export default function WaitlistPage() {
           className="object-cover object-[50%_22%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-ink/5 to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/0 via-ink/10 to-ink/55" />
       </div>
 
       {/* Desktop: bilden hel i högra halvan */}
@@ -38,10 +38,10 @@ export default function WaitlistPage() {
 
       {/* Mobil: logga överst över bilden */}
       <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-7 md:hidden">
-        <Image src="/brand/logo-light.png" alt="" aria-hidden width={100} height={28} priority className="h-5 w-auto" />
+        <Image src="/brand/logo-dark.png" alt="" aria-hidden width={100} height={28} priority className="h-5 w-auto" />
       </div>
 
-      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3.5 px-6 pb-9 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:px-12 md:py-16 lg:px-16">
+      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:px-12 md:py-16 lg:px-16">
         <Image
           src="/brand/logo-dark.png"
           alt="DYGN"
@@ -49,10 +49,10 @@ export default function WaitlistPage() {
           height={28}
           className="hidden h-5 w-auto md:mb-2 md:block"
         />
-        <h1 className="max-w-xl font-fraunces text-3xl leading-[1.08] text-ink-foreground text-balance sm:text-4xl md:text-ink lg:text-5xl">
+        <h1 className="max-w-xl font-fraunces text-2xl leading-[1.1] text-ink-foreground text-balance sm:text-4xl md:text-ink lg:text-5xl">
           The foundation your body needs.
         </h1>
-        <p className="max-w-xs text-sm leading-relaxed text-ink-foreground/90 md:max-w-sm md:text-base md:text-ink/70">
+        <p className="max-w-xs text-xs leading-relaxed text-ink-foreground/90 md:max-w-sm md:text-base md:text-ink/70">
           {"Eight nutrients, one sachet a day."}
           <br />
           Launching autumn 2026.
