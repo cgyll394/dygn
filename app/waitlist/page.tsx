@@ -17,6 +17,8 @@ export const viewport: Viewport = {
 export default function WaitlistPage() {
   return (
     <main className="relative min-h-svh overflow-hidden bg-[#c5b6b5] md:bg-background">
+      {/* Safari målar ytorna ovan/under sidan med body-bakgrunden vid overscroll */}
+      <style>{"body{background:#c5b6b5}"}</style>
       {/* Mobil: bilden i fullskärm bakom innehållet */}
       <div className="absolute inset-0 md:hidden" aria-hidden>
         <Image

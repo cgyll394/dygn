@@ -17,6 +17,14 @@ export function V2ImageBreak() {
         <p className="max-w-xl font-fraunces text-3xl leading-tight text-ink-foreground text-balance md:text-5xl">
           En sachet om dagen. Det är hela metoden.
         </p>
+        <div className="mt-6 flex items-center gap-1.5" aria-hidden>
+          {Array.from({ length: 30 }).map((_, i) => (
+            <span
+              key={i}
+              className={`h-1 w-1 rounded-full ${i < 11 ? "bg-primary/90" : "bg-ink-foreground/30"}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )
