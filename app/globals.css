@@ -140,16 +140,26 @@
   }
 }
 
-/* V2-designspåret (/v2): gråare, mer tech, mindre beige. Tokens byts i subträdet. */
+/* V2-designspåret (/v2): samma sajt, nudgad. Gråare palett, Fraunces i stället
+   för Besley. Tokens och font byts i subträdet, komponenterna är orörda. */
 .theme-v2 {
-  --background: #d8d3cf;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-besley: var(--font-fraunces);
+  --background: #dcd8d4;
   --foreground: #171614;
-  --card: #e4e0dc;
+  --card: #e7e3df;
   --card-foreground: #171614;
-  --muted: #cbc5c0;
+  --popover: #e7e3df;
+  --popover-foreground: #171614;
+  --secondary: #cfcac5;
+  --secondary-foreground: #171614;
+  --muted: #cfcac5;
   --muted-foreground: #6e6963;
-  --border: #c2bcb6;
+  --border: #c3bdb7;
+  --input: #c3bdb7;
   --ink: #171614;
   --ink-foreground: #f3f0ed;
   --ink-muted: #9d968f;
+  --stone: #9d968f;
+  --stone-foreground: #171614;
 }
