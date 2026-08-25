@@ -9,9 +9,9 @@
     },
     {
       "name": "golv",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4610", "--directory", "/private/tmp/claude-501/-Users-charlesgyllhamn-Desktop-dygn-web/4f3f51d5-09a7-445e-aa94-5073be37143e/scratchpad"],
-      "port": 4610
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm", "-C", "/Users/charlesgyllhamn/Desktop/golv-web", "dev"],
+      "port": 3002
     }
   ]
 }
