@@ -5,7 +5,7 @@ import { WaitlistForm } from "@/components/waitlist-form"
 export const metadata: Metadata = {
   title: "DYGN · Daily nutrition. Launching soon.",
   description:
-    "Eight nutrients, one sachet, 30 seconds a day. A Swedish daily ritual, launching autumn 2026. Join the list for early access.",
+    "Eight nutrients, one sachet a day. A Swedish daily ritual, launching autumn 2026. Join the list for early access.",
 }
 
 export default function WaitlistPage() {
@@ -21,7 +21,7 @@ export default function WaitlistPage() {
           className="object-cover object-[50%_22%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/5 to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/0 to-background/70" />
       </div>
 
       {/* Desktop: bilden hel i högra halvan */}
@@ -37,26 +37,26 @@ export default function WaitlistPage() {
       </div>
 
       {/* Mobil: logga överst över bilden */}
-      <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-8 md:hidden">
-        <Image src="/brand/logo-dark.png" alt="" aria-hidden width={120} height={34} priority className="h-6 w-auto" />
+      <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-7 md:hidden">
+        <Image src="/brand/logo-dark.png" alt="" aria-hidden width={100} height={28} priority className="h-5 w-auto" />
       </div>
 
-      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-5 px-6 pb-12 pt-40 text-center md:w-1/2 md:justify-center md:gap-6 md:px-12 md:py-16 lg:px-16">
+      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3.5 px-6 pb-9 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:px-12 md:py-16 lg:px-16">
         <Image
           src="/brand/logo-dark.png"
           alt="DYGN"
-          width={120}
-          height={34}
-          className="hidden h-6 w-auto md:mb-2 md:block"
+          width={100}
+          height={28}
+          className="hidden h-5 w-auto md:mb-2 md:block"
         />
-        <h1 className="max-w-2xl font-fraunces text-4xl leading-[1.05] text-ink text-balance sm:text-5xl lg:text-6xl">
+        <h1 className="max-w-xl font-fraunces text-3xl leading-[1.08] text-ink text-balance sm:text-4xl lg:text-5xl">
           The foundation your body needs.
         </h1>
-        <p className="max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
-          Eight nutrients, one sachet, 30 seconds a day. A Swedish daily ritual, launching autumn 2026.
+        <p className="max-w-xs text-sm leading-relaxed text-ink/70 md:max-w-sm md:text-base">
+          Eight nutrients, one sachet a day. Launching autumn 2026.
         </p>
         <WaitlistForm />
-        <p className="text-xs uppercase tracking-[0.18em] text-ink/55">Made in Sweden</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-ink/50">Made in Sweden</p>
       </div>
     </main>
   )

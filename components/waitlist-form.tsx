@@ -27,14 +27,14 @@ export function WaitlistForm() {
 
   if (status === "done") {
     return (
-      <p className="text-base text-ink" role="status">
+      <p className="text-sm text-ink" role="status">
         Thanks. You are on the list.
       </p>
     )
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full max-w-sm flex-col gap-3" aria-label="Waitlist">
+    <form onSubmit={onSubmit} className="flex w-full max-w-xs flex-col gap-2.5" aria-label="Waitlist">
       <label htmlFor="waitlist-email" className="sr-only">
         Email address
       </label>
@@ -44,18 +44,18 @@ export function WaitlistForm() {
         type="email"
         required
         placeholder="Your email"
-        className="w-full rounded-full border border-ink/15 bg-white/90 px-6 py-4 text-center text-base text-ink placeholder:text-ink/45 focus:border-primary focus:outline-none"
+        className="w-full rounded-full border border-ink/15 bg-white/90 px-5 py-3 text-center text-sm text-ink placeholder:text-ink/45 focus:border-primary focus:outline-none"
       />
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-full bg-primary py-4 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-ink hover:text-ink-foreground disabled:opacity-60"
+        className="w-full rounded-full bg-primary py-3 text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-ink hover:text-ink-foreground disabled:opacity-60"
       >
         Notify me
       </button>
       {status === "error" && (
-        <p role="alert" className="text-sm text-destructive">
+        <p role="alert" className="text-xs text-destructive">
           Something went wrong. Please try again.
         </p>
       )}
