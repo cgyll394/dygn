@@ -51,7 +51,7 @@ export default function WaitlistPage() {
         <Image src="/brand/logo-dark.png" alt="DYGN" width={100} height={28} priority className="h-5 w-auto" />
       </div>
 
-      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 text-center md:w-1/2 md:items-start md:justify-center md:gap-4 md:px-12 md:pb-16 md:text-left lg:px-20">
+      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 text-center md:w-1/2 md:justify-center md:gap-4 md:px-12 md:pb-16">
         <h1 className="max-w-xl font-fraunces text-2xl leading-[1.1] text-ink-foreground text-balance sm:text-4xl lg:text-5xl">
           The foundation your body needs.
         </h1>
@@ -61,7 +61,10 @@ export default function WaitlistPage() {
           Launching autumn 2026.
         </p>
         <WaitlistForm />
-        <p className="text-[10px] uppercase tracking-[0.2em] text-ink-foreground/70">Made in Sweden</p>
+        <p className="max-w-[240px] text-[10px] leading-relaxed text-ink-foreground/80 md:max-w-none">
+          Sign up before launch and get a free gift with your first order.
+        </p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-ink-foreground/60">Made in Sweden</p>
       </div>
     </main>
   )
