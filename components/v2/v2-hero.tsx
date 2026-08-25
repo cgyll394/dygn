@@ -90,7 +90,7 @@ export function V2Hero() {
             alt=""
             fill
             priority
-            className="object-cover object-[50%_12%]"
+            className="object-cover object-[50%_20%]"
             sizes="50vw"
           />
         </div>

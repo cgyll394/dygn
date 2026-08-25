@@ -166,9 +166,9 @@
 
 /* V2: smalare announcement-banner med mindre text */
 .theme-v2 .announcement-banner {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 .theme-v2 .announcement-banner span {
-  font-size: 11px;
+  font-size: 12px;
 }
