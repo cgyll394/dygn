@@ -9,13 +9,13 @@ import { Benefits } from "@/components/sections/benefits"
 import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
 import { Comparison } from "@/components/sections/comparison"
-import { FisheyeDuo } from "@/components/v2/fisheye-duo"
+import { V2ImageBreak } from "@/components/v2/v2-image-break"
 import { Reviews } from "@/components/sections/social-proof"
 import { Faq } from "@/components/sections/faq"
 import { ClosingCta } from "@/components/sections/closing-cta"
 
 // Nudge-spåret: samma sida som startsidan i theme-v2 (grå palett, Fraunces),
-// med balansbilden som hero och fisheye-duon i stället för ImageBreak.
+// med balansbilden som hero och runclub-fotot som bildbreak.
 export const metadata: Metadata = {
   title: "DYGN · V2",
   robots: { index: false, follow: false },
@@ -34,7 +34,7 @@ export default function V2Page() {
         <HonestyStatement />
         <FormulaList />
         <Comparison />
-        <FisheyeDuo />
+        <V2ImageBreak />
         <Reviews />
         <Faq />
         <ClosingCta />
