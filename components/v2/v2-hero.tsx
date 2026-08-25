@@ -45,9 +45,17 @@ export function V2Hero() {
         </div>
       </div>
 
-      {/* Desktop */}
-      <div className="hidden md:grid md:min-h-[100svh] md:grid-cols-2">
-        <div className="relative flex flex-col justify-center bg-background px-12 pb-28 pt-32 lg:px-20">
+      {/* Desktop: den utökade bilden i fullbredd, copy över tomma ytan */}
+      <div className="relative hidden md:block">
+        <Image
+          src="/product/dygn-box-balance-wide.jpg"
+          alt="DYGN-ask balanserar på ett finger"
+          fill
+          priority
+          className="object-cover object-[50%_30%]"
+          sizes="100vw"
+        />
+        <div className="relative z-10 flex min-h-[100svh] w-1/2 flex-col justify-center px-12 pb-28 pt-32 lg:px-20">
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink/50">
             Tillverkad i Sverige
           </p>
@@ -73,7 +81,7 @@ export function V2Hero() {
           </div>
 
           {/* Trust: en tunn rad längst ner, ur vägen för budskapet */}
-          <div className="absolute inset-x-12 bottom-10 flex items-center justify-between border-t border-ink/10 pt-5 lg:inset-x-20">
+          <div className="absolute bottom-10 left-12 right-6 flex items-center justify-between border-t border-ink/10 pt-5 lg:left-20">
             <span className="flex items-center gap-1.5" aria-label="5 av 5 i betyg från tidiga testare">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-3 w-3 fill-primary text-primary" aria-hidden />
@@ -82,16 +90,6 @@ export function V2Hero() {
             </span>
             <PaymentBadges only={["klarna", "applepay"]} />
           </div>
-        </div>
-        <div className="relative" aria-hidden>
-          <Image
-            src="/product/dygn-box-balance.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover object-[50%_20%]"
-            sizes="50vw"
-          />
         </div>
       </div>
     </section>
