@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import Image from "next/image"
 import { WaitlistForm } from "@/components/waitlist-form"
 
@@ -8,9 +8,15 @@ export const metadata: Metadata = {
     "Eight nutrients, one sachet a day. A Swedish daily ritual, launching autumn 2026. Join the list for early access.",
 }
 
+// Safari tonar webbläsarens ytor (statusfält + verktygsfält) med theme-color.
+// Fotots kantfärg gör att sidan smälter ihop med chromen i stället för hårt klipp.
+export const viewport: Viewport = {
+  themeColor: "#c5b6b5",
+}
+
 export default function WaitlistPage() {
   return (
-    <main className="relative min-h-svh overflow-hidden bg-background">
+    <main className="relative min-h-svh overflow-hidden bg-[#c5b6b5] md:bg-background">
       {/* Mobil: bilden i fullskärm bakom innehållet */}
       <div className="absolute inset-0 md:hidden" aria-hidden>
         <Image
