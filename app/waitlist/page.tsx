@@ -64,7 +64,6 @@ export default function WaitlistPage() {
         <p className="text-[10px] leading-relaxed text-ink-foreground/80">
           Early sign-ups get a free gift at launch.
         </p>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-ink-foreground/60">Made in Sweden</p>
       </div>
     </main>
   )
