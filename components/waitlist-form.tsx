@@ -27,7 +27,7 @@ export function WaitlistForm() {
 
   if (status === "done") {
     return (
-      <p className="text-sm text-ink" role="status">
+      <p className="text-sm text-ink-foreground md:text-ink" role="status">
         Thanks. You are on the list.
       </p>
     )
@@ -55,7 +55,7 @@ export function WaitlistForm() {
         Notify me
       </button>
       {status === "error" && (
-        <p role="alert" className="text-xs text-destructive">
+        <p role="alert" className="text-xs text-ink-foreground md:text-destructive">
           Something went wrong. Please try again.
         </p>
       )}
