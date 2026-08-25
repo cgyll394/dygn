@@ -41,7 +41,7 @@ export default function WaitlistPage() {
         <Image src="/brand/logo-dark.png" alt="" aria-hidden width={100} height={28} priority className="h-5 w-auto" />
       </div>
 
-      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:px-12 md:py-16 lg:px-16">
+      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:bg-card md:px-12 md:py-16 lg:px-16">
         <Image
           src="/brand/logo-dark.png"
           alt="DYGN"
