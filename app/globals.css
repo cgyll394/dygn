@@ -139,3 +139,17 @@
     }
   }
 }
+
+/* V2-designspåret (/v2): gråare, mer tech, mindre beige. Tokens byts i subträdet. */
+.theme-v2 {
+  --background: #d8d3cf;
+  --foreground: #171614;
+  --card: #e4e0dc;
+  --card-foreground: #171614;
+  --muted: #cbc5c0;
+  --muted-foreground: #6e6963;
+  --border: #c2bcb6;
+  --ink: #171614;
+  --ink-foreground: #f3f0ed;
+  --ink-muted: #9d968f;
+}
