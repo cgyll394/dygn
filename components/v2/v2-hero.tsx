@@ -48,8 +48,7 @@ export function V2Hero() {
       {/* Desktop */}
       <div className="hidden md:grid md:min-h-[100svh] md:grid-cols-2">
         <div className="relative flex flex-col justify-center bg-background px-12 pb-28 pt-32 lg:px-20">
-          <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-ink/50">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink/50">
             Tillverkad i Sverige
           </p>
           <h1 className="mt-6 max-w-xl font-fraunces text-5xl leading-[1.05] text-ink text-balance lg:text-6xl">
