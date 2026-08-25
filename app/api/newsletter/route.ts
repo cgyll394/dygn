@@ -35,8 +35,9 @@ export async function POST(request: Request) {
       variables: {
         input: {
           email,
-          // Kunden sätter aldrig detta lösenord; konto kan aktiveras via lösenordsåterställning
-          password: crypto.randomUUID() + crypto.randomUUID(),
+          // Kunden sätter aldrig detta lösenord; konto kan aktiveras via
+          // lösenordsåterställning. Shopify tillåter max 40 tecken.
+          password: crypto.randomUUID(),
           acceptsMarketing: true,
         },
       },
