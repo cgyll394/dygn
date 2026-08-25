@@ -16,10 +16,11 @@ export const viewport: Viewport = {
 
 export default function WaitlistPage() {
   return (
-    <main className="relative min-h-svh overflow-hidden bg-[#c5b6b5] md:bg-background">
+    <main className="relative min-h-svh overflow-hidden bg-[#c5b6b5]">
       {/* Safari målar ytorna ovan/under sidan med body-bakgrunden vid overscroll */}
       <style>{"body{background:#c5b6b5}"}</style>
-      {/* Mobil: bilden i fullskärm bakom innehållet */}
+
+      {/* Mobil: porträttbilden i fullskärm */}
       <div className="absolute inset-0 md:hidden" aria-hidden>
         <Image
           src="/product/dygn-box-balance.jpg"
@@ -32,41 +33,35 @@ export default function WaitlistPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/0 via-ink/10 to-ink/55" />
       </div>
 
-      {/* Desktop: bilden hel i högra halvan */}
-      <div className="absolute inset-y-0 right-0 hidden w-1/2 md:block" aria-hidden>
+      {/* Desktop: utökade bilden i fullbredd med mjuk ton bakom copyn */}
+      <div className="absolute inset-0 hidden md:block" aria-hidden>
         <Image
-          src="/product/dygn-box-balance.jpg"
+          src="/product/dygn-box-balance-wide.jpg"
           alt=""
           fill
           priority
-          className="object-cover object-[50%_30%]"
-          sizes="50vw"
+          className="object-cover object-[50%_22%]"
+          sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/30 via-ink/10 to-transparent" />
       </div>
 
-      {/* Mobil: logga överst över bilden */}
-      <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-7 md:hidden">
-        <Image src="/brand/logo-dark.png" alt="" aria-hidden width={100} height={28} priority className="h-5 w-auto" />
+      {/* Logga överst, båda brytpunkter */}
+      <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-7">
+        <Image src="/brand/logo-dark.png" alt="DYGN" width={100} height={28} priority className="h-5 w-auto" />
       </div>
 
-      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 pt-40 text-center md:w-1/2 md:justify-center md:gap-5 md:bg-card md:px-12 md:py-16 lg:px-16">
-        <Image
-          src="/brand/logo-dark.png"
-          alt="DYGN"
-          width={100}
-          height={28}
-          className="hidden h-5 w-auto md:mb-2 md:block"
-        />
-        <h1 className="max-w-xl font-fraunces text-2xl leading-[1.1] text-ink-foreground text-balance sm:text-4xl md:text-ink lg:text-5xl">
+      <div className="relative z-10 flex min-h-svh flex-col items-center justify-end gap-3 px-6 pb-11 text-center md:w-1/2 md:items-start md:justify-center md:gap-4 md:px-12 md:pb-16 md:text-left lg:px-20">
+        <h1 className="max-w-xl font-fraunces text-2xl leading-[1.1] text-ink-foreground text-balance sm:text-4xl lg:text-5xl">
           The foundation your body needs.
         </h1>
-        <p className="max-w-xs text-xs leading-relaxed text-ink-foreground/90 md:max-w-sm md:text-base md:text-ink/70">
+        <p className="max-w-xs text-xs leading-relaxed text-ink-foreground/90 md:max-w-sm md:text-base">
           {"Eight nutrients, one sachet a day."}
           <br />
           Launching autumn 2026.
         </p>
         <WaitlistForm />
-        <p className="text-[10px] uppercase tracking-[0.2em] text-ink-foreground/70 md:text-ink/50">Made in Sweden</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-ink-foreground/70">Made in Sweden</p>
       </div>
     </main>
   )
