@@ -52,7 +52,7 @@ export function V2Hero() {
           alt="DYGN-ask balanserar på ett finger"
           fill
           priority
-          className="object-cover object-[50%_22%]"
+          className="scale-[1.06] object-cover object-[50%_22%] -translate-x-[1.2%] translate-y-[1%]"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/30 via-ink/10 to-transparent" aria-hidden />
