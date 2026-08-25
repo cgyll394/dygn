@@ -172,3 +172,11 @@
 .theme-v2 .announcement-banner span {
   font-size: 12px;
 }
+
+/* Prickraden visas bara i v2-scope */
+.v2-dots {
+  display: none;
+}
+.theme-v2 .v2-dots {
+  display: flex;
+}

@@ -1,4 +1,5 @@
 import { FlaskConical, Lock, RotateCcw, Truck } from "lucide-react"
+import { DayDotsRow } from "@/components/day-dots-row"
 import { NewsletterForm } from "@/components/newsletter-form"
 import { PaymentBadges } from "@/components/payment-badges"
 
@@ -37,6 +38,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-ink-foreground/15">
+        <DayDotsRow className="v2-dots justify-center pt-6" />
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-ink-foreground/60 md:flex-row md:px-8">
           <p>Kosttillskott ersätter inte en varierad kost. Överskrid inte rekommenderad dygnsdos.</p>
           <p>{"© 2026 DYGN"}</p>
