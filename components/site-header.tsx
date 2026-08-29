@@ -37,7 +37,7 @@ export function SiteHeader() {
   return (
     <>
       <RotatingBanner />
-      <div className="sticky top-2.5 z-40 mt-2.5 px-2.5 md:top-3 md:mt-3 md:px-5">
+      <div className="nav-shell sticky top-2.5 z-40 mt-2.5 px-2.5 md:top-3 md:mt-3 md:px-5">
         <header className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border/70 bg-card/95 py-2 pl-5 pr-2 shadow-[0_2px_20px_rgba(15,15,13,0.07)] backdrop-blur-md md:py-2.5 md:pl-7 md:pr-3">
           <nav aria-label="Huvudmeny" className="hidden items-center gap-7 md:flex">
             <Link
