@@ -20,14 +20,14 @@ export function V2Honesty() {
         </div>
       </div>
 
-      {/* Mörk scrim för läsbarhet */}
-      <div className="absolute inset-0 bg-ink/25" aria-hidden />
+      {/* Mörk scrim för läsbarhet — lätt */}
+      <div className="absolute inset-0 bg-ink/12" aria-hidden />
       <div
         className="absolute inset-0"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 58% 78% at 50% 50%, rgba(15,15,13,0.72) 0%, rgba(15,15,13,0.42) 55%, rgba(15,15,13,0.1) 100%)",
+            "radial-gradient(ellipse 58% 78% at 50% 50%, rgba(15,15,13,0.55) 0%, rgba(15,15,13,0.28) 55%, rgba(15,15,13,0.05) 100%)",
         }}
       />
 

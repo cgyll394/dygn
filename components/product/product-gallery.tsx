@@ -12,7 +12,7 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-muted">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-muted">
         <Image
           src={active.url || "/placeholder.svg"}
           alt={active.altText ?? title}
@@ -30,7 +30,7 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
               type="button"
               onClick={() => setActiveIndex(index)}
               aria-label={`Visa bild ${index + 1}`}
-              className={`relative aspect-square w-20 overflow-hidden rounded-md bg-muted transition-opacity ${
+              className={`relative aspect-[4/5] w-20 overflow-hidden rounded-md bg-muted transition-opacity ${
                 index === activeIndex ? "ring-1 ring-foreground" : "opacity-60 hover:opacity-100"
               }`}
             >
