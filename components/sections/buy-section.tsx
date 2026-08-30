@@ -9,7 +9,7 @@ const GALLERY: ProductImage[] = [
   { url: "/product/dygn-box-open.jpg", altText: "Öppnad DYGN-ask med 30 sachets", width: 1800, height: 1344 },
 ]
 
-export async function BuySection() {
+export async function BuySection({ compact = false }: { compact?: boolean }) {
   const product = await getProduct("dygn-daily-nutrition")
 
   if (!product) {
@@ -33,7 +33,7 @@ export async function BuySection() {
             {"Åtta näringsämnen i en sachet. Löses i vatten. Mild citrus, utan tillsatt socker."}
           </p>
           <div className="mt-8">
-            <BuyBox variants={product.variants.nodes} />
+            <BuyBox variants={product.variants.nodes} compact={compact} />
           </div>
         </div>
       </div>

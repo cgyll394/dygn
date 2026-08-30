@@ -4,10 +4,9 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { V2Hero } from "@/components/v2/v2-hero"
-import { BuySection } from "@/components/sections/buy-section"
-import { WildGallery } from "@/components/v2/wild-gallery"
 import { BenefitMarquee } from "@/components/v2/benefit-marquee"
-import { BenefitsV2 } from "@/components/v2/benefits-v2"
+import { BuySection } from "@/components/sections/buy-section"
+import { WildBenefits } from "@/components/v2/wild-benefits"
 import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
 import { AmbassadorQuote } from "@/components/v2/ambassador-quote"
@@ -30,12 +29,11 @@ export default function V2Page() {
       <SiteHeader />
       <main>
         <V2Hero />
-        <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
-          <BuySection />
-        </Suspense>
-        <WildGallery />
         <BenefitMarquee />
-        <BenefitsV2 />
+        <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
+          <BuySection compact />
+        </Suspense>
+        <WildBenefits />
         <HonestyStatement />
         <FormulaList />
         <AmbassadorQuote />

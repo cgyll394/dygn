@@ -28,7 +28,7 @@ type Option = {
   perks: string[]
 }
 
-export function BuyBox({ variants }: { variants: ProductVariant[] }) {
+export function BuyBox({ variants, compact = false }: { variants: ProductVariant[]; compact?: boolean }) {
   const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
   const threePack = variants.find((v) => v.title.toLowerCase().includes("3-pack"))
   const oneTime = variants.find(
@@ -172,10 +172,12 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
       </button>
 
       <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"Levereras inom 2–4 vardagar"}
-        </li>
+        {!compact && (
+          <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+            <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+            {"Levereras inom 2–4 vardagar"}
+          </li>
+        )}
         <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
           <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
           {"30 dagars öppet köp, även på öppnade förpackningar"}
@@ -184,13 +186,15 @@ export function BuyBox({ variants }: { variants: ProductVariant[] }) {
           <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
           {"Tredjepartstestad. Tillverkad i Sverige"}
         </li>
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"Säker betalning. Dela upp med Klarna"}
-        </li>
+        {!compact && (
+          <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+            <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+            {"Säker betalning. Dela upp med Klarna"}
+          </li>
+        )}
       </ul>
 
-      <PaymentBadges />
+      {!compact && <PaymentBadges />}
     </div>
   )
 }
