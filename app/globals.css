@@ -185,6 +185,16 @@
   display: flex;
 }
 
+/* Förtroende-seals (HACCP + Eurofins) visas bara i v2 */
+.v2-trust {
+  display: none;
+}
+.theme-v2 .v2-trust {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* V2: nav-pillret sitter lite lägre så bannern läser som en lätt remsa */
 .theme-v2 .nav-shell {
   margin-top: 1rem;

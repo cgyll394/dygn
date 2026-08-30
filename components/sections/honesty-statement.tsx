@@ -30,22 +30,30 @@ export function HonestyStatement() {
           Läs om formuleringen
         </Link>
 
-        {/* Förtroendemoment: certifieringar + tillverkare */}
-        <div className="mx-auto mt-12 flex max-w-md flex-col items-center gap-5 border-t border-ink-foreground/15 pt-9">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-2.5 shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-            <Image
-              src="/trust/haccp.svg"
-              alt="HACCP-certifierad tillverkning"
-              width={44}
-              height={44}
-              className="h-full w-full object-contain"
-            />
-          </span>
+        {/* Förtroende-seals — endast v2 (.v2-trust styr display via CSS) */}
+        <div className="v2-trust mx-auto mt-12 max-w-md gap-5 border-t border-ink-foreground/15 pt-9">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow-[0_2px_14px_rgba(0,0,0,0.18)] sm:h-14 sm:w-14 sm:p-2.5">
+              <Image
+                src="/trust/haccp.svg"
+                alt="HACCP-certifierad tillverkning"
+                width={44}
+                height={44}
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <span className="flex h-12 items-center rounded-full bg-white px-4 shadow-[0_2px_14px_rgba(0,0,0,0.18)] sm:h-14 sm:px-5">
+              <Image
+                src="/trust/eurofins.png"
+                alt="Tredjepartstestad av Eurofins"
+                width={162}
+                height={32}
+                className="h-7 w-auto sm:h-8"
+              />
+            </span>
+          </div>
           <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-foreground/55">
-            {"GMP · Tredjepartstestad av Eurofins"}
-            <br className="sm:hidden" />
-            <span className="hidden sm:inline"> · </span>
-            {"Tillverkad av 13:E Protein Import, Sverige"}
+            {"GMP · Tillverkad av 13:E Protein Import, Sverige"}
           </p>
         </div>
       </div>
