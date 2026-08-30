@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react"
 
 // V2-only. "DYGN in the wild" — bilderna flashar förbi bild för bild, hård
-// klippning (ingen övergång), på ljus bakgrund. Cirkelmaskad = ren fisheye-lins.
+// klippning (ingen övergång), på ljus bakgrund. Hela bilden visas (ingen crop).
 const COUNT = 10
 const IMAGES = Array.from({ length: COUNT }, (_, i) => `/lifestyle/wild/${String(i + 1).padStart(2, "0")}.jpg`)
 
@@ -23,12 +23,12 @@ export function WildGallery() {
         <div className="text-center md:text-left">
           <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-primary">DYGN in the wild</p>
           <h2 className="mt-4 font-fraunces text-3xl leading-tight text-ink text-balance md:text-5xl">
-            Överallt du är.
+            Mitt i vardagen.
           </h2>
         </div>
 
-        <div className="mx-auto w-full max-w-[320px] md:ml-auto md:mr-0 md:max-w-[360px]">
-          <div className="relative aspect-square w-full overflow-hidden rounded-full">
+        <div className="mx-auto w-full max-w-[320px] md:ml-auto md:mr-0 md:max-w-[380px]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
             {IMAGES.map((src, i) => (
               <img
                 key={src}

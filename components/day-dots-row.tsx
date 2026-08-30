@@ -17,7 +17,7 @@ export function DayDotsRow({ total = 30, className = "" }: { total?: number; cla
     const tick = () => {
       setCount(n)
       const atFull = n >= total
-      const delay = atFull ? 1400 : 150
+      const delay = atFull ? 1600 : 230
       n = atFull ? 0 : n + 1
       timer = setTimeout(tick, delay)
     }
