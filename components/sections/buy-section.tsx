@@ -52,7 +52,7 @@ export async function BuySection({ compact = false }: { compact?: boolean }) {
         {/* Compact: trygghets-rad + betalmärken centrerat under hela avsnittet */}
         {compact && (
           <div className="mx-auto mt-14 flex max-w-2xl flex-col items-center gap-7 border-t border-border pt-10 md:mt-16">
-            <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+            <ul className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-3">
               {ASSURANCES.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-center gap-2 text-xs text-muted-foreground">
                   <Icon className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
