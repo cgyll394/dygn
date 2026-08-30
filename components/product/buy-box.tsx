@@ -144,7 +144,7 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
                   <span className="mt-1 text-xs text-muted-foreground">{note}</span>
                 </span>
               </span>
-              {isSelected && perks.length > 0 && (
+              {isSelected && !compact && perks.length > 0 && (
                 <ul className="mt-3.5 flex flex-col gap-1.5 border-t border-border pt-3.5 pl-8">
                   {perks.map((perk) => (
                     <li key={perk} className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -171,30 +171,31 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
           : "Slutsåld"}
       </button>
 
-      <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
-        {!compact && (
-          <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-            <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-            {"Levereras inom 2–4 vardagar"}
-          </li>
-        )}
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"30 dagars öppet köp, även på öppnade förpackningar"}
-        </li>
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {"Tredjepartstestad. Tillverkad i Sverige"}
-        </li>
-        {!compact && (
-          <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-            <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-            {"Säker betalning. Dela upp med Klarna"}
-          </li>
-        )}
-      </ul>
-
-      {!compact && <PaymentBadges />}
+      {/* I compact-läge flyttas trust-raden och betalmärkena till en centrerad
+          rad under hela köpsektionen (se BuySection). */}
+      {!compact && (
+        <>
+          <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {"Levereras inom 2–4 vardagar"}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {"30 dagars öppet köp, även på öppnade förpackningar"}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {"Tredjepartstestad. Tillverkad i Sverige"}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {"Säker betalning. Dela upp med Klarna"}
+            </li>
+          </ul>
+          <PaymentBadges />
+        </>
+      )}
     </div>
   )
 }

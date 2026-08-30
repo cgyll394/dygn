@@ -38,7 +38,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-ink-foreground/15">
-        <DayDotsRow className="v2-dots justify-center pt-6" />
+        <DayDotsRow className="v2-dots mx-auto max-w-6xl px-5 pt-6 md:px-8" />
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-ink-foreground/60 md:flex-row md:px-8">
           <p>Kosttillskott ersätter inte en varierad kost. Överskrid inte rekommenderad dygnsdos.</p>
           <p>{"© 2026 DYGN"}</p>
