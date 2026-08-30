@@ -8,6 +8,7 @@ import { BuySection } from "@/components/sections/buy-section"
 import { Benefits } from "@/components/sections/benefits"
 import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
+import { AmbassadorQuote } from "@/components/v2/ambassador-quote"
 import { Comparison } from "@/components/sections/comparison"
 import { V2ImageBreak } from "@/components/v2/v2-image-break"
 import { Reviews } from "@/components/sections/social-proof"
@@ -33,6 +34,7 @@ export default function V2Page() {
         <Benefits />
         <HonestyStatement />
         <FormulaList />
+        <AmbassadorQuote />
         <Comparison />
         <V2ImageBreak />
         <Reviews />
