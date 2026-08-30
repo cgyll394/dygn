@@ -7,10 +7,7 @@ export function AmbassadorQuote() {
   return (
     <section className="bg-card py-20 md:py-28" aria-label="Gunnar Lögdahl om DYGN">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          I samarbete med
-        </p>
-        <blockquote className="mx-auto mt-7 max-w-2xl font-fraunces text-2xl leading-[1.32] text-ink text-balance md:text-[2rem]">
+        <blockquote className="mx-auto max-w-2xl font-fraunces text-2xl leading-[1.32] text-ink text-balance md:text-[2rem]">
           {"”Jag jobbar med spelare som ska prestera dag efter dag. Det svåra är sällan passet, det är att få grunden att sitta, varje dygn. DYGN gör just den biten enkel.”"}
         </blockquote>
 
@@ -25,6 +22,9 @@ export function AmbassadorQuote() {
           <span className="leading-tight">
             <span className="block text-sm font-semibold text-ink">Gunnar Lögdahl</span>
             <span className="mt-0.5 block text-xs text-muted-foreground">Fystränare, Eskilstuna GUIF</span>
+            <span className="mt-1.5 block text-[11px] font-medium uppercase tracking-[0.12em] text-primary">
+              5× svensk mästare i tyngdlyftning
+            </span>
           </span>
         </figcaption>
       </div>
