@@ -20,8 +20,8 @@ export function HonestyStatement() {
         >
           Tillverkad i Sverige. Testad av oberoende labb.
         </h2>
-        <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-ink-foreground/85">
-          Hos en HACCP- och IP Livsmedel-certifierad svensk tillverkare som följer GMP. Varje produktion tredjepartstestas av Eurofins, och formeln är Cologne List-listad för dig som tävlar.
+        <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
+          Hos en HACCP-certifierad svensk tillverkare som följer GMP. Varje produktion tredjepartstestas av Eurofins för tungmetaller och mikrobiologisk säkerhet.
         </p>
         <Link
           href="/formulering"
@@ -32,28 +32,17 @@ export function HonestyStatement() {
 
         {/* Förtroendemoment: certifieringar + tillverkare */}
         <div className="mx-auto mt-12 flex max-w-md flex-col items-center gap-5 border-t border-ink-foreground/15 pt-9">
-          <ul className="flex items-center gap-3.5" aria-label="Certifieringar">
-            <li className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-2.5 shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-              <Image
-                src="/trust/haccp.svg"
-                alt="HACCP-certifierad tillverkning"
-                width={44}
-                height={44}
-                className="h-full w-full object-contain"
-              />
-            </li>
-            <li className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-2 shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-              <Image
-                src="/trust/cologne-list.png"
-                alt="Cologne List: testad för dopingklassade substanser"
-                width={44}
-                height={44}
-                className="h-full w-full object-contain"
-              />
-            </li>
-          </ul>
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-2.5 shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
+            <Image
+              src="/trust/haccp.svg"
+              alt="HACCP-certifierad tillverkning"
+              width={44}
+              height={44}
+              className="h-full w-full object-contain"
+            />
+          </span>
           <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-foreground/55">
-            {"IP Livsmedel · GMP · Tredjepartstestad av Eurofins"}
+            {"GMP · Tredjepartstestad av Eurofins"}
             <br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>
             {"Tillverkad av 13:E Protein Import, Sverige"}
