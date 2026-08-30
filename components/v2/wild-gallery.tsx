@@ -6,7 +6,10 @@ import { useEffect, useState } from "react"
 // V2-only. "DYGN in the wild" — bilderna flashar förbi bild för bild, hård
 // klippning (ingen övergång), på ljus bakgrund. Hela bilden visas (ingen crop).
 const COUNT = 10
-const IMAGES = Array.from({ length: COUNT }, (_, i) => `/lifestyle/wild/${String(i + 1).padStart(2, "0")}.jpg`)
+// Bumpa V när bilderna byts ut (filnamnen återanvänds) — annars visar cachade
+// enheter gamla bilder på samma URL.
+const V = "3"
+const IMAGES = Array.from({ length: COUNT }, (_, i) => `/lifestyle/wild/${String(i + 1).padStart(2, "0")}.jpg?v=${V}`)
 
 export function WildGallery() {
   const [idx, setIdx] = useState(0)
