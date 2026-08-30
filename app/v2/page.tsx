@@ -5,7 +5,8 @@ import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { V2Hero } from "@/components/v2/v2-hero"
 import { BuySection } from "@/components/sections/buy-section"
-import { Benefits } from "@/components/sections/benefits"
+import { BenefitMarquee } from "@/components/v2/benefit-marquee"
+import { BenefitsV2 } from "@/components/v2/benefits-v2"
 import { HonestyStatement } from "@/components/sections/honesty-statement"
 import { FormulaList } from "@/components/sections/formula-list"
 import { AmbassadorQuote } from "@/components/v2/ambassador-quote"
@@ -31,7 +32,8 @@ export default function V2Page() {
         <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
           <BuySection />
         </Suspense>
-        <Benefits />
+        <BenefitMarquee />
+        <BenefitsV2 />
         <HonestyStatement />
         <FormulaList />
         <AmbassadorQuote />
