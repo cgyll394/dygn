@@ -7,7 +7,7 @@ import { V2Hero } from "@/components/v2/v2-hero"
 import { BenefitMarquee } from "@/components/v2/benefit-marquee"
 import { BuySection } from "@/components/sections/buy-section"
 import { WildBenefits } from "@/components/v2/wild-benefits"
-import { HonestyStatement } from "@/components/sections/honesty-statement"
+import { V2Honesty } from "@/components/v2/v2-honesty"
 import { FormulaList } from "@/components/sections/formula-list"
 import { AmbassadorQuote } from "@/components/v2/ambassador-quote"
 import { Comparison } from "@/components/sections/comparison"
@@ -34,7 +34,7 @@ export default function V2Page() {
           <BuySection compact />
         </Suspense>
         <WildBenefits />
-        <HonestyStatement />
+        <V2Honesty />
         <FormulaList />
         <AmbassadorQuote />
         <Comparison />
