@@ -6,7 +6,7 @@ import type { ReactNode } from "react"
  * (Inställningar → Betalningar). Att visa en metod som inte går att välja
  * i kassan är vilseledande — kommentera bort raden i stället.
  */
-const ENABLED = ["visa", "mastercard", "amex", "klarna", "applepay", "googlepay", "shoppay", "paypal"] as const
+const ENABLED = ["visa", "mastercard", "amex", "klarna", "applepay", "googlepay", "shoppay"] as const
 
 type Method = (typeof ENABLED)[number]
 
@@ -163,25 +163,6 @@ function ShopPay({ fill = false }: { fill?: boolean }) {
   )
 }
 
-function PayPal({ tone }: { tone: Tone }) {
-  return (
-    <svg viewBox="0 0 48 20" className="h-full w-full" role="img" aria-label="PayPal">
-      <text
-        x="24"
-        y="14.5"
-        textAnchor="middle"
-        fontFamily={FONT}
-        fontSize="11"
-        fontWeight="700"
-        fill={tone === "dark" ? "#FFFFFF" : "#003087"}
-      >
-        Pay
-        <tspan fill={tone === "dark" ? "#9BD3F0" : "#009CDE"}>Pal</tspan>
-      </text>
-    </svg>
-  )
-}
-
 // Märken med egen färgplatta — kan fylla hela chippet när brandedFill är på.
 const SELF_BG = new Set<Method>(["klarna", "amex", "shoppay"])
 
@@ -201,8 +182,6 @@ function mark(method: Method, tone: Tone, fill: boolean): ReactNode {
       return <GooglePay tone={tone} />
     case "shoppay":
       return <ShopPay fill={fill} />
-    case "paypal":
-      return <PayPal tone={tone} />
   }
 }
 

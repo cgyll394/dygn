@@ -37,8 +37,8 @@ export default function V2Page() {
         <AmbassadorQuote />
         <V2Honesty />
         <FormulaList />
-        <Comparison />
         <V2ImageBreak />
+        <Comparison />
         <Reviews />
         <Faq />
         <ClosingCta />

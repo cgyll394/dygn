@@ -11,7 +11,7 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
   if (!active) return null
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex min-w-0 flex-col gap-3">
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-muted">
         <Image
           src={active.url || "/placeholder.svg"}
