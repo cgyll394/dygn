@@ -1,4 +1,5 @@
 import { Zap, Shield, Bone, Droplets, Sparkles } from "lucide-react"
+import { DayDotsRow } from "@/components/day-dots-row"
 
 // V2-only. Punchy ikon-rad i stället för de texttunga korten — fördelarna
 // syns direkt. Copy är avsiktligt kort; skärps mot EFSA-formuleringar senare.
@@ -22,6 +23,7 @@ export function BenefitsV2() {
           >
             Gjord för att göra skillnad.
           </h2>
+          <DayDotsRow className="mt-6 flex justify-center text-ink" />
         </div>
 
         <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:mt-16 lg:grid-cols-5">

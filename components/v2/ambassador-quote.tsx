@@ -15,9 +15,9 @@ export function AmbassadorQuote() {
           <Image
             src="/people/gunnar.jpg"
             alt="Gunnar Lögdahl"
-            width={72}
-            height={72}
-            className="h-[72px] w-[72px] rounded-full object-cover"
+            width={92}
+            height={92}
+            className="h-[92px] w-[92px] rounded-full object-cover"
           />
           <span className="leading-tight">
             <span className="block text-sm font-semibold text-ink">Gunnar Lögdahl</span>
