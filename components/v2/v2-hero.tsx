@@ -42,7 +42,7 @@ export function V2Hero() {
               Formuleringen
             </Link>
           </div>
-          <PaymentBadges only={["klarna", "applepay"]} tone="dark" className="mt-1 justify-center" />
+          <PaymentBadges only={["klarna", "applepay"]} tone="dark" brandedFill className="mt-1 justify-center" />
         </div>
       </div>
 

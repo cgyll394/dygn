@@ -45,10 +45,16 @@ function Mastercard() {
   )
 }
 
-function Amex() {
+function Amex({ fill = false }: { fill?: boolean }) {
   return (
-    <svg viewBox="0 0 48 30" className="h-full w-full" role="img" aria-label="American Express">
-      <rect width="48" height="30" rx="3" fill="#006FCF" />
+    <svg
+      viewBox="0 0 48 30"
+      className="h-full w-full"
+      role="img"
+      aria-label="American Express"
+      preserveAspectRatio={fill ? "none" : undefined}
+    >
+      <rect width="48" height="30" rx={fill ? 0 : 3} fill="#006FCF" />
       <text
         x="24"
         y="14"
@@ -77,10 +83,16 @@ function Amex() {
   )
 }
 
-function Klarna() {
+function Klarna({ fill = false }: { fill?: boolean }) {
   return (
-    <svg viewBox="0 0 48 30" className="h-full w-full" role="img" aria-label="Klarna">
-      <rect width="48" height="30" rx="4" fill="#FFB3C7" />
+    <svg
+      viewBox="0 0 48 30"
+      className="h-full w-full"
+      role="img"
+      aria-label="Klarna"
+      preserveAspectRatio={fill ? "none" : undefined}
+    >
+      <rect width="48" height="30" rx={fill ? 0 : 4} fill="#FFB3C7" />
       <text
         x="24"
         y="19.5"
@@ -125,10 +137,16 @@ function GooglePay({ tone }: { tone: Tone }) {
   )
 }
 
-function ShopPay() {
+function ShopPay({ fill = false }: { fill?: boolean }) {
   return (
-    <svg viewBox="0 0 48 30" className="h-full w-full" role="img" aria-label="Shop Pay">
-      <rect width="48" height="30" rx="4" fill="#5A31F4" />
+    <svg
+      viewBox="0 0 48 30"
+      className="h-full w-full"
+      role="img"
+      aria-label="Shop Pay"
+      preserveAspectRatio={fill ? "none" : undefined}
+    >
+      <rect width="48" height="30" rx={fill ? 0 : 4} fill="#5A31F4" />
       <text
         x="24"
         y="19.5"
@@ -164,22 +182,25 @@ function PayPal({ tone }: { tone: Tone }) {
   )
 }
 
-function mark(method: Method, tone: Tone): ReactNode {
+// Märken med egen färgplatta — kan fylla hela chippet när brandedFill är på.
+const SELF_BG = new Set<Method>(["klarna", "amex", "shoppay"])
+
+function mark(method: Method, tone: Tone, fill: boolean): ReactNode {
   switch (method) {
     case "visa":
       return <Visa tone={tone} />
     case "mastercard":
       return <Mastercard />
     case "amex":
-      return <Amex />
+      return <Amex fill={fill} />
     case "klarna":
-      return <Klarna />
+      return <Klarna fill={fill} />
     case "applepay":
       return <ApplePay tone={tone} />
     case "googlepay":
       return <GooglePay tone={tone} />
     case "shoppay":
-      return <ShopPay />
+      return <ShopPay fill={fill} />
     case "paypal":
       return <PayPal tone={tone} />
   }
@@ -189,27 +210,37 @@ export function PaymentBadges({
   className = "",
   only,
   tone = "light",
+  brandedFill = false,
 }: {
   className?: string
   /** Visa bara ett urval, t.ex. i heron. Utan denna visas alla aktiverade metoder. */
   only?: readonly Method[]
   tone?: Tone
+  /** Låt märken med egen färgplatta (Klarna m.fl.) fylla hela chippet i stället för att ligga i en tonad box. */
+  brandedFill?: boolean
 }) {
   const methods = only ?? ENABLED
   return (
     <ul className={`flex flex-wrap items-center gap-1.5 ${className}`} aria-label="Betalmetoder i kassan">
-      {methods.map((method) => (
-        <li
-          key={method}
-          className={`flex h-7 w-[46px] items-center justify-center rounded-[5px] border px-1.5 ${
-            tone === "dark"
-              ? "border-ink-foreground/30 bg-ink/35 backdrop-blur-sm"
-              : "border-border bg-white"
-          }`}
-        >
-          {mark(method, tone)}
-        </li>
-      ))}
+      {methods.map((method) => {
+        const filled = brandedFill && SELF_BG.has(method)
+        return (
+          <li
+            key={method}
+            className={
+              filled
+                ? "flex h-7 w-[46px] items-center justify-center overflow-hidden rounded-[5px]"
+                : `flex h-7 w-[46px] items-center justify-center rounded-[5px] border px-1.5 ${
+                    tone === "dark"
+                      ? "border-ink-foreground/30 bg-ink/35 backdrop-blur-sm"
+                      : "border-border bg-white"
+                  }`
+            }
+          >
+            {mark(method, tone, filled)}
+          </li>
+        )
+      })}
     </ul>
   )
 }
