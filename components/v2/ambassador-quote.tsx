@@ -8,7 +8,7 @@ export function AmbassadorQuote() {
     <section className="bg-card py-20 md:py-28" aria-label="Gunnar Lögdahl om DYGN">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <blockquote className="mx-auto max-w-2xl font-fraunces text-2xl leading-[1.32] text-ink text-balance md:text-[2rem]">
-          {"”Jag jobbar med spelare som ska prestera dag efter dag. Det svåra är sällan passet, det är att få grunden att sitta, varje dygn. DYGN gör just den biten enkel.”"}
+          {"”Jag jobbar med spelare som ska prestera dag efter dag. Det svåra är sällan passet, det är att få grunden att sitta, varje dag. DYGN gör just den biten enkel.”"}
         </blockquote>
 
         <figcaption className="mt-9 flex flex-col items-center gap-3.5">

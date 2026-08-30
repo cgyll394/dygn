@@ -34,9 +34,9 @@ export default function V2Page() {
           <BuySection compact />
         </Suspense>
         <WildBenefits />
+        <AmbassadorQuote />
         <V2Honesty />
         <FormulaList />
-        <AmbassadorQuote />
         <Comparison />
         <V2ImageBreak />
         <Reviews />
