@@ -52,9 +52,6 @@ export function HonestyStatement() {
               />
             </span>
           </div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-foreground/55">
-            {"GMP · Tillverkad av 13:E Protein Import, Sverige"}
-          </p>
         </div>
       </div>
     </section>
