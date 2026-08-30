@@ -27,17 +27,17 @@ export function WildBenefits() {
   }, [])
 
   return (
-    <section className="bg-background py-16 md:py-24" aria-labelledby="wild-benefits-heading">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+    <section className="bg-background py-16 md:py-36" aria-labelledby="wild-benefits-heading">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-20 md:px-8">
         {/* Fördelar — vänster på desktop, under bilden på mobil */}
         <div className="order-2 md:order-1">
           <h2
             id="wild-benefits-heading"
-            className="text-center font-fraunces text-3xl leading-tight text-ink text-balance md:text-left md:text-5xl"
+            className="text-center font-fraunces text-3xl leading-tight text-ink text-balance md:text-left md:text-6xl"
           >
             Gjord för att göra skillnad.
           </h2>
-          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-9 md:mt-10 md:flex md:flex-col md:gap-6">
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-9 md:mt-12 md:flex md:flex-col md:gap-7">
             {BENEFITS.map(({ icon: Icon, title, text }) => (
               <li
                 key={title}
@@ -56,10 +56,7 @@ export function WildBenefits() {
         </div>
 
         {/* Bild — höger på desktop, överst på mobil */}
-        <div className="order-1 mx-auto w-full max-w-[340px] md:order-2 md:ml-auto md:mr-0 md:max-w-[400px]">
-          <p className="mb-4 text-center text-[11px] font-medium uppercase tracking-[0.24em] text-primary">
-            DYGN in the wild
-          </p>
+        <div className="order-1 mx-auto w-full max-w-[340px] md:order-2 md:ml-auto md:mr-0 md:max-w-[480px]">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
             {IMAGES.map((src, i) => (
               <img
