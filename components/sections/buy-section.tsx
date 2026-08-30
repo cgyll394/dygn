@@ -14,6 +14,9 @@ const ASSURANCES = [
 const GALLERY: ProductImage[] = [
   { url: "/product/dygn-sachet-auto.jpg", altText: "DYGN Daily Essential-sachet stående i varmt ljus", width: 1600, height: 1986 },
   { url: "/product/dygn-float.jpg", altText: "DYGN-sachet svävande mot koboltblå bakgrund", width: 1600, height: 1986 },
+  { url: "/product/dygn-hand-hold.jpg", altText: "DYGN-sachet i en hand mot varmt ljus", width: 1600, height: 2008 },
+  { url: "/product/dygn-box-sachet.jpg", altText: "DYGN Daily Essentials-ask med en sachet", width: 1600, height: 2008 },
+  { url: "/product/dygn-fisheye.jpg", altText: "DYGN på löparbanan, fisheye", width: 1600, height: 2008 },
 ]
 
 export async function BuySection({ compact = false }: { compact?: boolean }) {
