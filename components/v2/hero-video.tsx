@@ -7,9 +7,11 @@ import { useEffect, useRef } from "react"
 // upp den (vissa lägen kräver ett play()-anrop) och respekterar
 // prefers-reduced-motion genom att pausa på första bildrutan (= stillbild).
 export function HeroVideo({
+  src = "/video/dygn-hero.mp4",
   className = "",
   objectPosition = "50% 50%",
 }: {
+  src?: string
   className?: string
   objectPosition?: string
 }) {
@@ -38,7 +40,7 @@ export function HeroVideo({
       preload="auto"
       aria-hidden
     >
-      <source src="/video/dygn-hero.mp4" type="video/mp4" />
+      <source src={src} type="video/mp4" />
     </video>
   )
 }

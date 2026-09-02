@@ -8,6 +8,7 @@ import { CartDrawer } from "@/components/cart/cart-drawer"
 import { ProductGallery } from "@/components/product/product-gallery"
 import { BuyBox } from "@/components/product/buy-box"
 import { StickyAtc } from "@/components/product/sticky-atc"
+import { ProductVideo } from "@/components/v2/product-video"
 import { HowToUse } from "@/components/sections/pdp/how-to-use"
 import { EffectTimeline } from "@/components/sections/pdp/effect-timeline"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
@@ -87,6 +88,7 @@ export default async function V2ProductPage({ params }: LangParams) {
               </div>
             </section>
 
+            <ProductVideo lang={lang} />
             <HowToUse lang={lang} />
             <EffectTimeline lang={lang} />
             <ProductFacts lang={lang} />
