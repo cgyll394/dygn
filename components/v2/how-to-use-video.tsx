@@ -24,7 +24,7 @@ export function HowToUseVideo({ lang }: { lang: Lang }) {
           className="aspect-[16/10] max-h-[70svh] w-full object-cover md:aspect-video"
           objectPosition="50% 40%"
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent md:h-28" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-background to-transparent md:h-16" aria-hidden />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent md:h-32" aria-hidden />
       </div>
 
