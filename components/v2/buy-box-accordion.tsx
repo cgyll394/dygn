@@ -25,7 +25,7 @@ type Opt = {
  * expanderas (pris per dag, fördelar) — övriga ligger som en tunn rad.
  * Accordion: ett öppet i taget.
  */
-export function BuyBoxAccordion({ variants }: { variants: ProductVariant[] }) {
+export function BuyBoxAccordion({ variants, compact = false }: { variants: ProductVariant[]; compact?: boolean }) {
   const lang = useLang()
   const t = COPY[lang]
   const subscription = findVariant(variants, "subscription")
@@ -162,25 +162,31 @@ export function BuyBoxAccordion({ variants }: { variants: ProductVariant[] }) {
           : t.soldOut}
       </button>
 
-      <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {t.assurances.delivery}
-        </li>
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {t.assurances.returns}
-        </li>
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {t.assurances.tested}
-        </li>
-        <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
-          <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-          {t.assurances.payment}
-        </li>
-      </ul>
-      <PaymentBadges lang={lang} />
+      {/* I compact-läge (startsidan) ligger trust-rad + betalmärken centrerat
+          under hela avsnittet i BuySection i stället. */}
+      {!compact && (
+        <>
+          <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {t.assurances.delivery}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {t.assurances.returns}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {t.assurances.tested}
+            </li>
+            <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
+              <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+              {t.assurances.payment}
+            </li>
+          </ul>
+          <PaymentBadges lang={lang} />
+        </>
+      )}
     </div>
   )
 }

@@ -4,6 +4,8 @@ const sv = {
   eyebrow: "Daily Nutrition · 30 sachets",
   heading: "Bara det viktiga. Inget onödigt.",
   paragraph: "Åtta näringsämnen i en sachet. Löses i vatten. Mild citrus, utan tillsatt socker.",
+  ingredientsLabel: "Innehåller",
+  ingredients: ["D3", "K2", "B12", "Folat", "Magnesium", "Kalium", "Zink", "Jod"],
   error: "Produkten kunde inte hämtas just nu. Försök igen strax.",
   /** Paras med ASSURANCE_ICONS i buy-section.tsx, samma ordning. */
   assurances: [
@@ -26,6 +28,8 @@ const en: typeof sv = {
   eyebrow: "Daily Nutrition · 30 sachets",
   heading: "Only what matters. Nothing unnecessary.",
   paragraph: "Eight nutrients in one sachet. Dissolves in water. Mild citrus, no added sugar.",
+  ingredientsLabel: "Contains",
+  ingredients: ["D3", "K2", "B12", "Folate", "Magnesium", "Potassium", "Zinc", "Iodine"],
   error: "The product couldn’t be loaded right now. Please try again shortly.",
   assurances: [
     "Delivered in 2–4 working days",

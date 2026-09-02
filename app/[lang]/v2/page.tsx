@@ -33,7 +33,7 @@ export default async function V2Page({ params }: LangParams) {
         <V2Hero lang={lang} />
         <BenefitMarquee lang={lang} />
         <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
-          <BuySection lang={lang} compact />
+          <BuySection lang={lang} compact accordion />
         </Suspense>
         <WildBenefits />
         <AmbassadorQuote lang={lang} />

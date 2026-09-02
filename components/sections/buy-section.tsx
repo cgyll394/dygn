@@ -3,6 +3,7 @@ import type { Lang } from "@/lib/i18n"
 import { getProduct, type ProductImage } from "@/lib/shopify"
 import { ProductGallery } from "@/components/product/product-gallery"
 import { BuyBox } from "@/components/product/buy-box"
+import { BuyBoxAccordion } from "@/components/v2/buy-box-accordion"
 import { PaymentBadges } from "@/components/payment-badges"
 import { COPY } from "./buy-section.copy"
 
@@ -18,7 +19,15 @@ const GALLERY: Omit<ProductImage, "altText">[] = [
   { url: "/product/dygn-fisheye.jpg", width: 1600, height: 2008 },
 ]
 
-export async function BuySection({ lang, compact = false }: { lang: Lang; compact?: boolean }) {
+export async function BuySection({
+  lang,
+  compact = false,
+  accordion = false,
+}: {
+  lang: Lang
+  compact?: boolean
+  accordion?: boolean
+}) {
   const t = COPY[lang]
   const product = await getProduct("dygn-daily-nutrition", lang)
 
@@ -43,8 +52,24 @@ export async function BuySection({ lang, compact = false }: { lang: Lang; compac
               {t.heading}
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">{t.paragraph}</p>
+            {accordion && (
+              <ul className="mt-4 flex flex-wrap gap-2" aria-label={t.ingredientsLabel}>
+                {t.ingredients.map((ing) => (
+                  <li
+                    key={ing}
+                    className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground"
+                  >
+                    {ing}
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="mt-8">
-              <BuyBox variants={product.variants.nodes} compact={compact} />
+              {accordion ? (
+                <BuyBoxAccordion variants={product.variants.nodes} compact={compact} />
+              ) : (
+                <BuyBox variants={product.variants.nodes} compact={compact} />
+              )}
             </div>
           </div>
         </div>
