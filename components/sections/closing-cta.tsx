@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
-import { localePath, type Lang } from "@/lib/i18n"
+import { NavLink } from "@/components/nav-link"
+import type { Lang } from "@/lib/i18n"
 import { COPY } from "./closing-cta.copy"
 
 export function ClosingCta({ lang }: { lang: Lang }) {
@@ -21,12 +21,12 @@ export function ClosingCta({ lang }: { lang: Lang }) {
           {t.heading}
         </h2>
         <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
-          <Link
-            href={localePath(lang, "/produkt")}
+          <NavLink
+            to="/produkt"
             className="inline-flex min-h-[50px] items-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
           >
             {t.cta}
-          </Link>
+          </NavLink>
           <p className="text-sm text-ink-foreground/80">{t.note}</p>
         </div>
       </div>

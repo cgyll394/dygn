@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { localePath, type Lang } from "@/lib/i18n"
+import { NavLink } from "@/components/nav-link"
+import type { Lang } from "@/lib/i18n"
 import { COPY } from "./formula-list.copy"
 
 export function FormulaList({ lang }: { lang: Lang }) {
@@ -14,12 +14,12 @@ export function FormulaList({ lang }: { lang: Lang }) {
               {t.heading}
             </h2>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-foreground/70">{t.text}</p>
-            <Link
-              href={localePath(lang, "/formulering")}
+            <NavLink
+              to="/formulering"
               className="mt-8 inline-flex min-h-[44px] items-center rounded-full bg-ink-foreground px-6 text-sm font-medium text-ink transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               {t.link}
-            </Link>
+            </NavLink>
           </div>
 
           <ul className="divide-y divide-ink-foreground/15 border-y border-ink-foreground/15">

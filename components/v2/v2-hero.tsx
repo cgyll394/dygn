@@ -1,8 +1,9 @@
 import Link from "next/link"
 import { Star } from "lucide-react"
 import { HeroVideo } from "@/components/v2/hero-video"
+import { NavLink } from "@/components/nav-link"
 import { PaymentBadges } from "@/components/payment-badges"
-import { localePath, type Lang } from "@/lib/i18n"
+import type { Lang } from "@/lib/i18n"
 import { COPY } from "./v2-hero.copy"
 
 // V2-heron: fullskärm på båda brytpunkterna med produktvideon som bakgrund.
@@ -30,12 +31,12 @@ export function V2Hero({ lang }: { lang: Lang }) {
             >
               {t.cta}
             </Link>
-            <Link
-              href={localePath(lang, "/formulering")}
+            <NavLink
+              to="/formulering"
               className="text-[10px] font-medium uppercase tracking-[0.14em] text-ink-foreground/80 underline underline-offset-4"
             >
               {t.formulaLink}
-            </Link>
+            </NavLink>
           </div>
           <PaymentBadges lang={lang} only={["klarna", "applepay"]} tone="dark" brandedFill className="mt-1 justify-center" />
         </div>
@@ -63,12 +64,12 @@ export function V2Hero({ lang }: { lang: Lang }) {
             >
               {t.cta}
             </Link>
-            <Link
-              href={localePath(lang, "/formulering")}
+            <NavLink
+              to="/formulering"
               className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-foreground/75 underline underline-offset-4 transition-colors hover:text-ink-foreground"
             >
               {t.formulaLink}
-            </Link>
+            </NavLink>
           </div>
 
           {/* Trust: en tunn rad längst ner, ur vägen för budskapet. Begränsad

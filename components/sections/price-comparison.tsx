@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { Check } from "lucide-react"
-import { localePath, type Lang } from "@/lib/i18n"
+import { NavLink } from "@/components/nav-link"
+import type { Lang } from "@/lib/i18n"
 import { COPY } from "./price-comparison.copy"
 
 export function PriceComparison({ lang }: { lang: Lang }) {
@@ -59,12 +59,12 @@ export function PriceComparison({ lang }: { lang: Lang }) {
                 <span className="text-sm text-ink-foreground/70">{t.dygnPerDay}</span>
               </div>
             </div>
-            <Link
-              href={localePath(lang, "/produkt")}
+            <NavLink
+              to="/produkt"
               className="mt-7 inline-flex min-h-[48px] items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
             >
               {t.cta}
-            </Link>
+            </NavLink>
           </div>
         </div>
 

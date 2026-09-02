@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
-import { localePath, type Lang } from "@/lib/i18n"
+import { NavLink } from "@/components/nav-link"
+import type { Lang } from "@/lib/i18n"
 import { COPY } from "./v2-honesty.copy"
 
 // V2-only. Kvalitetssektion med två bilder (citron + mineralkristaller) som
@@ -45,12 +45,12 @@ export function V2Honesty({ lang }: { lang: Lang }) {
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-foreground/85">
           {t.text}
         </p>
-        <Link
-          href={localePath(lang, "/formulering")}
+        <NavLink
+          to="/formulering"
           className="mt-8 inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-ink-foreground underline decoration-ink-foreground/40 underline-offset-[6px] transition-colors hover:decoration-ink-foreground"
         >
           {t.link}
-        </Link>
+        </NavLink>
 
         <div className="mx-auto mt-12 flex flex-wrap items-center justify-center gap-2.5 border-t border-ink-foreground/20 pt-9 sm:gap-3">
           <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow-[0_2px_14px_rgba(0,0,0,0.2)] sm:h-14 sm:w-14 sm:p-2.5">

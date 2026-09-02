@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { ShoppingBag } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
 import { useLang } from "@/components/lang-provider"
 import { LangSwitch } from "@/components/lang-switch"
-import { localePath } from "@/lib/i18n"
+import { NavLink } from "@/components/nav-link"
 import { COPY } from "./site-header.copy"
 
-function RotatingBanner({ messages, href }: { messages: string[]; href: string }) {
+function RotatingBanner({ messages }: { messages: string[] }) {
   const [index, setIndex] = useState(0)
   useEffect(() => {
     const id = setInterval(() => setIndex((i) => (i + 1) % messages.length), 4000)
@@ -18,11 +17,11 @@ function RotatingBanner({ messages, href }: { messages: string[]; href: string }
   }, [messages.length])
   return (
     <div className="announcement-banner relative z-30 flex items-center justify-center bg-primary px-4 py-3.5 text-center">
-      <Link href={href} className="block">
+      <NavLink to="/#kop" className="block">
         <span key={index} className="animate-usp block whitespace-nowrap text-[13px] font-medium leading-none text-primary-foreground">
           {messages[index]}
         </span>
-      </Link>
+      </NavLink>
     </div>
   )
 }
@@ -35,42 +34,42 @@ export function SiteHeader() {
 
   return (
     <>
-      <RotatingBanner messages={t.banner} href={localePath(lang, "/#kop")} />
+      <RotatingBanner messages={t.banner} />
       <div className="nav-shell sticky top-2.5 z-40 mt-2.5 px-2.5 md:top-3 md:mt-3 md:px-5">
         <header className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border/70 bg-card/95 py-2 pl-5 pr-2 shadow-[0_2px_20px_rgba(15,15,13,0.07)] backdrop-blur-md md:py-2.5 md:pl-7 md:pr-3">
           <nav aria-label={t.menu} className="hidden items-center gap-7 md:flex">
-            <Link
-              href={localePath(lang, "/produkt")}
+            <NavLink
+              to="/produkt"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {t.product}
-            </Link>
-            <Link
-              href={localePath(lang, "/formulering")}
+            </NavLink>
+            <NavLink
+              to="/formulering"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {t.formula}
-            </Link>
-            <Link
-              href={localePath(lang, "/#faq")}
+            </NavLink>
+            <NavLink
+              to="/#faq"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {t.faq}
-            </Link>
+            </NavLink>
           </nav>
 
-          <Link href={localePath(lang, "/")} aria-label={t.home} className="md:absolute md:left-1/2 md:-translate-x-1/2">
+          <NavLink to="/" aria-label={t.home} className="md:absolute md:left-1/2 md:-translate-x-1/2">
             <Image src="/brand/logo-dark.png" alt="DYGN" width={96} height={26} priority className="h-[22px] w-auto md:h-6" />
-          </Link>
+          </NavLink>
 
           <div className="flex items-center gap-1.5 md:gap-2.5">
             <LangSwitch className="px-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground md:px-2.5" />
-            <Link
-              href={localePath(lang, "/produkt")}
+            <NavLink
+              to="/produkt"
               className="flex h-10 items-center rounded-full bg-primary px-4 text-xs font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background md:h-11 md:px-5"
             >
               {t.buy}
-            </Link>
+            </NavLink>
             <button
               type="button"
               onClick={openCart}
