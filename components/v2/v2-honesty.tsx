@@ -35,10 +35,9 @@ export function V2Honesty({ lang }: { lang: Lang }) {
       />
 
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-24 text-center md:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">{t.eyebrow}</p>
         <h2
           id="v2-honesty-heading"
-          className="mx-auto mt-5 font-fraunces text-4xl leading-[1.05] text-ink-foreground text-balance sm:text-5xl md:text-6xl"
+          className="mx-auto font-fraunces text-4xl leading-[1.05] text-ink-foreground text-balance sm:text-5xl md:text-6xl"
         >
           {t.heading}
         </h2>
