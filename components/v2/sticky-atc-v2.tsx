@@ -78,7 +78,7 @@ export function StickyAtcV2({ variants, image }: { variants: ProductVariant[]; i
         isOpen || !visible ? "translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="pb-safe mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 md:gap-5 md:px-8">
+      <div className="pb-safe mx-auto flex max-w-6xl items-center gap-3 px-4 py-3.5 md:gap-4 md:px-8 md:py-4">
         {image && (
           <Image
             src={image}
@@ -94,7 +94,7 @@ export function StickyAtcV2({ variants, image }: { variants: ProductVariant[]; i
         </div>
 
         {/* Inline-dropdown för att byta alternativ */}
-        <div ref={menuRef} className="relative flex-1 md:max-w-xs">
+        <div ref={menuRef} className="relative flex-1 sm:flex-none sm:w-60 md:w-72">
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
@@ -149,7 +149,7 @@ export function StickyAtcV2({ variants, image }: { variants: ProductVariant[]; i
           type="button"
           disabled={isPending || !selected.availableForSale}
           onClick={() => addItem(selected.id)}
-          className="flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-xs font-semibold uppercase tracking-[0.08em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-50 md:px-8 md:text-sm"
+          className="ml-auto flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-5 text-xs font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background disabled:opacity-50 md:px-8 md:text-sm"
         >
           {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
           <span className="hidden sm:inline">{t.addToCart}</span>
