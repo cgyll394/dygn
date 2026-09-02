@@ -8,7 +8,7 @@ export function HowToUseVideo({ lang }: { lang: Lang }) {
   const t = COPY[lang]
 
   return (
-    <section className="overflow-hidden border-y border-border bg-background pb-16 pt-16 md:pb-24 md:pt-24" aria-labelledby="how-to-use-heading">
+    <section className="overflow-hidden bg-background pb-16 pt-16 md:pb-24 md:pt-24" aria-labelledby="how-to-use-heading">
       <div className="mx-auto max-w-3xl px-5 text-center md:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{t.eyebrow}</p>
         <h2 id="how-to-use-heading" className="mt-3 font-serif text-3xl text-foreground text-balance md:text-4xl">
@@ -16,13 +16,16 @@ export function HowToUseVideo({ lang }: { lang: Lang }) {
         </h2>
       </div>
 
-      {/* Full bredd, kant till kant */}
-      <div className="mt-10 w-full md:mt-14">
+      {/* Full bredd, kant till kant — kanterna fadear in i sektionen så videon
+          inte ligger som ett hårt block i det grå bandet. */}
+      <div className="relative mt-8 w-full md:mt-10">
         <HeroVideo
           src="/video/dygn-pour.mp4"
           className="aspect-[16/10] max-h-[70svh] w-full object-cover md:aspect-video"
           objectPosition="50% 40%"
         />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent md:h-28" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent md:h-32" aria-hidden />
       </div>
 
       {/* Flytande, indelat kort över videons nederkant */}
