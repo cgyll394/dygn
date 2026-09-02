@@ -27,7 +27,7 @@ export function WildBenefits() {
   }, [])
 
   return (
-    <section className="bg-background py-16 md:py-36" aria-labelledby="wild-benefits-heading">
+    <section className="bg-background pb-24 pt-16 md:py-36" aria-labelledby="wild-benefits-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-20 md:px-8">
         {/* Fördelar — vänster på desktop, under bilden på mobil */}
         <div className="order-2 md:order-1">
@@ -43,14 +43,14 @@ export function WildBenefits() {
               return (
                 <li
                   key={title}
-                  className="flex flex-col items-center gap-3.5 text-center md:flex-row md:items-start md:gap-5 md:text-left"
+                  className="flex flex-col items-center gap-3 text-center md:flex-row md:items-start md:gap-5 md:text-left"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-card">
-                    <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} aria-hidden />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-card md:mt-0.5 md:h-12 md:w-12">
+                    <Icon className="h-5 w-5 text-primary md:h-6 md:w-6" strokeWidth={1.5} aria-hidden />
                   </span>
                   <span>
-                    <span className="block text-base font-semibold text-foreground md:text-lg">{title}</span>
-                    <span className="mt-1 block text-[15px] leading-relaxed text-muted-foreground md:text-base">{text}</span>
+                    <span className="block text-sm font-semibold text-foreground md:text-lg">{title}</span>
+                    <span className="mt-0.5 block text-sm leading-relaxed text-muted-foreground md:mt-1 md:text-base">{text}</span>
                   </span>
                 </li>
               )
