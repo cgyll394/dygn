@@ -44,8 +44,8 @@ export function V2Hero({ lang }: { lang: Lang }) {
       {/* Desktop: videon i fullbredd, copy över en mörkare vänsterhalva */}
       <div className="relative hidden md:block">
         <HeroVideo className="absolute inset-0 h-full w-full bg-[#c6ced0] object-cover" objectPosition="50% 45%" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/35 to-transparent" aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent" aria-hidden />
         <div className="relative z-10 flex min-h-[100svh] w-1/2 flex-col justify-center px-12 pb-28 pt-32 [text-shadow:0_2px_22px_rgba(15,15,13,0.5)] lg:px-20">
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-foreground/70">
             {t.eyebrow}
@@ -71,8 +71,9 @@ export function V2Hero({ lang }: { lang: Lang }) {
             </Link>
           </div>
 
-          {/* Trust: en tunn rad längst ner, ur vägen för budskapet */}
-          <div className="absolute bottom-10 left-12 right-6 flex items-center justify-between border-t border-ink-foreground/20 pt-5 lg:left-20">
+          {/* Trust: en tunn rad längst ner, ur vägen för budskapet. Begränsad
+              till copyns bredd så linjen och betalmärkena hålls till vänster. */}
+          <div className="absolute bottom-10 left-12 right-6 flex max-w-md items-center justify-between border-t border-ink-foreground/20 pt-5 lg:left-20">
             <span className="flex items-center gap-1.5" aria-label={t.ratingLabel}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-3 w-3 fill-primary text-primary" aria-hidden />
