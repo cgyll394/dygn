@@ -2,13 +2,13 @@ import type { Lang } from "@/lib/i18n"
 
 const sv = {
   sectionLabel: "DYGN i rörelse",
-  imageAlt: "Löpare håller upp en DYGN-sachet och vattenflaska efter ett pass",
+  imageAlt: "En DYGN Daily Essentials-ask balanserar på ett finger",
   heading: "En sachet om dagen. Det är hela metoden.",
 }
 
 const en: typeof sv = {
   sectionLabel: "DYGN in motion",
-  imageAlt: "Runner holding up a DYGN sachet and a water bottle after a workout",
+  imageAlt: "A DYGN Daily Essentials box balancing on a fingertip",
   heading: "One sachet a day. That’s the whole method.",
 }
 

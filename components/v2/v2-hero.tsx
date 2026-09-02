@@ -1,34 +1,26 @@
-import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
+import { HeroVideo } from "@/components/v2/hero-video"
 import { PaymentBadges } from "@/components/payment-badges"
 import { localePath, type Lang } from "@/lib/i18n"
 import { COPY } from "./v2-hero.copy"
 
-// V2-heron: fullskärm på båda brytpunkterna. Desktop delar i copy-spalt
-// och obeskuret foto; vänsterspalten är grupperad i tre nivåer med
-// tydlig hierarki: påstående, en handling, och trust som en tunn rad
-// längst ner. Mobil: fotot fritt, litet kluster under asken.
+// V2-heron: fullskärm på båda brytpunkterna med produktvideon som bakgrund.
+// Videon är ljus och center-vägd, så copyn ligger på en mörkare scrim
+// (mobil: nedtill, desktop: vänster halva). Produkten hålls i mitten/höger.
 export function V2Hero({ lang }: { lang: Lang }) {
   const t = COPY[lang]
   return (
-    <section className="relative -mt-20 overflow-hidden bg-[#c5b6b5] md:-mt-24">
+    <section className="relative -mt-20 overflow-hidden bg-[#c6ced0] md:-mt-24">
       {/* Mobil */}
       <div className="relative flex min-h-[100svh] flex-col justify-end md:hidden">
-        <Image
-          src="/product/dygn-box-balance.jpg"
-          alt={t.imageAlt}
-          fill
-          priority
-          className="object-cover object-[50%_20%]"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/0 via-ink/10 to-ink/55" aria-hidden />
-        <div className="relative z-10 flex flex-col items-center gap-3 px-6 pb-11 text-center">
+        <HeroVideo className="absolute inset-0 h-full w-full bg-[#c6ced0] object-cover" objectPosition="50% 42%" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-ink/20 to-ink/80" aria-hidden />
+        <div className="relative z-10 flex flex-col items-center gap-3 px-6 pb-11 text-center [text-shadow:0_2px_18px_rgba(15,15,13,0.5)]">
           <h1 className="font-fraunces text-[1.9rem] leading-[1.1] text-ink-foreground text-balance">
             {t.heading}
           </h1>
-          <p className="text-[13px] leading-relaxed text-ink-foreground/85">
+          <p className="text-[13px] leading-relaxed text-ink-foreground/90">
             {t.leadMobile}
           </p>
           <div className="mt-2 flex items-center gap-4">
@@ -49,25 +41,19 @@ export function V2Hero({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      {/* Desktop: den utökade bilden i fullbredd, copy över tomma ytan */}
+      {/* Desktop: videon i fullbredd, copy över en mörkare vänsterhalva */}
       <div className="relative hidden md:block">
-        <Image
-          src="/product/dygn-box-balance-wide.jpg"
-          alt={t.imageAlt}
-          fill
-          priority
-          className="object-cover object-[50%_22%]"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/30 via-ink/10 to-transparent" aria-hidden />
-        <div className="relative z-10 flex min-h-[100svh] w-1/2 flex-col justify-center px-12 pb-28 pt-32 lg:px-20">
+        <HeroVideo className="absolute inset-0 h-full w-full bg-[#c6ced0] object-cover" objectPosition="50% 45%" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/35 to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" aria-hidden />
+        <div className="relative z-10 flex min-h-[100svh] w-1/2 flex-col justify-center px-12 pb-28 pt-32 [text-shadow:0_2px_22px_rgba(15,15,13,0.5)] lg:px-20">
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-foreground/70">
             {t.eyebrow}
           </p>
           <h1 className="mt-6 max-w-xl font-fraunces text-5xl leading-[1.05] text-ink-foreground text-balance lg:text-6xl">
             {t.heading}
           </h1>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-ink-foreground/80">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-ink-foreground/90">
             {t.leadDesktop}
           </p>
           <div className="mt-9 flex items-center gap-6">
