@@ -101,7 +101,7 @@ export function StickyAtcV2({ variants, image }: { variants: ProductVariant[]; i
             aria-haspopup="listbox"
             aria-expanded={menuOpen}
             aria-label={t.chooseLabel}
-            className="flex h-12 w-full items-center justify-between gap-2 rounded-full bg-secondary px-4 text-left transition-colors hover:bg-muted"
+            className="flex h-10 w-full items-center justify-between gap-2 rounded-full bg-secondary px-4 text-left transition-colors hover:bg-muted"
           >
             <span className="truncate text-sm font-medium text-foreground">{labelFor(selected)}</span>
             <span className="flex shrink-0 items-center gap-1.5 text-sm text-muted-foreground">
@@ -149,7 +149,7 @@ export function StickyAtcV2({ variants, image }: { variants: ProductVariant[]; i
           type="button"
           disabled={isPending || !selected.availableForSale}
           onClick={() => addItem(selected.id)}
-          className="ml-auto flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-5 text-xs font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background disabled:opacity-50 md:px-8 md:text-sm"
+          className="ml-auto flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-5 text-xs font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background disabled:opacity-50 md:px-8 md:text-sm"
         >
           {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
           <span className="hidden sm:inline">{t.addToCart}</span>
