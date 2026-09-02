@@ -15,6 +15,7 @@ import { V2ImageBreak } from "@/components/v2/v2-image-break"
 import { Reviews } from "@/components/sections/social-proof"
 import { Faq } from "@/components/sections/faq"
 import { ClosingCta } from "@/components/sections/closing-cta"
+import { getLang, type LangParams } from "@/lib/lang-params"
 
 // Nudge-spåret: samma sida som startsidan i theme-v2 (grå palett, Fraunces),
 // med balansbilden som hero och runclub-fotot som bildbreak.
@@ -23,27 +24,28 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default function V2Page() {
+export default async function V2Page({ params }: LangParams) {
+  const lang = await getLang(params)
   return (
     <div className="theme-v2 bg-background text-foreground">
       <SiteHeader />
       <main>
-        <V2Hero />
-        <BenefitMarquee />
+        <V2Hero lang={lang} />
+        <BenefitMarquee lang={lang} />
         <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
-          <BuySection compact />
+          <BuySection lang={lang} compact />
         </Suspense>
         <WildBenefits />
-        <AmbassadorQuote />
-        <V2Honesty />
-        <FormulaList />
-        <V2ImageBreak />
-        <Comparison />
-        <Reviews />
+        <AmbassadorQuote lang={lang} />
+        <V2Honesty lang={lang} />
+        <FormulaList lang={lang} />
+        <V2ImageBreak lang={lang} />
+        <Comparison lang={lang} />
+        <Reviews lang={lang} />
         <Faq />
-        <ClosingCta />
+        <ClosingCta lang={lang} />
       </main>
-      <SiteFooter />
+      <SiteFooter lang={lang} />
       <CartDrawer />
     </div>
   )

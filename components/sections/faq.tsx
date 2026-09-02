@@ -2,67 +2,39 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { useLang } from "@/components/lang-provider"
+import { COPY } from "./faq.copy"
 
-const FAQS = [
-  {
-    q: "Hur tar jag DYGN?",
-    a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus: utan socker, lätt sötad med sukralos.",
-  },
-  {
-    q: "Varför bara åtta näringsämnen?",
-    a: "För att fler inte är bättre. Vi har valt näringsämnen där tre kriterier möts: tydlig vetenskaplig evidens, dokumenterat vanliga brister i nordisk kost, och former med dokumenterat upptag som håller i pulver. Ett multivitamin med 25 ingredienser i verkningslösa doser ser bra ut på etiketten men gör ingen skillnad i kroppen.",
-  },
-  {
-    q: "Kommer jag känna någon skillnad?",
-    a: "Förmodligen inte, och det är ett ärligt svar. Grundnäring arbetar långsiktigt och syns i blodprov, inte i hur veckan känns. Undantaget är magnesium: ligger du lågt kan sömnen bli bättre efter några veckor. Vill du se effekten, mät till exempel D-vitamin och homocystein före och efter tre månader.",
-  },
-  {
-    q: "Kan jag ta DYGN tillsammans med andra kosttillskott eller läkemedel?",
-    a: "DYGN innehåller måttfulla doser som är utformade för att komplettera en normal kost. Tar du blodförtunnande läkemedel (särskilt warfarin) bör du prata med din läkare på grund av K2-innehållet. Detsamma gäller vid sköldkörtelmedicinering på grund av jod.",
-  },
-  {
-    q: "Är DYGN veganskt?",
-    a: "Ja. Vitamin D3 är vegansk kolekalciferol, framställd utan lanolin, och samtliga övriga ingredienser är växtbaserade eller syntetiskt framställda utan animaliska källor.",
-  },
-  {
-    q: "Vilken returpolicy gäller?",
-    a: "30 dagars öppet köp, även på öppnade förpackningar. Är du inte nöjd mejlar du oss så återbetalar vi hela beloppet. Vi tror på produkten och tar hellre risken än att du ska behöva ta den.",
-  },
-  {
-    q: "Hur fungerar prenumerationen?",
-    a: "En ny förpackning levereras var 30:e dag till 20% lägre pris. Du kan pausa, hoppa över en leverans eller avsluta när som helst, utan bindningstid, direkt från ditt konto eller via mejl.",
-  },
-  {
-    q: "Var tillverkas DYGN?",
-    a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad tillverkare som följer GMP och gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende Eurofins för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
-  },
-]
-
-const FAQ_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+/** FAQPage-schema (JSON-LD) för valt språk */
+function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  }
 }
 
 export function Faq() {
+  const lang = useLang()
+  const t = COPY[lang]
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section id="faq" aria-labelledby="faq-heading" className="bg-background">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(t.items)) }}
       />
       <div className="mx-auto max-w-4xl px-4 py-20 md:px-8 md:py-28">
         <h2 id="faq-heading" className="mb-10 font-serif text-3xl md:mb-14 md:text-4xl">
-          {"Vanliga frågor"}
+          {t.heading}
         </h2>
         <ul className="divide-y divide-border border-y border-border">
-          {FAQS.map((faq, index) => {
+          {t.items.map((faq, index) => {
             const isOpen = openIndex === index
             return (
               <li key={faq.q}>

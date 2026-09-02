@@ -3,20 +3,12 @@
 import { useState } from "react"
 import { Check, Loader2, Lock, RotateCcw, Truck, ShieldCheck } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
+import { useLang } from "@/components/lang-provider"
 import { PaymentBadges } from "@/components/payment-badges"
+import { formatMoney, perDay } from "@/lib/format"
 import type { ProductVariant } from "@/lib/shopify"
-
-function formatMoney(amount: string, currencyCode: string) {
-  return new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: currencyCode,
-    maximumFractionDigits: 0,
-  }).format(Number.parseFloat(amount))
-}
-
-function perDay(amount: string, currencyCode: string, servings: number) {
-  return formatMoney((Number.parseFloat(amount) / servings).toString(), currencyCode)
-}
+import { findVariant, savingsPercent } from "@/lib/variants"
+import { COPY } from "./buy-box.copy"
 
 type Option = {
   variant: ProductVariant
@@ -29,51 +21,44 @@ type Option = {
 }
 
 export function BuyBox({ variants, compact = false }: { variants: ProductVariant[]; compact?: boolean }) {
-  const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
-  const threePack = variants.find((v) => v.title.toLowerCase().includes("3-pack"))
-  const oneTime = variants.find(
-    (v) => !v.title.toLowerCase().includes("prenumeration") && !v.title.toLowerCase().includes("3-pack"),
-  )
+  const lang = useLang()
+  const t = COPY[lang]
+  const subscription = findVariant(variants, "subscription")
+  const threePack = findVariant(variants, "threePack")
+  const oneTime = findVariant(variants, "oneTime")
   const [selectedId, setSelectedId] = useState(subscription?.id ?? variants[0]?.id)
   const { addItem, isPending } = useCart()
 
   const selected = variants.find((v) => v.id === selectedId)
   if (!selected) return null
 
-  function savings(v?: ProductVariant) {
-    if (!v?.compareAtPrice) return 0
-    return Math.round(
-      (1 - Number.parseFloat(v.price.amount) / Number.parseFloat(v.compareAtPrice.amount)) * 100,
-    )
-  }
-
   const options = [
     subscription && {
       variant: subscription,
-      label: "Prenumeration",
-      badge: savings(subscription) > 0 ? `Spara ${savings(subscription)}%` : null,
-      pickBadge: "De flesta väljer denna",
+      label: t.options.subscription.label,
+      badge: savingsPercent(subscription) > 0 ? t.save(savingsPercent(subscription)) : null,
+      pickBadge: t.options.subscription.pickBadge,
       servings: 30,
-      note: "30 sachets var 30:e dag",
-      perks: ["Alltid fri frakt", "Pausa, hoppa över eller avsluta när som helst"],
+      note: t.options.subscription.note,
+      perks: t.options.subscription.perks,
     },
     threePack && {
       variant: threePack,
-      label: "3-pack",
-      badge: savings(threePack) > 0 ? `Spara ${savings(threePack)}%` : null,
+      label: t.options.threePack.label,
+      badge: savingsPercent(threePack) > 0 ? t.save(savingsPercent(threePack)) : null,
       pickBadge: null,
       servings: 90,
-      note: "90 sachets, en leverans",
-      perks: ["Fri frakt ingår"],
+      note: t.options.threePack.note,
+      perks: t.options.threePack.perks,
     },
     oneTime && {
       variant: oneTime,
-      label: "Engångsköp",
+      label: t.options.oneTime.label,
       badge: null,
       pickBadge: null,
       servings: 30,
-      note: "30 sachets · frakt 50 kr tillkommer",
-      perks: [],
+      note: t.options.oneTime.note,
+      perks: t.options.oneTime.perks,
     },
   ].filter(Boolean) as Option[]
 
@@ -81,7 +66,7 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
     <div className="flex flex-col gap-5">
       <fieldset className="flex flex-col gap-3">
         <legend className="mb-5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-          Välj ditt sätt att köpa
+          {t.legend}
         </legend>
         {options.map(({ variant, label, badge, pickBadge, servings: srv, note, perks }) => {
           const isSelected = variant.id === selectedId
@@ -127,17 +112,17 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
                   </span>
                   <span className="mt-1.5 flex flex-wrap items-baseline gap-x-2">
                     <span className="font-serif text-2xl leading-none">
-                      {perDay(variant.price.amount, variant.price.currencyCode, srv)}
+                      {perDay(variant.price.amount, variant.price.currencyCode, srv, lang)}
                     </span>
-                    <span className="text-sm text-muted-foreground">per dag</span>
+                    <span className="text-sm text-muted-foreground">{t.perDay}</span>
                     <span className="ml-auto flex items-baseline gap-1.5 text-xs text-muted-foreground">
                       {variant.compareAtPrice && (
                         <span className="line-through">
-                          {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode)}
+                          {formatMoney(variant.compareAtPrice.amount, variant.compareAtPrice.currencyCode, lang)}
                         </span>
                       )}
                       <span className="font-medium text-foreground">
-                        {formatMoney(variant.price.amount, variant.price.currencyCode)}
+                        {formatMoney(variant.price.amount, variant.price.currencyCode, lang)}
                       </span>
                     </span>
                   </span>
@@ -167,8 +152,8 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
       >
         {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
         {selected.availableForSale
-          ? `Lägg i varukorgen · ${formatMoney(selected.price.amount, selected.price.currencyCode)}`
-          : "Slutsåld"}
+          ? t.addToCart(formatMoney(selected.price.amount, selected.price.currencyCode, lang))
+          : t.soldOut}
       </button>
 
       {/* I compact-läge flyttas trust-raden och betalmärkena till en centrerad
@@ -178,22 +163,22 @@ export function BuyBox({ variants, compact = false }: { variants: ProductVariant
           <ul className="flex flex-col gap-2.5 border-t border-border pt-5">
             <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
               <Truck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-              {"Levereras inom 2–4 vardagar"}
+              {t.assurances.delivery}
             </li>
             <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
               <RotateCcw className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-              {"30 dagars öppet köp, även på öppnade förpackningar"}
+              {t.assurances.returns}
             </li>
             <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
               <ShieldCheck className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-              {"Tredjepartstestad. Tillverkad i Sverige"}
+              {t.assurances.tested}
             </li>
             <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
               <Lock className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
-              {"Säker betalning. Dela upp med Klarna"}
+              {t.assurances.payment}
             </li>
           </ul>
-          <PaymentBadges />
+          <PaymentBadges lang={lang} />
         </>
       )}
     </div>

@@ -2,37 +2,27 @@
 
 import { Loader2 } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
+import { useLang } from "@/components/lang-provider"
+import { formatMoney } from "@/lib/format"
 import type { ProductVariant } from "@/lib/shopify"
-
-function formatMoney(amount: string, currencyCode: string) {
-  return new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: currencyCode,
-    maximumFractionDigits: 0,
-  }).format(Number.parseFloat(amount))
-}
+import { findVariant, savingsPercent } from "@/lib/variants"
+import { COPY } from "./sticky-atc.copy"
 
 /**
  * Cadence-style purchase bar: visible from page load, subscription as the
  * primary CTA, one-time purchase as a quiet text link underneath.
  */
 export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
+  const lang = useLang()
+  const t = COPY[lang]
   const { addItem, isPending, isOpen } = useCart()
 
-  const subscription = variants.find((v) => v.title.toLowerCase().includes("prenumeration"))
-  const oneTime = variants.find(
-    (v) => !v.title.toLowerCase().includes("prenumeration") && !v.title.toLowerCase().includes("3-pack"),
-  )
+  const subscription = findVariant(variants, "subscription")
+  const oneTime = findVariant(variants, "oneTime")
   const primary = subscription ?? variants[0]
   if (!primary) return null
 
-  function savings(v?: ProductVariant) {
-    if (!v?.compareAtPrice) return 0
-    return Math.round(
-      (1 - Number.parseFloat(v.price.amount) / Number.parseFloat(v.compareAtPrice.amount)) * 100,
-    )
-  }
-  const save = savings(subscription)
+  const save = savingsPercent(subscription)
 
   return (
     <div
@@ -42,13 +32,11 @@ export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
       }`}
     >
       <div className="pb-safe mx-auto max-w-6xl px-4 pb-3 pt-2.5 md:px-8">
-        <p className="pb-1.5 text-center text-xs text-muted-foreground md:hidden">
-          {"DYGN Daily Nutrition · 30 sachets"}
-        </p>
+        <p className="pb-1.5 text-center text-xs text-muted-foreground md:hidden">{t.mobileTitle}</p>
         <div className="flex items-center gap-4 md:gap-6">
           <div className="hidden min-w-0 flex-col md:flex">
-            <p className="truncate text-sm font-semibold">DYGN Daily Nutrition</p>
-            <p className="text-xs text-muted-foreground">{"30 sachets. En om dagen."}</p>
+            <p className="truncate text-sm font-semibold">{t.title}</p>
+            <p className="text-xs text-muted-foreground">{t.subtitle}</p>
           </div>
           <div className="flex flex-1 flex-col items-center gap-1.5 md:ml-auto md:max-w-md">
             <button
@@ -59,8 +47,8 @@ export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
             >
               {isPending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
               {subscription
-                ? `Prenumerera${save > 0 ? ` · spara ${save} %` : ""} · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`
-                : `Lägg i varukorgen · ${formatMoney(primary.price.amount, primary.price.currencyCode)}`}
+                ? t.subscribe(save, formatMoney(primary.price.amount, primary.price.currencyCode, lang))
+                : t.addToCart(formatMoney(primary.price.amount, primary.price.currencyCode, lang))}
             </button>
             {subscription && oneTime && (
               <button
@@ -69,7 +57,7 @@ export function StickyAtc({ variants }: { variants: ProductVariant[] }) {
                 onClick={() => addItem(oneTime.id)}
                 className="min-h-[32px] text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground disabled:opacity-50"
               >
-                {`Engångsköp · ${formatMoney(oneTime.price.amount, oneTime.price.currencyCode)}`}
+                {t.oneTime(formatMoney(oneTime.price.amount, oneTime.price.currencyCode, lang))}
               </button>
             )}
           </div>

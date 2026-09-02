@@ -12,26 +12,28 @@ import { ImageBreak } from "@/components/sections/image-break"
 import { Reviews } from "@/components/sections/social-proof"
 import { Faq } from "@/components/sections/faq"
 import { ClosingCta } from "@/components/sections/closing-cta"
+import { getLang, type LangParams } from "@/lib/lang-params"
 
-export default function HomePage() {
+export default async function HomePage({ params }: LangParams) {
+  const lang = await getLang(params)
   return (
     <>
       <SiteHeader />
       <main>
-        <Hero />
+        <Hero lang={lang} />
         <Suspense fallback={<div className="min-h-[60vh] bg-card" aria-hidden />}>
-          <BuySection />
+          <BuySection lang={lang} />
         </Suspense>
-        <Benefits />
-        <HonestyStatement />
-        <FormulaList />
-        <Comparison />
-        <ImageBreak />
-        <Reviews />
+        <Benefits lang={lang} />
+        <HonestyStatement lang={lang} />
+        <FormulaList lang={lang} />
+        <Comparison lang={lang} />
+        <ImageBreak lang={lang} />
+        <Reviews lang={lang} />
         <Faq />
-        <ClosingCta />
+        <ClosingCta lang={lang} />
       </main>
-      <SiteFooter />
+      <SiteFooter lang={lang} />
       <CartDrawer />
     </>
   )

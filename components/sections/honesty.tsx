@@ -3,23 +3,12 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Plus } from "lucide-react"
-
-const ITEMS = [
-  {
-    title: "Det du inte känner",
-    body: "D-vitamin, K2, folat och jod arbetar i bakgrunden. Deras jobb syns i blodprov och på lång sikt, inte i hur dagen känns. Mår du redan bra är det precis som det ska vara.",
-  },
-  {
-    title: "Det du kan märka",
-    body: "Tränar och svettas du mycket kan elektrolyterna, kalium och magnesium, märkas snabbt, ofta redan samma dag. Ligger du lågt i magnesium kan sömnen bli bättre efter några veckor, och vid B12-brist kan energin lyfta.",
-  },
-  {
-    title: "Så följer du effekten",
-    body: "Vill du veta säkert går det att mäta: ta gärna blodprov före och efter tre månader, till exempel D-vitamin och homocystein. Annars räcker det långt att rutinen känns lätt att hålla.",
-  },
-]
+import { useLang } from "@/components/lang-provider"
+import { COPY } from "./honesty.copy"
 
 export function Honesty() {
+  const lang = useLang()
+  const t = COPY[lang]
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -35,20 +24,20 @@ export function Honesty() {
       <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/70" aria-hidden />
       <div className="relative z-10 mx-auto max-w-4xl px-5 py-20 md:px-8 md:py-28">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">
-          Vad du kan förvänta dig
+          {t.eyebrow}
         </p>
         <h2
           id="honesty-heading"
           className="mx-auto mt-4 max-w-2xl text-center font-fraunces text-3xl leading-tight text-ink-foreground text-balance md:text-5xl"
         >
-          Ärliga förväntningar.
+          {t.heading}
         </h2>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-foreground/80">
-          Vissa delar kan märkas. Det mesta arbetar tyst och långsiktigt. Så här ser det ut.
+          {t.intro}
         </p>
 
         <ul className="mt-10 overflow-hidden rounded-xl border border-ink-foreground/15 bg-ink/40 backdrop-blur-md md:mt-12">
-          {ITEMS.map((item, index) => {
+          {t.items.map((item, index) => {
             const isOpen = openIndex === index
             return (
               <li key={item.title} className={index > 0 ? "border-t border-ink-foreground/15" : ""}>

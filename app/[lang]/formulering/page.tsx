@@ -9,36 +9,44 @@ import { DygnStandard } from "@/components/sections/dygn-standard"
 import { Philosophy } from "@/components/sections/lifestyle"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
 import { ClosingCta } from "@/components/sections/closing-cta"
+import { alternatesFor } from "@/lib/i18n"
+import { getLang, type LangParams } from "@/lib/lang-params"
+import { COPY } from "./copy"
 
-export const metadata: Metadata = {
-  title: "Formuleringen: åtta näringsämnen, förklarade | DYGN",
-  alternates: { canonical: "/formulering" },
-  description:
-    "Varje näringsämne i DYGN: varför det ingår, vilken form vi valt och varför dosen är vad den är. Allt deklarerat.",
+export async function generateMetadata({ params }: LangParams): Promise<Metadata> {
+  const lang = await getLang(params)
+  const t = COPY[lang]
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    alternates: alternatesFor(lang, "/formulering"),
+  }
 }
 
-export default function FormulaPage() {
+export default async function FormulaPage({ params }: LangParams) {
+  const lang = await getLang(params)
+  const t = COPY[lang]
   return (
     <>
       <SiteHeader />
       <main>
         <section className="-mt-20 bg-ink pb-4 pt-[8.5rem] text-ink-foreground md:-mt-24 md:pt-[11rem]">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">Formuleringen</p>
+            <p className="text-xs font-medium uppercase tracking-[0.22em] text-ink-muted">{t.eyebrow}</p>
             <h1 className="mt-4 max-w-3xl font-fraunces text-4xl leading-[1.05] text-balance md:text-6xl">
-              Varje ämne. Varje dos. Förklarat.
+              {t.heading}
             </h1>
           </div>
         </section>
         <Ingredients />
-        <Comparison />
-        <PriceComparison />
-        <DygnStandard />
-        <Philosophy />
-        <ProductFacts />
-        <ClosingCta />
+        <Comparison lang={lang} />
+        <PriceComparison lang={lang} />
+        <DygnStandard lang={lang} />
+        <Philosophy lang={lang} />
+        <ProductFacts lang={lang} />
+        <ClosingCta lang={lang} />
       </main>
-      <SiteFooter />
+      <SiteFooter lang={lang} />
       <CartDrawer />
     </>
   )

@@ -1,8 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useLang } from "@/components/lang-provider"
+import { COPY } from "./newsletter-form.copy"
 
 export function NewsletterForm() {
+  const lang = useLang()
+  const t = COPY[lang]
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle")
   const [error, setError] = useState("")
 
@@ -18,6 +22,7 @@ export function NewsletterForm() {
         body: JSON.stringify({
           email: String(data.get("email") ?? ""),
           company: String(data.get("company") ?? ""),
+          lang,
         }),
       })
       const json = await res.json()
@@ -25,34 +30,34 @@ export function NewsletterForm() {
         setStatus("done")
       } else {
         setStatus("error")
-        setError(typeof json.error === "string" ? json.error : "Något gick fel. Försök igen.")
+        setError(typeof json.error === "string" ? json.error : t.genericError)
       }
     } catch {
       setStatus("error")
-      setError("Något gick fel. Försök igen.")
+      setError(t.genericError)
     }
   }
 
   if (status === "done") {
     return (
       <p className="w-full max-w-md text-sm leading-relaxed text-ink-foreground/80" role="status">
-        Tack! Du står på listan. Vi hör av oss när det närmar sig.
+        {t.success}
       </p>
     )
   }
 
   return (
     <div className="w-full max-w-md">
-      <form onSubmit={onSubmit} className="flex items-stretch" aria-label="Nyhetsbrev">
+      <form onSubmit={onSubmit} className="flex items-stretch" aria-label={t.formLabel}>
         <label htmlFor="newsletter-email" className="sr-only">
-          E-postadress
+          {t.emailLabel}
         </label>
         <input
           id="newsletter-email"
           name="email"
           type="email"
           required
-          placeholder="E-postadress"
+          placeholder={t.placeholder}
           className="min-w-0 flex-1 border border-ink-foreground/30 bg-transparent px-4 py-3 text-sm text-ink-foreground placeholder:text-ink-foreground/50 focus:border-primary focus:outline-none"
         />
         <input
@@ -68,7 +73,7 @@ export function NewsletterForm() {
           disabled={status === "loading"}
           className="shrink-0 bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
         >
-          {status === "loading" ? "Anmäler" : "Anmäl"}
+          {status === "loading" ? t.submitting : t.submit}
         </button>
       </form>
       {status === "error" && (

@@ -1,4 +1,6 @@
 import type { ReactNode } from "react"
+import type { Lang } from "@/lib/i18n"
+import { COPY } from "./payment-badges.copy"
 
 /**
  * Betalmetoder som visas i trust-raden.
@@ -186,11 +188,14 @@ function mark(method: Method, tone: Tone, fill: boolean): ReactNode {
 }
 
 export function PaymentBadges({
+  lang,
   className = "",
   only,
   tone = "light",
   brandedFill = false,
 }: {
+  /** Skickas in som prop (ingen hook) eftersom komponenten renderas från både server- och klientkomponenter. */
+  lang: Lang
   className?: string
   /** Visa bara ett urval, t.ex. i heron. Utan denna visas alla aktiverade metoder. */
   only?: readonly Method[]
@@ -200,7 +205,7 @@ export function PaymentBadges({
 }) {
   const methods = only ?? ENABLED
   return (
-    <ul className={`flex flex-wrap items-center gap-1.5 ${className}`} aria-label="Betalmetoder i kassan">
+    <ul className={`flex flex-wrap items-center gap-1.5 ${className}`} aria-label={COPY[lang].label}>
       {methods.map((method) => {
         const filled = brandedFill && SELF_BG.has(method)
         return (

@@ -4,14 +4,36 @@
     {
       "name": "prodib",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4600", "--directory", "/Users/charlesgyllhamn/Desktop/prodib-web"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4600",
+        "--directory",
+        "/Users/charlesgyllhamn/Desktop/prodib-web"
+      ],
       "port": 4600
     },
     {
       "name": "golv",
       "runtimeExecutable": "corepack",
-      "runtimeArgs": ["pnpm", "-C", "/Users/charlesgyllhamn/Desktop/golv-web", "dev"],
+      "runtimeArgs": [
+        "pnpm",
+        "-C",
+        "/Users/charlesgyllhamn/Desktop/golv-web",
+        "dev"
+      ],
       "port": 3002
+    },
+    {
+      "name": "dygn",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": [
+        "pnpm",
+        "-C",
+        "/Users/charlesgyllhamn/Desktop/dygn web",
+        "dev"
+      ],
+      "port": 3001
     }
   ]
 }

@@ -1,31 +1,29 @@
 import Image from "next/image"
+import type { Lang } from "@/lib/i18n"
+import { COPY } from "./how-to-use.copy"
 
-const STEPS = [
-  { number: "01", title: "Riv", text: "En sachet, 5 gram. I fickan, väskan eller necessären." },
-  { number: "02", title: "Rör", text: "Löses i ett glas kallt vatten på under 30 sekunder. Mild citrus." },
-  { number: "03", title: "Drick", text: "Klart för dygnet. Sedan behöver du inte tänka på det mer." },
-]
+export function HowToUse({ lang }: { lang: Lang }) {
+  const t = COPY[lang]
 
-export function HowToUse() {
   return (
     <section className="border-y border-border bg-background" aria-labelledby="how-to-use-heading">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
         <div className="relative order-2 aspect-[4/5] overflow-hidden rounded-lg md:order-1">
           <Image
             src="/lifestyle/hero-fisheye.jpg"
-            alt="Löpare visar upp en DYGN-sachet framför sin löpargrupp"
+            alt={t.imageAlt}
             fill
             className="object-cover"
             sizes="(min-width: 768px) 50vw, 100vw"
           />
         </div>
         <div className="order-1 md:order-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Så tar du DYGN</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{t.eyebrow}</p>
           <h2 id="how-to-use-heading" className="mt-3 font-serif text-3xl text-foreground text-balance md:text-4xl">
-            Tio sekunder om dagen.
+            {t.heading}
           </h2>
           <ol className="mt-8 flex flex-col gap-6">
-            {STEPS.map((step) => (
+            {t.steps.map((step) => (
               <li key={step.number} className="flex gap-5">
                 <span className="font-serif text-xl text-primary" aria-hidden>
                   {step.number}

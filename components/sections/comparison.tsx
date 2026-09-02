@@ -1,59 +1,65 @@
 import { Check, Minus } from "lucide-react"
+import type { Lang } from "@/lib/i18n"
+import { COPY } from "./comparison.copy"
 
+type Copy = (typeof COPY)[Lang]
+
+/** Bockar per rad, zippas med radtexterna i comparison.copy.ts (samma ordning). */
 const ROWS = [
-  { label: "Alla doser deklarerade på etiketten", dygn: true, blends: false, pharmacy: true },
-  { label: "Dokumenterade former (5-MTHF, MK-7, bisglycinat)", dygn: true, blends: false, pharmacy: false },
-  { label: "Doser i nivåer som studier faktiskt använt", dygn: true, blends: false, pharmacy: false },
-  { label: "Utan proprietära blandningar", dygn: true, blends: false, pharmacy: true },
-  { label: "Formulerad för nordiska bristmönster", dygn: true, blends: false, pharmacy: false },
-  { label: "En dos om dagen, inget schema", dygn: true, blends: true, pharmacy: false },
-  { label: "8 ingredienser, inget onödigt", dygn: true, blends: false, pharmacy: false },
+  { dygn: true, blends: false, pharmacy: true }, // Alla doser deklarerade
+  { dygn: true, blends: false, pharmacy: false }, // Dokumenterade former
+  { dygn: true, blends: false, pharmacy: false }, // Doser som studier använt
+  { dygn: true, blends: false, pharmacy: true }, // Utan proprietära blandningar
+  { dygn: true, blends: false, pharmacy: false }, // Nordiska bristmönster
+  { dygn: true, blends: true, pharmacy: false }, // En dos om dagen
+  { dygn: true, blends: false, pharmacy: false }, // 8 ingredienser
 ]
 
-function Cell({ value }: { value: boolean }) {
+function Cell({ value, t }: { value: boolean; t: Copy }) {
   return value ? (
     <span className="inline-flex items-center justify-center">
       <Check className="h-4 w-4 text-primary" aria-hidden />
-      <span className="sr-only">Ja</span>
+      <span className="sr-only">{t.yes}</span>
     </span>
   ) : (
     <span className="inline-flex items-center justify-center">
       <Minus className="h-4 w-4 text-muted-foreground/50" aria-hidden />
-      <span className="sr-only">Nej</span>
+      <span className="sr-only">{t.no}</span>
     </span>
   )
 }
 
-export function Comparison() {
+export function Comparison({ lang }: { lang: Lang }) {
+  const t = COPY[lang]
   return (
     <section className="bg-background py-16 md:py-24" aria-labelledby="comparison-heading">
       <div className="mx-auto max-w-5xl px-5 md:px-8">
         <h2 id="comparison-heading" className="font-serif text-3xl text-foreground text-balance md:text-5xl">
-          Varför DYGN och inte allt annat?
+          {t.heading}
         </h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          De flesta tillskott konkurrerar med längre innehållsförteckningar. Vi konkurrerar med kortare, där varje rad
-          har belägg och en dos som betyder något.
-        </p>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">{t.intro}</p>
 
         {/* Mobil: staplade rader, ingen sidoscroll */}
         <div className="mt-8 md:hidden">
           <div className="grid grid-cols-[1fr_repeat(3,3rem)] items-end gap-x-2 border-b border-border pb-2 text-[10px] font-semibold uppercase leading-tight tracking-wide text-muted-foreground">
-            <span className="sr-only">Egenskap</span>
+            <span className="sr-only">{t.feature}</span>
             <span aria-hidden />
-            <span className="text-center text-primary">DYGN</span>
-            <span className="text-center">Gröna pulver</span>
-            <span className="text-center">Apotek</span>
+            <span className="text-center text-primary">{t.columns.mobile.dygn}</span>
+            <span className="text-center">{t.columns.mobile.blends}</span>
+            <span className="text-center">{t.columns.mobile.pharmacy}</span>
           </div>
           <ul className="divide-y divide-border border-b border-border">
-            {ROWS.map((row) => (
-              <li key={row.label} className="grid grid-cols-[1fr_repeat(3,3rem)] items-center gap-x-2 py-3.5">
-                <span className="pr-2 text-sm leading-snug text-foreground">{row.label}</span>
-                <Cell value={row.dygn} />
-                <Cell value={row.blends} />
-                <Cell value={row.pharmacy} />
-              </li>
-            ))}
+            {ROWS.map((row, i) => {
+              const label = t.rows[i]
+              return (
+                <li key={label} className="grid grid-cols-[1fr_repeat(3,3rem)] items-center gap-x-2 py-3.5">
+                  <span className="pr-2 text-sm leading-snug text-foreground">{label}</span>
+                  <Cell value={row.dygn} t={t} />
+                  <Cell value={row.blends} t={t} />
+                  <Cell value={row.pharmacy} t={t} />
+                </li>
+              )
+            })}
           </ul>
         </div>
 
@@ -63,44 +69,44 @@ export function Comparison() {
             <thead>
               <tr className="border-b border-border">
                 <th scope="col" className="py-4 pr-4 text-sm font-medium text-muted-foreground">
-                  <span className="sr-only">Egenskap</span>
+                  <span className="sr-only">{t.feature}</span>
                 </th>
                 <th scope="col" className="w-28 px-3 py-4 text-center text-sm font-semibold text-foreground">
-                  DYGN
+                  {t.columns.desktop.dygn}
                 </th>
                 <th scope="col" className="w-36 px-3 py-4 text-center text-sm font-medium text-muted-foreground">
-                  {"Gröna pulver (AG1, IM8)"}
+                  {t.columns.desktop.blends}
                 </th>
                 <th scope="col" className="w-36 px-3 py-4 text-center text-sm font-medium text-muted-foreground">
-                  Apotekens multivitamin
+                  {t.columns.desktop.pharmacy}
                 </th>
               </tr>
             </thead>
             <tbody>
-              {ROWS.map((row) => (
-                <tr key={row.label} className="border-b border-border">
-                  <th scope="row" className="py-4 pr-4 text-sm font-normal leading-relaxed text-foreground">
-                    {row.label}
-                  </th>
-                  <td className="bg-card px-3 py-4 text-center">
-                    <Cell value={row.dygn} />
-                  </td>
-                  <td className="px-3 py-4 text-center">
-                    <Cell value={row.blends} />
-                  </td>
-                  <td className="px-3 py-4 text-center">
-                    <Cell value={row.pharmacy} />
-                  </td>
-                </tr>
-              ))}
+              {ROWS.map((row, i) => {
+                const label = t.rows[i]
+                return (
+                  <tr key={label} className="border-b border-border">
+                    <th scope="row" className="py-4 pr-4 text-sm font-normal leading-relaxed text-foreground">
+                      {label}
+                    </th>
+                    <td className="bg-card px-3 py-4 text-center">
+                      <Cell value={row.dygn} t={t} />
+                    </td>
+                    <td className="px-3 py-4 text-center">
+                      <Cell value={row.blends} t={t} />
+                    </td>
+                    <td className="px-3 py-4 text-center">
+                      <Cell value={row.pharmacy} t={t} />
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>
 
-        <p className="mt-4 text-xs text-muted-foreground">
-          Jämförelsen avser typiska produkter i respektive kategori på den svenska marknaden, baserat på publicerade
-          innehållsförteckningar.
-        </p>
+        <p className="mt-4 text-xs text-muted-foreground">{t.footnote}</p>
       </div>
     </section>
   )

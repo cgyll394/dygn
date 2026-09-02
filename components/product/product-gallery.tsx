@@ -2,9 +2,13 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { useLang } from "@/components/lang-provider"
 import type { ProductImage } from "@/lib/shopify"
+import { COPY } from "./product-gallery.copy"
 
 export function ProductGallery({ images, title }: { images: ProductImage[]; title: string }) {
+  const lang = useLang()
+  const t = COPY[lang]
   const [activeIndex, setActiveIndex] = useState(0)
   const active = images[activeIndex]
 
@@ -29,7 +33,7 @@ export function ProductGallery({ images, title }: { images: ProductImage[]; titl
               key={image.url}
               type="button"
               onClick={() => setActiveIndex(index)}
-              aria-label={`Visa bild ${index + 1}`}
+              aria-label={t.showImage(index + 1)}
               className={`snap-item relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-md bg-muted transition-opacity ${
                 index === activeIndex ? "ring-1 ring-foreground" : "opacity-60 hover:opacity-100"
               }`}

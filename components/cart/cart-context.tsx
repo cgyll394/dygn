@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react"
 import useSWR from "swr"
 import type { Cart } from "@/lib/shopify"
+import { useLang } from "@/components/lang-provider"
 
 interface CartContextValue {
   cart: Cart | null
@@ -21,7 +22,9 @@ const CartContext = createContext<CartContextValue | null>(null)
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const { data, isLoading, mutate } = useSWR<{ cart: Cart | null }>("/api/cart", fetcher)
+  // Språket följer med till Shopify (@inContext) så kassan öppnas på rätt språk
+  const lang = useLang()
+  const { data, isLoading, mutate } = useSWR<{ cart: Cart | null }>(`/api/cart?lang=${lang}`, fetcher)
   const [isOpen, setIsOpen] = useState(false)
   const [isPending, setIsPending] = useState(false)
 
@@ -34,7 +37,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         const res = await fetch("/api/cart", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
+          body: JSON.stringify({ ...body, lang }),
         })
         const json = await res.json()
         if (json.cart) {
@@ -44,7 +47,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setIsPending(false)
       }
     },
-    [mutate],
+    [mutate, lang],
   )
 
   const addItem = useCallback(
