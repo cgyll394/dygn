@@ -9,19 +9,19 @@ import { COPY } from "./v2-image-break.copy"
 export function V2ImageBreak({ lang }: { lang: Lang }) {
   const t = COPY[lang]
   return (
-    <section className="relative flex min-h-[85svh] items-end overflow-hidden bg-ink" aria-label={t.sectionLabel}>
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink" aria-label={t.sectionLabel}>
       <Image
         src="/product/dygn-box-balance.jpg"
         alt={t.imageAlt}
         fill
-        className="object-cover object-[50%_18%] md:hidden"
+        className="object-cover object-[50%_34%] md:hidden"
         sizes="100vw"
       />
       <Image
         src="/product/dygn-box-balance-wide.jpg"
         alt={t.imageAlt}
         fill
-        className="hidden object-cover object-[50%_22%] md:block"
+        className="hidden object-cover object-[50%_40%] md:block"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" aria-hidden />
