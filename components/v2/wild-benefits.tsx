@@ -37,20 +37,20 @@ export function WildBenefits() {
           >
             {t.heading}
           </h2>
-          <ul className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-7">
+          <ul className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-8">
             {t.benefits.map(({ title, text }, i) => {
               const Icon = BENEFIT_ICONS[i]
               return (
                 <li
                   key={title}
-                  className="flex flex-col items-center gap-3 text-center md:flex-row md:items-start md:gap-4 md:text-left"
+                  className="flex flex-col items-center gap-3.5 text-center md:flex-row md:items-start md:gap-5 md:text-left"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-card md:mt-0.5">
-                    <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} aria-hidden />
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-card">
+                    <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} aria-hidden />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-foreground">{title}</span>
-                    <span className="mt-0.5 block text-sm leading-relaxed text-muted-foreground">{text}</span>
+                    <span className="block text-base font-semibold text-foreground md:text-lg">{title}</span>
+                    <span className="mt-1 block text-[15px] leading-relaxed text-muted-foreground md:text-base">{text}</span>
                   </span>
                 </li>
               )
