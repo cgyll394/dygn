@@ -2,7 +2,16 @@ import Image from "next/image"
 import type { Lang } from "@/lib/i18n"
 import { COPY } from "./effect-timeline.copy"
 
-export function EffectTimeline({ lang }: { lang: Lang }) {
+// imageSrc/imageAlt kan överstyras (v2-produktsidan skickar in löparbilden).
+export function EffectTimeline({
+  lang,
+  imageSrc = "/lifestyle/morning-table.jpg",
+  imageAlt,
+}: {
+  lang: Lang
+  imageSrc?: string
+  imageAlt?: string
+}) {
   const t = COPY[lang]
 
   return (
@@ -19,8 +28,8 @@ export function EffectTimeline({ lang }: { lang: Lang }) {
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">{t.intro}</p>
           <div className="relative mt-10 hidden aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg md:block">
             <Image
-              src="/lifestyle/morning-table.jpg"
-              alt={t.imageAlt}
+              src={imageSrc}
+              alt={imageAlt ?? t.imageAlt}
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover"

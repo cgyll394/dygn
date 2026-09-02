@@ -8,9 +8,9 @@ import { CartDrawer } from "@/components/cart/cart-drawer"
 import { ProductGallery } from "@/components/product/product-gallery"
 import { BuyBox } from "@/components/product/buy-box"
 import { StickyAtc } from "@/components/product/sticky-atc"
-import { ProductVideo } from "@/components/v2/product-video"
-import { HowToUse } from "@/components/sections/pdp/how-to-use"
+import { HowToUseVideo } from "@/components/v2/how-to-use-video"
 import { EffectTimeline } from "@/components/sections/pdp/effect-timeline"
+import { COPY as stepsCopy } from "@/components/sections/pdp/how-to-use.copy"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
 import { Honesty } from "@/components/sections/honesty"
 import { Faq } from "@/components/sections/faq"
@@ -88,9 +88,8 @@ export default async function V2ProductPage({ params }: LangParams) {
               </div>
             </section>
 
-            <ProductVideo lang={lang} />
-            <HowToUse lang={lang} />
-            <EffectTimeline lang={lang} />
+            <HowToUseVideo lang={lang} />
+            <EffectTimeline lang={lang} imageSrc="/lifestyle/hero-fisheye.jpg" imageAlt={stepsCopy[lang].imageAlt} />
             <ProductFacts lang={lang} />
             <Honesty />
             <Faq />
