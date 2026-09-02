@@ -6,8 +6,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { ProductGallery } from "@/components/product/product-gallery"
-import { BuyBox } from "@/components/product/buy-box"
-import { StickyAtc } from "@/components/product/sticky-atc"
+import { BuyBoxAccordion } from "@/components/v2/buy-box-accordion"
+import { StickyAtcV2 } from "@/components/v2/sticky-atc-v2"
 import { HowToUseVideo } from "@/components/v2/how-to-use-video"
 import { EffectTimeline } from "@/components/sections/pdp/effect-timeline"
 import { COPY as stepsCopy } from "@/components/sections/pdp/how-to-use.copy"
@@ -82,7 +82,7 @@ export default async function V2ProductPage({ params }: LangParams) {
                   <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">{t.description}</p>
 
                   <div className="mt-8">
-                    <BuyBox variants={product.variants.nodes} />
+                    <BuyBoxAccordion variants={product.variants.nodes} />
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default async function V2ProductPage({ params }: LangParams) {
             <Honesty />
             <Faq />
           </main>
-          <StickyAtc variants={product.variants.nodes} />
+          <StickyAtcV2 variants={product.variants.nodes} image="/product/dygn-float.jpg" />
         </>
       )}
       <SiteFooter lang={lang} />
