@@ -43,15 +43,6 @@ export function HonestyStatement({ lang }: { lang: Lang }) {
                 className="h-full w-full object-contain"
               />
             </span>
-            <span className="flex h-12 items-center rounded-full bg-white px-4 shadow-[0_2px_14px_rgba(0,0,0,0.18)] sm:h-14 sm:px-5">
-              <Image
-                src="/trust/eurofins.png"
-                alt={t.eurofinsAlt}
-                width={162}
-                height={32}
-                className="h-7 w-auto sm:h-8"
-              />
-            </span>
           </div>
         </div>
       </div>

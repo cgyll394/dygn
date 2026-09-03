@@ -14,7 +14,7 @@ const sv = {
     },
     {
       title: "Tillverkad i Sverige",
-      text: "Hos en HACCP-certifierad svensk tillverkare som följer GMP. Färdig produkt kontrolleras mot gränsvärden för mikrobiologi och tungmetaller, och varje produktion testas dessutom av oberoende Eurofins.",
+      text: "Hos en HACCP-certifierad svensk tillverkare som följer GMP. Färdig produkt kontrolleras mot gränsvärden för mikrobiologi och tungmetaller, och varje produktion testas dessutom av oberoende labb.",
     },
     {
       title: "Ärlig",
@@ -37,7 +37,7 @@ const en: typeof sv = {
     },
     {
       title: "Made in Sweden",
-      text: "At an HACCP-certified Swedish manufacturer that follows GMP. The finished product is checked against limit values for microbiology and heavy metals, and every production run is also tested independently by Eurofins.",
+      text: "At an HACCP-certified Swedish manufacturer that follows GMP. The finished product is checked against limit values for microbiology and heavy metals, and every production run is also tested by an independent lab.",
     },
     {
       title: "Honest",

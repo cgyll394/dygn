@@ -33,7 +33,7 @@ const sv = {
     },
     {
       q: "Var tillverkas DYGN?",
-      a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad tillverkare som följer GMP och gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende Eurofins för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
+      a: "DYGN tillverkas i Sverige, hos en HACCP-certifierad tillverkare som följer GMP och gör flera av Sveriges mest kända kosttillskott. Varje produktion testas dessutom av oberoende labb för tungmetaller och mikrobiologisk säkerhet. Kvaliteten kontrolleras alltså flera gånger: av tillverkaren, av oss och av oberoende labb.",
     },
   ],
 }
@@ -71,7 +71,7 @@ const en: typeof sv = {
     },
     {
       q: "Where is DYGN made?",
-      a: "DYGN is made in Sweden, at a HACCP-certified manufacturer that follows GMP and makes several of Sweden’s best-known supplements. Every batch is also tested by the independent lab Eurofins for heavy metals and microbiological safety. Quality is therefore checked several times: by the manufacturer, by us and by an independent lab.",
+      a: "DYGN is made in Sweden, at a HACCP-certified manufacturer that follows GMP and makes several of Sweden’s best-known supplements. Every batch is also tested by an independent lab for heavy metals and microbiological safety. Quality is therefore checked several times: by the manufacturer, by us and by an independent lab.",
     },
   ],
 }
