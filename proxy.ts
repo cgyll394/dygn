@@ -89,6 +89,13 @@ export async function proxy(request: NextRequest) {
 
   const lang = pathLang ?? preferredLang(request)
 
+  // v2 är numera huvudsidan — peka om gamla /v2-länkar till motsvarande sida.
+  if (path === "/v2" || path.startsWith("/v2/")) {
+    const url = request.nextUrl.clone()
+    url.pathname = localePath(lang, path.slice(3) || "/")
+    return NextResponse.redirect(url, 308)
+  }
+
   // Engelsk besökare på en prefix-lös URL → "/en/...". Tillfällig redirect:
   // "/" är fortfarande den svenska sidan för alla andra.
   if (!pathLang && lang !== DEFAULT_LANG) {

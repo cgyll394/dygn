@@ -27,7 +27,7 @@ export default async function FormulaPage({ params }: LangParams) {
   const lang = await getLang(params)
   const t = COPY[lang]
   return (
-    <>
+    <div className="theme-v2 bg-background text-foreground">
       <SiteHeader />
       <main>
         <section className="-mt-20 bg-ink pb-4 pt-[8.5rem] text-ink-foreground md:-mt-24 md:pt-[11rem]">
@@ -48,6 +48,6 @@ export default async function FormulaPage({ params }: LangParams) {
       </main>
       <SiteFooter lang={lang} />
       <CartDrawer />
-    </>
+    </div>
   )
 }

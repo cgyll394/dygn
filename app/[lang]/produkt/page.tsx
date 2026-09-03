@@ -8,10 +8,11 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CartDrawer } from "@/components/cart/cart-drawer"
 import { ProductGallery } from "@/components/product/product-gallery"
-import { BuyBox } from "@/components/product/buy-box"
-import { StickyAtc } from "@/components/product/sticky-atc"
-import { HowToUse } from "@/components/sections/pdp/how-to-use"
+import { BuyBoxAccordion } from "@/components/v2/buy-box-accordion"
+import { StickyAtcV2 } from "@/components/v2/sticky-atc-v2"
+import { HowToUseVideo } from "@/components/v2/how-to-use-video"
 import { EffectTimeline } from "@/components/sections/pdp/effect-timeline"
+import { COPY as stepsCopy } from "@/components/sections/pdp/how-to-use.copy"
 import { ProductFacts } from "@/components/sections/pdp/product-facts"
 import { Honesty } from "@/components/sections/honesty"
 import { Faq } from "@/components/sections/faq"
@@ -44,13 +45,13 @@ export default async function ProductPage({ params }: LangParams) {
 
   if (!product) {
     return (
-      <>
+      <div className="theme-v2 bg-background text-foreground">
         <SiteHeader />
         <main className="flex min-h-[60vh] items-center justify-center">
           <p className="text-muted-foreground">{t.error}</p>
         </main>
         <SiteFooter lang={lang} />
-      </>
+      </div>
     )
   }
 
@@ -74,7 +75,7 @@ export default async function ProductPage({ params }: LangParams) {
   }
 
   return (
-    <>
+    <div className="theme-v2 bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
@@ -116,21 +117,21 @@ export default async function ProductPage({ params }: LangParams) {
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">{t.description}</p>
 
               <div className="mt-8">
-                <BuyBox variants={product.variants.nodes} />
+                <BuyBoxAccordion variants={product.variants.nodes} />
               </div>
             </div>
           </div>
         </section>
 
-        <HowToUse lang={lang} />
-        <EffectTimeline lang={lang} />
+        <HowToUseVideo lang={lang} />
+        <EffectTimeline lang={lang} imageSrc="/lifestyle/hero-fisheye.jpg" imageAlt={stepsCopy[lang].imageAlt} />
         <ProductFacts lang={lang} />
         <Honesty />
         <Faq />
       </main>
+      <StickyAtcV2 variants={product.variants.nodes} image="/product/dygn-float.jpg" />
       <SiteFooter lang={lang} />
       <CartDrawer />
-      <StickyAtc variants={product.variants.nodes} />
-    </>
+    </div>
   )
 }
