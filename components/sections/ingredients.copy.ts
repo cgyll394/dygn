@@ -26,18 +26,18 @@ const sv = {
     {
       name: "Vitamin K2",
       form: "Menakinon-7 (MK-7)",
-      dose: "100 µg",
+      dose: "180 µg",
       why: "K2 arbetar tillsammans med D3: D3 ökar kalciumupptaget, K2 ser till att kalcium hamnar i skelettet i stället för i mjukvävnad. De hör ihop, och därför finns båda i samma sachet.",
       detail:
-        "100 µg MK-7. MK-7 stannar länge i kroppen, så en dos om dagen räcker.",
+        "180 µg, samma dos som de fleråriga studierna på benstomme och kärl. MK-7 stannar länge i kroppen, så en dos om dagen räcker.",
     },
     {
       name: "Vitamin B12",
-      form: "Metylkobalamin",
+      form: "Cyanokobalamin",
       dose: "100 µg",
       why: "B12 bidrar till normal energiomsättning och minskad trötthet. Behovet ökar med åldern, vid växtbaserad kost och vid hård träning.",
       detail:
-        "Metylkobalamin är den aktiva formen, som kroppen kan använda direkt. 100 µg ger god marginal, även för dig som äter växtbaserat.",
+        "Cyanokobalamin är den mest stabila formen i pulver, med samma upptag som dyrare varianter. 100 µg ger god marginal, även för dig som äter växtbaserat.",
     },
     {
       name: "Folat",
@@ -108,18 +108,18 @@ const en: typeof sv = {
     {
       name: "Vitamin K2",
       form: "Menaquinone-7 (MK-7)",
-      dose: "100 µg",
+      dose: "180 µg",
       why: "K2 works together with D3: D3 increases calcium absorption, K2 makes sure the calcium ends up in the skeleton rather than in soft tissue. They belong together, which is why both are in the same sachet.",
       detail:
-        "100 µg of MK-7. MK-7 stays in the body for a long time, so one dose a day is enough.",
+        "180 µg, the same dose as the multi-year studies on bone and blood vessels. MK-7 stays in the body for a long time, so one dose a day is enough.",
     },
     {
       name: "Vitamin B12",
-      form: "Methylcobalamin",
+      form: "Cyanocobalamin",
       dose: "100 µg",
       why: "B12 contributes to normal energy-yielding metabolism and to the reduction of tiredness and fatigue. The need increases with age, on a plant-based diet and with hard training.",
       detail:
-        "Methylcobalamin is the active form the body can use directly. 100 µg gives a good margin, even for those on a plant-based diet.",
+        "Cyanocobalamin is the most stable form in powder, with the same absorption as more expensive variants. 100 µg gives a good margin, even for those on a plant-based diet.",
     },
     {
       name: "Folate",

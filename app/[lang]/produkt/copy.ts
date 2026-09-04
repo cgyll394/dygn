@@ -19,7 +19,7 @@ const sv = {
   chipsLabel: "Bidrar till",
   chips: ["Immunförsvar", "Energi & trötthet", "Ben & muskler", "Elektrolytbalans"],
   description:
-    "Åtta näringsämnen i en sachet, bland annat 2000 IE D3, 100 µg K2 och 200 mg magnesium. Löses i vatten. Mild citrus, utan tillsatt socker.",
+    "Åtta näringsämnen i en sachet, bland annat 2000 IE D3, 180 µg K2 och 200 mg magnesium. Löses i vatten. Mild citrus, utan tillsatt socker.",
 }
 
 const en: typeof sv = {
@@ -41,7 +41,7 @@ const en: typeof sv = {
   chipsLabel: "Contributes to",
   chips: ["Immune system", "Energy & fatigue", "Bones & muscles", "Electrolyte balance"],
   description:
-    "Eight nutrients in one sachet, including 2000 IU D3, 100 µg K2 and 200 mg magnesium. Dissolves in water. Mild citrus, no added sugar.",
+    "Eight nutrients in one sachet, including 2000 IU D3, 180 µg K2 and 200 mg magnesium. Dissolves in water. Mild citrus, no added sugar.",
 }
 
 export const COPY: Record<Lang, typeof sv> = { sv, en }
