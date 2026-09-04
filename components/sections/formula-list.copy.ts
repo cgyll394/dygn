@@ -7,12 +7,12 @@ const sv = {
   link: "Hela formuleringen, förklarad",
   rows: [
     { name: "Vitamin D3", form: "Vegansk kolekalciferol", dose: "2000 IE" },
-    { name: "Vitamin K2", form: "MK-7", dose: "180 µg" },
-    { name: "Vitamin B12", form: "Cyanokobalamin", dose: "100 µg" },
+    { name: "Vitamin K2", form: "MK-7", dose: "100 µg" },
+    { name: "Vitamin B12", form: "Metylkobalamin", dose: "100 µg" },
     { name: "Folat", form: "L-metylfolat", dose: "400 µg" },
     { name: "Magnesium", form: "Bisglycinat", dose: "200 mg" },
     { name: "Kalium", form: "Citrat", dose: "400 mg" },
-    { name: "Zink", form: "Glukonat", dose: "10 mg" },
+    { name: "Zink", form: "Pikolinat", dose: "10 mg" },
     { name: "Jod", form: "Natriumjodid", dose: "150 µg" },
   ],
 }
@@ -24,12 +24,12 @@ const en: typeof sv = {
   link: "The full formula, explained",
   rows: [
     { name: "Vitamin D3", form: "Vegan cholecalciferol", dose: "2000 IU" },
-    { name: "Vitamin K2", form: "MK-7", dose: "180 µg" },
-    { name: "Vitamin B12", form: "Cyanocobalamin", dose: "100 µg" },
+    { name: "Vitamin K2", form: "MK-7", dose: "100 µg" },
+    { name: "Vitamin B12", form: "Methylcobalamin", dose: "100 µg" },
     { name: "Folate", form: "L-methylfolate", dose: "400 µg" },
     { name: "Magnesium", form: "Bisglycinate", dose: "200 mg" },
     { name: "Potassium", form: "Citrate", dose: "400 mg" },
-    { name: "Zinc", form: "Gluconate", dose: "10 mg" },
+    { name: "Zinc", form: "Picolinate", dose: "10 mg" },
     { name: "Iodine", form: "Sodium iodide", dose: "150 µg" },
   ],
 }

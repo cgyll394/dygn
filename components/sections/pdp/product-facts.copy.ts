@@ -17,16 +17,16 @@ const sv = {
   columns: { nutrient: "Näringsämne", amount: "Mängd", share: "Andel av referensintag" },
   nutrition: [
     { name: "Vitamin D3 (vegansk kolekalciferol)", dose: "2000 IE / 50 µg", dri: "1000 %" },
-    { name: "Vitamin K2 (menakinon-7, MK-7)", dose: "180 µg", dri: "240 %" },
-    { name: "Vitamin B12 (cyanokobalamin)", dose: "100 µg", dri: "4 000 %" },
-    { name: "Folat (kalcium-L-metylfolat)", dose: "400 µg", dri: "200 %" },
+    { name: "Vitamin K2 (menakinon-7, MK-7)", dose: "100 µg", dri: "133 %" },
+    { name: "Vitamin B12 (metylkobalamin)", dose: "100 µg", dri: "4 000 %" },
+    { name: "Folat (L-metylfolat)", dose: "400 µg", dri: "200 %" },
     { name: "Magnesium (bisglycinat)", dose: "200 mg", dri: "53 %" },
     { name: "Kalium (citrat)", dose: "400 mg", dri: "20 %" },
-    { name: "Zink (glukonat)", dose: "10 mg", dri: "100 %" },
+    { name: "Zink (pikolinat)", dose: "10 mg", dri: "100 %" },
     { name: "Jod (natriumjodid)", dose: "150 µg", dri: "100 %" },
   ],
   footnote:
-    "% avser dagligt referensintag (DRI) för vuxna. Ingredienser: magnesiumbisglycinat, surhetsreglerande medel (citronsyra), kaliumcitrat, isomalt, arom (citron), zinkglukonat, sötningsmedel (sukralos), vitamin D3 (vegansk kolekalciferol), natriumjodid, folat (kalcium-L-metylfolat), vitamin K2 (menakinon-7), vitamin B12 (cyanokobalamin). Färdig produkt kontrolleras mot gränsvärden för bland annat salmonella, listeria och tungmetaller.",
+    "% avser dagligt referensintag (DRI) för vuxna. Ingredienser: magnesiumbisglycinat, surhetsreglerande medel: citronsyra (E330), kaliumcitrat, isomalt, aromer, zinkpikolinat, vitamin D3 (vegansk kolekalciferol), sötningsmedel: steviolglykosider (E960a), natriumjodid, folat (L-metylfolat), vitamin K2 (menakinon-7), vitamin B12 (metylkobalamin). Färdig produkt kontrolleras mot gränsvärden för bland annat salmonella, listeria och tungmetaller.",
 }
 
 const en: typeof sv = {
@@ -46,16 +46,16 @@ const en: typeof sv = {
   columns: { nutrient: "Nutrient", amount: "Amount", share: "% NRV" },
   nutrition: [
     { name: "Vitamin D3 (vegan cholecalciferol)", dose: "2000 IU / 50 µg", dri: "1000 %" },
-    { name: "Vitamin K2 (menaquinone-7, MK-7)", dose: "180 µg", dri: "240 %" },
-    { name: "Vitamin B12 (cyanocobalamin)", dose: "100 µg", dri: "4 000 %" },
-    { name: "Folate (calcium L-methylfolate)", dose: "400 µg", dri: "200 %" },
+    { name: "Vitamin K2 (menaquinone-7, MK-7)", dose: "100 µg", dri: "133 %" },
+    { name: "Vitamin B12 (methylcobalamin)", dose: "100 µg", dri: "4 000 %" },
+    { name: "Folate (L-methylfolate)", dose: "400 µg", dri: "200 %" },
     { name: "Magnesium (bisglycinate)", dose: "200 mg", dri: "53 %" },
     { name: "Potassium (citrate)", dose: "400 mg", dri: "20 %" },
-    { name: "Zinc (gluconate)", dose: "10 mg", dri: "100 %" },
+    { name: "Zinc (picolinate)", dose: "10 mg", dri: "100 %" },
     { name: "Iodine (sodium iodide)", dose: "150 µg", dri: "100 %" },
   ],
   footnote:
-    "% refers to the daily nutrient reference value (NRV) for adults. Ingredients: magnesium bisglycinate, acidity regulator (citric acid), potassium citrate, isomalt, flavouring (lemon), zinc gluconate, sweetener (sucralose), vitamin D3 (vegan cholecalciferol), sodium iodide, folate (calcium L-methylfolate), vitamin K2 (menaquinone-7), vitamin B12 (cyanocobalamin). The finished product is checked against limit values for, among other things, salmonella, listeria and heavy metals.",
+    "% refers to the daily nutrient reference value (NRV) for adults. Ingredients: magnesium bisglycinate, acidity regulator: citric acid (E330), potassium citrate, isomalt, flavourings, zinc picolinate, vitamin D3 (vegan cholecalciferol), sweetener: steviol glycosides (E960a), sodium iodide, folate (L-methylfolate), vitamin K2 (menaquinone-7), vitamin B12 (methylcobalamin). The finished product is checked against limit values for, among other things, salmonella, listeria and heavy metals.",
 }
 
 export const COPY: Record<Lang, typeof sv> = { sv, en }

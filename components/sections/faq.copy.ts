@@ -5,7 +5,7 @@ const sv = {
   items: [
     {
       q: "Hur tar jag DYGN?",
-      a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus: utan socker, lätt sötad med sukralos.",
+      a: "En sachet om dagen, upplöst i ett glas kallt vatten (cirka 200 ml). Ta den när det passar dig. De flesta väljer morgonen för att bygga vanan. Smaken är mild citrus: utan socker, lätt sötad med stevia.",
     },
     {
       q: "Varför bara åtta näringsämnen?",
@@ -43,7 +43,7 @@ const en: typeof sv = {
   items: [
     {
       q: "How do I take DYGN?",
-      a: "One sachet a day, dissolved in a glass of cold water (about 200 ml). Take it whenever suits you. Most people choose the morning to build the habit. The taste is mild citrus: no sugar, lightly sweetened with sucralose.",
+      a: "One sachet a day, dissolved in a glass of cold water (about 200 ml). Take it whenever suits you. Most people choose the morning to build the habit. The taste is mild citrus: no sugar, lightly sweetened with stevia.",
     },
     {
       q: "Why only eight nutrients?",

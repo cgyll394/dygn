@@ -26,26 +26,26 @@ const sv = {
     {
       name: "Vitamin K2",
       form: "Menakinon-7 (MK-7)",
-      dose: "180 µg",
+      dose: "100 µg",
       why: "K2 arbetar tillsammans med D3: D3 ökar kalciumupptaget, K2 ser till att kalcium hamnar i skelettet i stället för i mjukvävnad. De hör ihop, och därför finns båda i samma sachet.",
       detail:
-        "180 µg, samma dos som de fleråriga studierna på benstomme och kärl. MK-7 stannar länge i kroppen, så en dos om dagen räcker.",
+        "100 µg MK-7. MK-7 stannar länge i kroppen, så en dos om dagen räcker.",
     },
     {
       name: "Vitamin B12",
-      form: "Cyanokobalamin",
+      form: "Metylkobalamin",
       dose: "100 µg",
       why: "B12 bidrar till normal energiomsättning och minskad trötthet. Behovet ökar med åldern, vid växtbaserad kost och vid hård träning.",
       detail:
-        "Cyanokobalamin är den mest stabila formen i pulver, med samma upptag som dyrare varianter. 100 µg ger god marginal, även för dig som äter växtbaserat.",
+        "Metylkobalamin är den aktiva formen, som kroppen kan använda direkt. 100 µg ger god marginal, även för dig som äter växtbaserat.",
     },
     {
       name: "Folat",
-      form: "Kalcium-L-metylfolat",
+      form: "L-metylfolat",
       dose: "400 µg",
       why: "Folat behövs för normal blodbildning, psykologisk funktion och minskad trötthet. Uppskattningsvis var tredje person bär genvarianter (MTHFR) som försämrar omvandlingen av syntetisk folsyra till aktivt folat.",
       detail:
-        "Den aktiva formen, som fungerar oavsett genuppsättning. Kalciumsaltet håller bäst över tid.",
+        "Den aktiva formen (L-5-metyltetrahydrofolat), som fungerar oavsett genuppsättning. Redo att tas upp direkt.",
     },
     {
       name: "Magnesium",
@@ -65,11 +65,11 @@ const sv = {
     },
     {
       name: "Zink",
-      form: "Glukonat",
+      form: "Pikolinat",
       dose: "10 mg",
       why: "Zink bidrar till normal immunfunktion, kognitiv funktion och proteinsyntes. Förluster ökar med svettning, vilket gör aktiva till en riskgrupp för lågt zinkstatus.",
       detail:
-        "Glukonat är en av de mest beprövade formerna, med upptag klart bättre än oxiden i billiga tillskott. 10 mg, exakt referensintaget.",
+        "Pikolinat är en väl upptagbar, chelaterad form av zink — klart bättre än oxiden i billiga tillskott. 10 mg, exakt referensintaget.",
     },
     {
       name: "Jod",
@@ -108,26 +108,26 @@ const en: typeof sv = {
     {
       name: "Vitamin K2",
       form: "Menaquinone-7 (MK-7)",
-      dose: "180 µg",
+      dose: "100 µg",
       why: "K2 works together with D3: D3 increases calcium absorption, K2 makes sure the calcium ends up in the skeleton rather than in soft tissue. They belong together, which is why both are in the same sachet.",
       detail:
-        "180 µg, the same dose as the multi-year studies on bone and blood vessels. MK-7 stays in the body for a long time, so one dose a day is enough.",
+        "100 µg of MK-7. MK-7 stays in the body for a long time, so one dose a day is enough.",
     },
     {
       name: "Vitamin B12",
-      form: "Cyanocobalamin",
+      form: "Methylcobalamin",
       dose: "100 µg",
       why: "B12 contributes to normal energy-yielding metabolism and to the reduction of tiredness and fatigue. The need increases with age, on a plant-based diet and with hard training.",
       detail:
-        "Cyanocobalamin is the most stable form in powder, with the same absorption as more expensive variants. 100 µg gives a good margin, even for those on a plant-based diet.",
+        "Methylcobalamin is the active form the body can use directly. 100 µg gives a good margin, even for those on a plant-based diet.",
     },
     {
       name: "Folate",
-      form: "Calcium L-methylfolate",
+      form: "L-methylfolate",
       dose: "400 µg",
       why: "Folate is needed for normal blood formation, psychological function and the reduction of tiredness and fatigue. An estimated one in three people carry gene variants (MTHFR) that impair the conversion of synthetic folic acid into active folate.",
       detail:
-        "The active form, which works regardless of genetic makeup. The calcium salt keeps best over time.",
+        "The active form (L-5-methyltetrahydrofolate), which works regardless of genetic makeup. Ready to be absorbed directly.",
     },
     {
       name: "Magnesium",
@@ -147,11 +147,11 @@ const en: typeof sv = {
     },
     {
       name: "Zinc",
-      form: "Gluconate",
+      form: "Picolinate",
       dose: "10 mg",
       why: "Zinc contributes to normal immune function, cognitive function and protein synthesis. Losses increase with sweating, which makes active people a risk group for low zinc status.",
       detail:
-        "Gluconate is one of the most well-established forms, with absorption clearly better than the oxide in cheap supplements. 10 mg, exactly the reference intake.",
+        "Picolinate is a well-absorbed, chelated form of zinc — clearly better than the oxide in cheap supplements. 10 mg, exactly the reference intake.",
     },
     {
       name: "Iodine",
