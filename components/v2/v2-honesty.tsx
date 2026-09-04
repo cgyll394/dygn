@@ -61,6 +61,15 @@ export function V2Honesty({ lang }: { lang: Lang }) {
               className="h-full w-full object-contain"
             />
           </span>
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow-[0_2px_14px_rgba(0,0,0,0.2)] sm:h-14 sm:w-14 sm:p-2.5">
+            <Image
+              src="/trust/gmp.svg"
+              alt={t.gmpAlt}
+              width={44}
+              height={44}
+              className="h-full w-full object-contain"
+            />
+          </span>
         </div>
       </div>
     </section>

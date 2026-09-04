@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" role="img">
+  <circle cx="100" cy="100" r="96.5" stroke="#0d0d0c" stroke-width="3"/>
+  <circle cx="100" cy="100" r="70" stroke="#0d0d0c" stroke-width="3"/>
+  <defs>
+    <path id="gmp-top" d="M 100,100 m -84,0 a 84,84 0 1,1 168,0" />
+    <path id="gmp-bottom" d="M 100,100 m -80,0 a 80,80 0 1,0 160,0" />
+  </defs>
+  <text fill="#0d0d0c" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="17" letter-spacing="1.4">
+    <textPath href="#gmp-top" startOffset="50%" text-anchor="middle">GOOD MANUFACTURING</textPath>
+  </text>
+  <text fill="#0d0d0c" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="17" letter-spacing="2">
+    <textPath href="#gmp-bottom" startOffset="50%" text-anchor="middle">PRACTICE</textPath>
+  </text>
+  <text x="100" y="120" text-anchor="middle" fill="#0d0d0c" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="56" letter-spacing="1">GMP</text>
+</svg>
